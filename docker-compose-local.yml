@@ -1,0 +1,39 @@
+version: '3'
+services:
+
+  geoblacklight_db:
+    container_name: geoblacklight_db
+    image: postgres
+    volumes:
+      - './postgresql/data:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+  geoblacklight_web:
+    container_name: geoblacklight_web
+    build:
+      context: ./
+      dockerfile: DockerfileLocal
+    env_file: .env
+    volumes:
+      - '.:/home/appuser'
+    ports:
+      - "3000:3000"
+    depends_on:
+      - geoblacklight_db
+
+  geoblacklight_solr:
+    container_name: geoblacklight_solr
+    image: solr:7.0.1
+    ports:
+      - "8983:8983"
+    volumes:
+      - './solr_data:/opt/solr/server/solr/mycores'
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - development
+    depends_on:
+      - geoblacklight_db
