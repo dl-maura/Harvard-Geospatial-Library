@@ -34,7 +34,7 @@ Docker should be using the WSL 2 based engine, as opposed to the Hyper-V backend
 https://docs.docker.com/docker-for-windows/wsl/ 
 
 ### 1: Clone the repository to a local directory
-git clone git@gitlab.com:phil-plencner-hl/geoblacklight.git
+git clone git@github.com:harvard-huit/Harvard-Geospatial-Library.git
 
 ### 2: Create app environment variables
 
