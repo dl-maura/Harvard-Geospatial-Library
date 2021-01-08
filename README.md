@@ -82,20 +82,20 @@ To restart the containers later without a full rebuild, the options `--build` an
 To set up the Geoblacklight Solr core, follow these steps
 ```
 docker exec -it geoblacklight_solr bash
-mkdir server/solr/blacklight-core
-mkdir server/solr/blacklight-core/data
+mkdir /var/solr/data/blacklight-core
+mkdir /var/solr/data/blacklight-core/data
 exit
 cd solr/conf
-docker cp solrconfig.xml geoblacklight_solr:/opt/solr/server/solr/blacklight-core/solrconfig.xml
-docker cp protwords.txt geoblacklight_solr:/opt/solr/server/solr/blacklight-core/protwords.txt
-docker cp admin-extra.html geoblacklight_solr:/opt/solr/server/solr/blacklight-core/admin-extra.html
-docker cp elevate.xml geoblacklight_solr:/opt/solr/server/solr/blacklight-core/elevate.xml
-docker cp mapping-ISOLatin1Accent.txt geoblacklight_solr:/opt/solr/server/solr/blacklight-core/mapping-ISOLatin1Accent.txt
-docker cp schema.xml geoblacklight_solr:/opt/solr/server/solr/blacklight-core/schema.xml
-docker cp spellings.txt geoblacklight_solr:/opt/solr/server/solr/blacklight-core/spellings.txt
-docker cp stopwords.txt geoblacklight_solr:/opt/solr/server/solr/blacklight-core/stopwords.txt
-docker cp stopwords_en.txt geoblacklight_solr:/opt/solr/server/solr/blacklight-core/stopwords_en.txt
-docker cp synonyms.txt geoblacklight_solr:/opt/solr/server/solr/blacklight-core/synonyms.txt
+docker cp solrconfig.xml geoblacklight_solr:/var/solr/data/blacklight-core/solrconfig.xml
+docker cp protwords.txt geoblacklight_solr:/var/solr/data/blacklight-core/protwords.txt
+docker cp admin-extra.html geoblacklight_solr:/var/solr/data/blacklight-core/admin-extra.html
+docker cp elevate.xml geoblacklight_solr:/var/solr/data/blacklight-core/elevate.xml
+docker cp mapping-ISOLatin1Accent.txt geoblacklight_solr:/var/solr/data/blacklight-core/mapping-ISOLatin1Accent.txt
+docker cp schema.xml geoblacklight_solr:/var/solr/data/blacklight-core/schema.xml
+docker cp spellings.txt geoblacklight_solr:/var/solr/data/blacklight-core/spellings.txt
+docker cp stopwords.txt geoblacklight_solr:/var/solr/data/blacklight-core/stopwords.txt
+docker cp stopwords_en.txt geoblacklight_solr:/var/solr/data/blacklight-core/stopwords_en.txt
+docker cp synonyms.txt geoblacklight_solr:/var/solr/data/blacklight-core/synonyms.txt
 ```
 
 Then: 
@@ -103,6 +103,13 @@ Then:
 2. Click the Add Core button
 3. Type "blacklight-core" in "Name"  and "Instance" 
 4. Click the Add Core button in the modal
+
+You can also import sample data by following these steps:
+1. Select "blacklight-core" from the core dropdown in the left rail
+2. Click on the "Documents" button in the left rail
+3. Select "File Upload" from the "Document Type" dropdown
+4. Click the "Browse" button and select the `geoblacklight-documents.json` file in the root of the repository.
+5. Click the "Submit Document" button
 
 ### 7: Run commands inside a container
 To run commands inside a running container, execute a shell using the `exec` command. This same technique can be used to run commands in any container that is running already.
