@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A basic sample app with Geoblacklight, postgres, and solr in docker compose.
+A basic sample app with Geoblacklight, mySQL, and Solr in Docker Compose.
 
 ## Technology Stack
 ##### Language
@@ -15,7 +15,7 @@ Rails
 Docker Compose
 
 ##### Database
-PostgreSQL
+mySQL
 
 ##### Search
 Solr
@@ -36,7 +36,14 @@ https://docs.docker.com/docker-for-windows/wsl/
 ### 1: Clone the repository to a local directory
 git clone git@github.com:harvard-huit/Harvard-Geospatial-Library.git
 
-### 2: Create app environment variables
+### 2: Windows 10 Users run dos2unix
+
+WINDOWS 10 USERS: run dos2unix on the localdb.sh and migrations.sh files through an [Ubuntu Windows Subsystem For Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+- `sudo apt install dos2unix`
+- `dos2unix bin/localdb.sh`
+- `dos2unix bin/migrations.sh`
+
+### 3: Create app environment variables
 
 ##### Create config file for environment variables
 - Make a copy of the config example file `./env-example.txt`
@@ -45,7 +52,7 @@ git clone git@github.com:harvard-huit/Harvard-Geospatial-Library.git
 
 *Note: The config file .env is specifically excluded in .gitignore and .dockerignore, since it contains credentials it should NOT ever be committed to any repository.*
 
-### 3: Create database config
+### 4: Create database config
 
 ##### Create config file for the database connection
 - Make a copy of the config example file `./config/database.yml.example`
@@ -55,7 +62,7 @@ git clone git@github.com:harvard-huit/Harvard-Geospatial-Library.git
 
 The database gets created automatically by passing in environment variables into the postgres in the docker compose file. The volume mounts the postgres data to the local filesystem `./postgresql/data:/var/lib/postgresql/data`. The first time the database is created, the `./postgresql/data` directory will appear on the local filesystem. To start with a fresh database, delete the ./postgres directory on the local filesystem and restart the contaienrs and it will be created again from scratch. Note that this will delete all data in the database. The postgres container is for development use only, when the application is deployed to the docker server it will be connected to a database server directly.
 
-### 4: Start
+### 5: Start
 
 ##### START
 
@@ -71,7 +78,7 @@ docker-compose -f docker-compose-local.yml up -d --build --force-recreate
 
 To restart the containers later without a full rebuild, the options `--build` and `--force-recreate` can be omitted after the images are built already.
 
-### 5: Create Solr Core
+### 6: Create Solr Core
 To set up the Geoblacklight Solr core, follow these steps
 ```
 docker exec -it geoblacklight_solr bash
@@ -97,7 +104,7 @@ Then:
 3. Type "blacklight-core" in "Name"  and "Instance" 
 4. Click the Add Core button in the modal
 
-### 6: Run commands inside a container
+### 7: Run commands inside a container
 To run commands inside a running container, execute a shell using the `exec` command. This same technique can be used to run commands in any container that is running already.
 
 ```
@@ -112,7 +119,7 @@ rake db:migrate
 
 Alternatively, to run commands inside a container that is not running already, use the docker run command or the docker compose run command.
 
-### 7: Stop
+### 8: Stop
 
 ##### STOP AND REMOVE
 

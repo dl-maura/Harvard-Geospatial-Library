@@ -1,7 +1,9 @@
 # Environment `development`, `test`, or `production`
 RAILS_ENV=development
-POSTGRES_USER=geoblacklight_user
-POSTGRES_PASSWORD=anexamplepassword
-POSTGRES_DB=geoblacklight_local_db
-POSTGRES_HOST=geoblacklight_db
+MYSQL_ROOT_PASSWORD=root
+MYSQL_USER=geoblacklight_user
+MYSQL_PASSWORD=anexamplepassword
+MYSQL_DB=geoblacklight_local_db
+MYSQL_HOST=geoblacklight_db
+MYSQL_PORT=3306:3306
 SOLR_URL=http://127.0.0.1:8983/solr/blacklight-core

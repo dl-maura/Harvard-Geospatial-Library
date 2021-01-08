@@ -31,6 +31,8 @@ tmp/
 postgresql/
 data/
 solr_data/
+db-data/
+db_data/
 
 # various editor/config files
 \#*

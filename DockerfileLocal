@@ -15,6 +15,11 @@ COPY Gemfile /home/appuser/Gemfile
 COPY Gemfile.lock /home/appuser/Gemfile.lock
 RUN bundle install
 
+ENTRYPOINT ["bin/localdb.sh"]
+
+# Expose ports
+EXPOSE 3001
+
 # Copy code
 COPY --chown=appuser . /home/appuser
 
