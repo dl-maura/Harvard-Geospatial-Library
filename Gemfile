@@ -74,3 +74,5 @@ gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
+
+gem 'harvard-patterns-gem', :git => "https://gitlab.com/harvard-library-web-team/harvard-patterns-gem.git"
