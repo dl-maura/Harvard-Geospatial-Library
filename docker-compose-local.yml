@@ -40,6 +40,7 @@ services:
       - "8983:8983"
     volumes:
       - './solr_data:/opt/solr/server/solr/mycores'
+      - './solr/conf:/var/solr/data/blacklight-core'
     entrypoint:
       - docker-entrypoint.sh
       - solr-precreate
