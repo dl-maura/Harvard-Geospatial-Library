@@ -6,4 +6,4 @@ MYSQL_PASSWORD=anexamplepassword
 MYSQL_DB=geoblacklight_local_db
 MYSQL_HOST=geoblacklight_db
 MYSQL_PORT=3306:3306
-SOLR_URL=http://127.0.0.1:8983/solr/blacklight-core
+SOLR_URL=http://geoblacklight_solr:8983/solr/blacklight-core
