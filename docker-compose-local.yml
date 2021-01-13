@@ -35,7 +35,7 @@ services:
 
   geoblacklight_solr:
     container_name: geoblacklight_solr
-    image: solr:8.7.0
+    image: solr:8.5.2
     ports:
       - "8983:8983"
     volumes:
