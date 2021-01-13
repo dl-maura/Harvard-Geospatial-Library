@@ -64,8 +64,6 @@ The database gets created automatically by passing in environment variables into
 
 ### 5: Start
 
-##### START
-
 This command builds all images and runs all containers specified in the docker-compose-local.yml configuration.
 
 A local version of the docker compose file `docker-compose-local.yml` should be used for local development. The name of the local compose file must be specified in the command with the -f option. This local docker compose file points to a local version of the dockerfile `DockerfileLocal`, which is specified in the services > geoblacklight_web > build > dockerfile property.
