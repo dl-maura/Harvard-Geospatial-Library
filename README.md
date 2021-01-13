@@ -60,7 +60,7 @@ WINDOWS 10 USERS: run dos2unix on the localdb.sh and migrations.sh files through
 - Replace placeholder values as necessary
 - Note that this pulls in the environment variables that are set in the `.env` file
 
-The database gets created automatically by passing in environment variables into the postgres in the docker compose file. The volume mounts the postgres data to the local filesystem `./postgresql/data:/var/lib/postgresql/data`. The first time the database is created, the `./postgresql/data` directory will appear on the local filesystem. To start with a fresh database, delete the ./postgres directory on the local filesystem and restart the contaienrs and it will be created again from scratch. Note that this will delete all data in the database. The postgres container is for development use only, when the application is deployed to the docker server it will be connected to a database server directly.
+The database gets created automatically by passing in environment variables into the mySQL in the docker compose file. The volume mounts the mySQL data to the local filesystem `./db-data:/var/lib/mysql`. The first time the database is created, the `./db-data` directory will appear on the local filesystem. To start with a fresh database, delete the ./db-data directory on the local filesystem and restart the containers and it will be created again from scratch. Note that this will delete all data in the database. The mySQL container is for development use only, when the application is deployed to the docker server it will be connected to a database server directly.
 
 ### 5: Start
 
