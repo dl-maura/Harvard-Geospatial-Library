@@ -24,12 +24,18 @@ services:
     build:
       context: ./
       dockerfile: DockerfileLocal
+    command: passenger start --ssl --ssl-port 3001 --ssl-certificate /etc/ssl/certs/server.crt --ssl-certificate-key /etc/ssl/certs/server.key
     env_file: .env
+    environment:
+      RAILS_ENV: $RAILS_ENV
     volumes:
-      - '.:/home/appuser'
+      # App files to work locally
+      - './app:/home/app/webapp/app'
+      # Logs
+      - './log:/home/app/webapp/log'
     tty: true
     ports:
-      - "3000:3000"
+      - "3001:3001"
     depends_on:
       - geoblacklight_db
 

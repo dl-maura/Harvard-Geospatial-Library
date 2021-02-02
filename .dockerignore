@@ -1,43 +1,45 @@
-# Ignore bundler config.
-/.bundle
+# Configs
+*.env*
+*.pem
 
-# Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+# Logs
+*.log
+
+# IDEs and editors
+.project
+.classpath
+*.launch
+.settings/
+.travis.yml
+
+#Tests
+spec/
+
+
+#tmp
 tmp/
 
-# Ignore uploaded files in development
-/storage/*
-!/storage/.keep
+#Docs
+docs/
+CONTRIBUTING.md
+README.md
 
-/node_modules
-/yarn-error.log
+#Docker files
+docker-compose*.yml
+Dockerfile*
 
-/public/assets
-.byebug_history
+#package
+package*.json
 
-# Ignore master key for decrypting credentials and more.
-/config/master.key
 
-# Ignore environment file
-.env
+#deploy
+deploy/
 
-# Ignore configurations
-/config/database.yml
+Gemfile.lock
 
-# Ignore local postgresql database directory
-postgresql/
-data/
-solr_data/
+webapp.conf.template
+env-example.txt
 
-# various editor/config files
-\#*
-.#*
-*.swp
+# System Files
 .DS_Store
-.bash_history
-
-# Ignore cache files
-*cache
+Thumbs.db
