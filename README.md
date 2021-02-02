@@ -22,7 +22,7 @@ Solr
 
 ## Ports
 Rails app
-* http://localhost:3000
+* https://localhost:3001
 
 Solr
 * http://localhost:8983
