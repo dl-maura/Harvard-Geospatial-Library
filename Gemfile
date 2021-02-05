@@ -74,3 +74,5 @@ gem 'devise'
 gem 'devise-guests', '~> 0.6'
 
 gem 'harvard-patterns-gem', :git => "https://gitlab.com/harvard-library-web-team/harvard-patterns-gem.git"
+
+gem 'rails-healthcheck'
