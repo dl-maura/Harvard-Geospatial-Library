@@ -20,12 +20,11 @@ mySQL
 ##### Search
 Solr
 
-## Ports
-Rails app
-* https://localhost:3001
 
-Solr
-* http://localhost:8983
+## Servers
+* Project Wiki: https://wiki.harvard.edu/confluence/display/LibraryTechServices/HGL+4.0
+* SSL Local site: https://localhost:3001
+* SSL Dev site: https://ltsds-cloud-dev-1.lib.harvard.edu:31000/
 
 ## Local Development Environment Setup Instructions
 
