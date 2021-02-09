@@ -35,12 +35,13 @@ WORKDIR /home/app/webapp
 
 RUN bundle install
 
+RUN mkdir -p /home/app/webapp/tmp/cache/downloads
+RUN chmod 755 /home/app/webapp/tmp/cache/downloads
+
 ENTRYPOINT ["bin/migrations.sh"]
 
 # Expose ports
 EXPOSE 31000:3001 31001:3306 31002:8983
-
-USER root
 
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
