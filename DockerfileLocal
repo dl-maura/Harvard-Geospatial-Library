@@ -43,5 +43,7 @@ ENTRYPOINT ["sh", "bin/localdb.sh"]
 # Expose ports
 EXPOSE 3001 3306 8983
 
+USER root
+
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
