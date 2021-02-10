@@ -35,6 +35,9 @@ WORKDIR /home/app/webapp
 
 RUN bundle install
 
+RUN mkdir -p /home/app/webapp/tmp/cache/downloads
+RUN chmod 755 /home/app/webapp/tmp/cache/downloads
+
 ENTRYPOINT ["bin/migrations.sh"]
 
 # Expose ports

@@ -24,7 +24,9 @@ Solr
 ## Servers
 * Project Wiki: https://wiki.harvard.edu/confluence/display/LibraryTechServices/HGL+4.0
 * SSL Local site: https://localhost:3001
-* SSL Dev site: https://ltsds-cloud-dev-1.lib.harvard.edu:31000/
+* SSL Dev sites: 
+  - https://hgl-dev.lib.harvard.edu/
+  - https://gbl-dev.lib.harvard.edu/  
 
 ## Local Development Environment Setup Instructions
 
