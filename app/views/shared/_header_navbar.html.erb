@@ -1,0 +1,90 @@
+<!-- NEW -->
+<section class="hl__header-child">
+  <h1 class="hl__header-child__title hl__header-child__title--teal">
+    <a href="" title="Harvard Geospatial Library"><span>Harvard</span> Geospatial Library</a>
+  </h1>
+  <div class="hl__header-child__logo">
+    <section class="hl__linked-image">
+      <a href="https://library.harvard.edu" title="Harvard Library">
+        <img class="hl__image " alt="Harvard Library Logo" height="24" width="270" src="../../assets/images/logo.svg"/>
+        <%= image_tag("hl__logo-header.svg", alt: "Harvard Library logo") %>
+      </a>
+    </section>
+  </div>
+</section>
+
+
+<!-- OLD -->
+<!-- black bar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark topbar" role="navigation">
+  <div class="<%= container_classes %>">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
+      <%= render 'shared/user_util_links' %>
+    </div>
+  </div>
+</nav>
+
+<!-- searchbar -->
+<% if controller_name == 'catalog' && (has_search_parameters? || params[:action] == 'show') %>
+  <div class="navbar-search navbar navbar-light bg-faded" role="navigation">
+    <div class="<%= container_classes %> stuff">
+      <%= render_search_bar  %>
+    </div>
+  </div>
+<% else %>
+  <div class='geobl-homepage-masthead jumbotron'>
+    <div class='d-flex justify-content-center'>
+      <%= content_tag :h2, t('geoblacklight.home.headline'), class: 'text-center' %>
+    </div>
+    <div class='d-flex justify-content-center'>
+      <%= content_tag :h3, t('geoblacklight.home.search_heading'), class: 'text-center' %>
+    </div>
+    <div class='row justify-content-md-center'>
+      <div class='col-md-6 col-sm-12'>
+        <div class='navbar-search'>
+          <%= render_search_bar %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<!-- HDC CODE  -->
+<!-- <header class="hl__topHeader">
+  <div class="hl__topHeader__left">
+    <ul class="hl__topHeaderNav">
+      <li class="hl__topHeaderTitle__harvard">
+        <a class="hl__topHeader__link" href="https://digitalcollections.library.harvard.edu/">
+          Digital <span class="hl__topHeaderTitle__collections hl__topHeader__link">Collections</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="hl__topHeader__right">
+    <a href="https://library.harvard.edu">
+      <div class="hl__headerLogo">
+        image hl_header-logo.svg
+      </div>
+    </a>
+  </div>
+
+  <%if controller_name != 'fulltexts'%>
+    <div class="searchbar__wrapper">
+      <%= render_search_bar  %>
+
+      <a id="my-account-link" class="account-link <%=(user_signed_in?) ? "" : "hidden"%>" href="<%=blacklight.search_history_path%>">
+        <span class="fa fa-user" aria-hidden="true"></span>
+        <span class="account-link__text">My Account</span>
+      </a>
+
+      <a id="sign-in-link" class="account-link <%=(user_signed_in?) ? "hidden" : ""%>" href="/users/sign_in">
+        <span class="fa fa-user" aria-hidden="true"></span>
+        <span class="account-link__text">Log In</span>
+      </a>
+    </div>
+  <%end%>
+</header> -->

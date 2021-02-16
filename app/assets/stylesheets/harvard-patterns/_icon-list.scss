@@ -1,0 +1,58 @@
+.hl__icon-list {
+
+  &__label {
+    color: $c-font-dark;
+    font-family: $f-trueno;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2.14px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+
+  &__items {
+    margin: 0;
+    padding: 0;
+    margin-left: -30px;
+    margin-top: -20px;
+
+    @media($bp-medium-min) {
+      margin-left: -40px;
+      margin-top: -30px;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    list-style: none;
+    margin-left: 30px;
+    margin-top: 20px;
+
+    @media($bp-medium-min) {
+      margin-left: 40px;
+      margin-top: 30px;
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 22px;
+    width: 22px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    svg {
+      fill: $c-gray-6c6c6c;
+      height: 100%;
+      width: 100%;
+
+      path,
+      use {
+        fill: $c-gray-6c6c6c;
+      }
+    }
+  }
+
+}

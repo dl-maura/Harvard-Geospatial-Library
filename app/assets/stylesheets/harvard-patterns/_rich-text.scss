@@ -1,0 +1,241 @@
+@import 'mixins';
+
+.hl__rich-text {
+  max-width: $max-width-inner;
+
+  &--small {
+    font-size: 15px;
+    line-height: 26px;
+  }
+
+  &--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    ul, ol {
+      text-align:left;
+
+      @media ($bp-large-min){
+        margin-left: calc((100vw - #{$max-width-inner}) / 2 - 25px);
+        margin-right: calc((100vw - #{$max-width-inner}) / 2 - 25px)
+      }
+
+      @media ($bp-x-large-min){
+        margin:0 120px;
+      }
+    }
+  }
+
+  &--left-center {
+    margin:auto;
+    text-align:left;
+    max-width:930px;
+  }
+
+  &:after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+
+  .hl__base-template__page-content--full > &,
+  .hl__full-template__page-content--full > & {
+    @include hl-container;
+
+    @media ($bp-large-min) {
+      .hl__image--left,
+      .hl__figure--left,
+      .hl__quote--left {
+        margin-left: calc((100vw - #{$max-width-inner}) / -2 + 20px);
+      }
+
+      .hl__image--right,
+      .hl__figure--right,
+      .hl__quote--right {
+        margin-right: calc((100vw - #{$max-width-inner}) / -2 + 20px);
+      }
+
+      .hl__figure:not(.hl__figure--right):not(.hl__figure--left) {
+        margin-left: calc((100vw - #{$max-width-inner}) / -2 + 20px);
+        margin-right: calc((100vw - #{$max-width-inner}) / -2 + 20px);
+      }
+    }
+
+    @media ($bp-x-large-min) {
+      .hl__quote--left,
+      .hl__image--left,
+      .hl__figure--left {
+        margin-left: -120px;
+      }
+
+      .hl__quote--right,
+      .hl__image--right,
+      .hl__figure--right {
+        margin-right: -120px;
+      }
+
+      .hl__figure:not(.hl__figure--right):not(.hl__figure--left) {
+        margin-left: -120px;
+        margin-right: -120px;
+      }
+    }
+  }
+
+  .hl__full-template__page-content--stacked > & {
+    @include hl-container("full");
+
+    & > * {
+      max-width: $max-width-inner;
+    }
+  }
+
+  & > * {
+    margin-bottom: 1em;
+    margin-top: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .hl__full-template__page-content--stacked > & > * {
+    max-width: $max-width-inner;
+  }
+
+  .hl__base-template__page-content--full .hl__comp-heading,
+  .hl__full-template__page-content--full .hl__comp-heading {
+    @include hl-container;
+  }
+
+  &--small .hl__comp-heading {
+    font-size: 1.32em;
+  }
+
+  & > p {
+    margin-bottom: 1.84em;
+  }
+
+  &--small > p {
+    margin-bottom: 1.5em;
+  }
+
+  a:not(.hl__button):not(.hl__link-tag) {
+    @include hl-word-wrap;
+
+    color: $c-font-link;
+    font-family: $f-trueno;
+    font-weight: 700;
+    text-decoration: none;
+    transition: border 0.28s cubic-bezier(0.28, 1.08, 1, 0.96);
+
+    &:focus,
+    &:hover {
+      border-bottom: 3px solid rgba($c-font-link, 0.3);
+    }
+  }
+
+  h4,
+  h5,
+  h6 {
+    color: $c-font-dark;
+    font-family: $f-trueno;
+    font-weight: 700;
+    margin-bottom: 0.4em;
+  }
+
+  h2:not(.hl__comp-heading) {
+    @include hl-h2;
+    text-transform: uppercase;
+  }
+
+  &--small h2:not(.hl__comp-heading) {
+    font-size: 1.32em;
+  }
+
+  h3 {
+    @include hl-h3;
+  }
+
+  &--small h3 {
+    font-size: 1.2em;
+  }
+
+
+  & > ul,
+  & > ol {
+    margin-bottom: 35px;
+    padding-left: 25px;
+
+    ul,
+    ol {
+      margin-bottom: 0;
+    }
+  }
+
+  & > ul {
+
+    li {
+      list-style: none;
+
+      &:before {
+        /* For a round bullet */
+        color: $c-theme-primary;
+        content: '\2022';
+        display: inline-block;
+        font-size: 1.5em;
+        max-height: 0;
+        max-width: 0;
+        position: relative;
+          left: -25px;
+          top: 3px;
+      }
+    }
+  }
+
+  .hl__quote {
+    margin-bottom: 40px;
+    margin-top: 60px;
+
+    @media ($bp-small-min) {
+      margin-bottom: 60px;
+      margin-top: 90px;
+    }
+  }
+
+  &--small .hl__quote {
+
+    &__citation {
+      padding-top: 15px;
+    }
+
+    &__message {
+      padding: 28px;
+    }
+
+    &__text {
+      font-size: 1.6em;
+    }
+
+    &__icon {
+      height: 48px;
+    }
+
+    &__author,
+    &__auth-title {
+      font-size: 0.8em;
+    }
+
+  }
+
+  .hl__link-tag {
+    font-weight: 600;
+  }
+
+  .hl__rte-large {
+    font-family: $f-trueno;
+    font-size: 1.3em;
+    font-weight: 200;
+  }
+
+}

@@ -1,0 +1,44 @@
+@mixin hl-container ($width: "default") {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @if ($width == "default") {
+    max-width: $max-width-inner + 40px;
+
+    @media ($bp-x-large-min) {
+      max-width: $max-width;
+      padding-left: 120px;
+      padding-right: 120px;
+    }
+  }
+
+  @if ($width == "wide") {
+    max-width: $max-width-outer + 40px;
+  }
+
+  @if ($width == "medium") {
+    max-width: $max-width + 40px;
+  }
+
+  @if ($width == "full") {
+    max-width: $max-width-full + 40px;
+  }
+}
+
+.hl__container {
+  @include hl-container;
+}
+
+.hl__container-wide {
+  @include hl-container("wide");
+}
+
+.hl__container-medium {
+  @include hl-container("medium");
+}
+
+.hl__container-full {
+  @include hl-container("full");
+}

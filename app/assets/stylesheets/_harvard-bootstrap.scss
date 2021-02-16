@@ -1,0 +1,113 @@
+// Local Application Customizations
+@import 'harvard-patterns';
+
+// Set Header Logo
+$logo-image: image_url('blacklight/logo.svg') !default;
+
+.navbar-brand {  /* The main logo image for the Blacklight instance */
+  @if $logo-image {
+    background: transparent $logo-image no-repeat top left;
+  }
+}
+
+// Optional
+// Override default Bootstrap variables here
+
+// Example: Bootstrap Colors
+$blue:      $c-theme-blue !default;
+$indigo:    $c-theme-blue-dark !default;
+$red:       $c-theme-red !default;
+$yellow:    $c-theme-yellow !default;
+$teal:      $c-theme-teal !default;
+$gray:      $c-gray-6c6c6c !default;
+$gray-dark: $c-gray-414141 !default;
+$light:     $c-bg-subtle !default;
+$dark:      $c-theme-ink !default;
+
+// $grid-breakpoints: ( xs: 480px, sm: 620px, md: 780px, lg: 970px, xl: 1170px );
+
+// $breakpoint-xs: 480px;
+// $breakpoint-sm: 620px;
+// $breakpoint-md: 780px;
+// $breakpoint-lg: 970px;
+// $breakpoint-xl: 1170px;
+
+$font-family-sans-serif:  $f-trueno;
+$font-family-monospace:   $f-lora;
+
+// don't know if this is correct, took from foundations to try out...
+$link-fade: border 0.28s cubic-bezier(0.28,1.08,1,0.96);
+
+// Example: Bootstrap Link color
+// $link-color: $blue;
+
+
+
+h1 {
+  font-family: $f-trueno;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 74px;
+  margin-bottom: 20px;
+  color: $c-theme-ink;
+
+  @media($bp-x-small-max){
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 20px;
+  }
+}
+h2 {
+  font-family: $f-trueno;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  color: $c-theme-ink;
+
+  @media($bp-x-small-max){
+    font-size: 24px;
+    line-height: 31px;
+    margin-bottom: 20px;
+  }
+}
+h3 {
+  font-family: $f-trueno;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: $c-theme-ink;
+}
+h4 {
+  font-family: $f-trueno;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2.14px;
+  color: $c-theme-ink;
+
+  border-bottom: none;
+}
+h5 {
+  font-family: $f-trueno;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 29px;
+  margin-bottom: 20px;
+  color: $c-theme-ink;
+}
+h6 {
+  font-family: $f-trueno;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  margin-bottom: 20px;
+  color: $c-theme-ink;
+}

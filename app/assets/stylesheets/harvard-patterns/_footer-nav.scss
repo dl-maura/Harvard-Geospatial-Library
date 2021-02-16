@@ -1,0 +1,27 @@
+.hl__footer-nav {
+  background-color: $c-theme-base;
+
+  &__items {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: block;
+    margin-bottom: 5px;
+    
+    .hl__link-tag {
+      color: $c-white;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 27px;
+      text-transform: uppercase;
+      letter-spacing: 1.87px;
+
+      &:focus,
+      &:hover {
+        border-bottom-color: rgba($c-white,0.3);
+      }
+    }
+  }
+}

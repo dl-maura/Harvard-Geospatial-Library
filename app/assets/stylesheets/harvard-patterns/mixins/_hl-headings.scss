@@ -1,0 +1,58 @@
+// @mixin ma-h1 {
+//   font-size: 3rem;
+//   line-height: 1.07;
+
+//   @media ($bp-medium-min){
+//     font-size: 3.25rem;
+//   }
+
+//   @media ($bp-large-min){
+//     font-size: 4rem;
+//   }
+
+//   @media ($bp-x-large-min){
+//     font-size: 4.375rem;
+//   }
+// }
+
+@mixin hl-h2 {
+  color: $c-font-heading;
+  font-family: $f-trueno;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  line-height: (38 / 28);
+  margin-bottom: 0.4em;
+
+  @media ($bp-small-min) {
+    font-size: 32px;
+    line-height: (42 / 32); // line-height / font-size
+  }
+}
+
+@mixin hl-h3 {
+  color: $c-font-heading;
+  font-family: $f-trueno;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+}
+
+// @mixin ma-h4 {
+//   font-size: 1.813rem;
+//   line-height: 1.2;
+// }
+
+// @mixin ma-h5 {
+//   font-size: 1.625rem;
+//   line-height: 1.3;
+//   margin-bottom: .5em;
+// }
+
+// @mixin ma-h6 {
+//   font-size: 1.4rem;
+//   margin-bottom: .25em;
+// }

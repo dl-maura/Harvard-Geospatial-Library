@@ -1,0 +1,23 @@
+// global styles
+@import 'harvard-patterns/breakpoints';
+@import 'harvard-patterns/colors';
+@import 'harvard-patterns/fonts';
+@import 'harvard-patterns/global';
+@import 'harvard-patterns/rich-text';
+@import 'harvard-patterns/typography';
+@import 'harvard-patterns/variables';
+
+@import 'harvard-patterns/mixins';
+
+
+// needed to change more specificity to work
+@import 'harvard-patterns/link-tag';
+
+
+// header
+@import 'harvard-patterns/header-child';
+
+// footer + dependencies
+@import 'harvard-patterns/footer';
+@import 'harvard-patterns/footer-nav';
+@import 'harvard-patterns/icon-list';

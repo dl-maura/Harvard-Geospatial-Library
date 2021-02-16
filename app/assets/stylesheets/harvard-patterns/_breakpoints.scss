@@ -1,0 +1,35 @@
+/* breakpoints.scss */
+
+@import "variables";
+// breakpoint values used for below only
+$bp-xs: 480px;
+$bp-s: 620px;
+$bp-m: 780px;
+$bp-l: 970px;
+$bp-xl: 1170px;
+$bp-header: $bp-l;
+$bp-characters: 75ch;
+
+
+// Global breakpoint media variables.
+$bp-x-small-min: "min-width: " + ($bp-xs + 1);
+$bp-x-small-max: "max-width:" + $bp-xs;
+$bp-small-min: "min-width: " + ($bp-s + 1);
+$bp-small-max: "max-width:" + $bp-s;
+$bp-medium-min: "min-width: " + ($bp-m + 1);
+$bp-medium-max: "max-width:" + $bp-m;
+$bp-large-min: "min-width: " + ($bp-l + 1);
+$bp-large-max: "max-width:" + $bp-l;
+$bp-x-large-min: "min-width: " + ($bp-xl + 1);
+$bp-x-large-max: "max-width:" + $bp-xl;
+
+$bp-page-width-min: "min-width:" + ($max-width-full + 41px); // page gutters is 40px
+$bp-page-width-max: "max-width:" + $max-width-full + 40px;
+
+// Semi Global breakpoint media variables
+// switch the header from full width to hamburger
+$bp-header-toggle-min: "min-width: " + ($bp-header + 1);
+$bp-header-toggle-max: "max-width: " + $bp-header;
+
+$bp-characters-min: "min-width: " + ($bp-characters);
+$bp-characters-max: "max-width: " + $bp-characters;
