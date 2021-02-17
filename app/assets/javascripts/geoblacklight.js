@@ -7,3 +7,4 @@
 //= require geoblacklight/downloaders
 //= require leaflet-iiif
 //= require esri-leaflet
+//= require harvard-patterns
