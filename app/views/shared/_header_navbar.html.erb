@@ -28,14 +28,23 @@
   </div>
 </nav>
 
-<!-- searchbar -->
+<!-- searchbar on the catalog pages (so everywhere but the homepage)-->
 <% if controller_name == 'catalog' && (has_search_parameters? || params[:action] == 'show') %>
-  <div class="navbar-search navbar navbar-light bg-faded" role="navigation">
+  <div class="searchbar__wrapper" role="navigation">
     <div class="<%= container_classes %> stuff">
       <%= render_search_bar  %>
+      <% if query_has_constraints? %>
+        <div class="search-constraints">
+          <%= render_constraints(params) %>
+          <div class="facets__clearall">
+            <%=link_to 'Clear All', start_over_path, :class => "", :id=>"startOverLink" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 <% else %>
+  <!-- searchbar on homepage -->
   <div class='geobl-homepage-masthead jumbotron'>
     <div class='d-flex justify-content-center'>
       <%= content_tag :h2, t('geoblacklight.home.headline'), class: 'text-center' %>
@@ -45,46 +54,10 @@
     </div>
     <div class='row justify-content-md-center'>
       <div class='col-md-6 col-sm-12'>
-        <div class='navbar-search'>
+        <div class='searchbar__wrapper'>
           <%= render_search_bar %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
-
-<!-- HDC CODE  -->
-<!-- <header class="hl__topHeader">
-  <div class="hl__topHeader__left">
-    <ul class="hl__topHeaderNav">
-      <li class="hl__topHeaderTitle__harvard">
-        <a class="hl__topHeader__link" href="https://digitalcollections.library.harvard.edu/">
-          Digital <span class="hl__topHeaderTitle__collections hl__topHeader__link">Collections</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="hl__topHeader__right">
-    <a href="https://library.harvard.edu">
-      <div class="hl__headerLogo">
-        image hl_header-logo.svg
-      </div>
-    </a>
-  </div>
-
-  <%if controller_name != 'fulltexts'%>
-    <div class="searchbar__wrapper">
-      <%= render_search_bar  %>
-
-      <a id="my-account-link" class="account-link <%=(user_signed_in?) ? "" : "hidden"%>" href="<%=blacklight.search_history_path%>">
-        <span class="fa fa-user" aria-hidden="true"></span>
-        <span class="account-link__text">My Account</span>
-      </a>
-
-      <a id="sign-in-link" class="account-link <%=(user_signed_in?) ? "hidden" : ""%>" href="/users/sign_in">
-        <span class="fa fa-user" aria-hidden="true"></span>
-        <span class="account-link__text">Log In</span>
-      </a>
-    </div>
-  <%end%>
-</header> -->

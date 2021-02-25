@@ -1,4 +1,5 @@
 // Local Application Customizations
+@import 'colors';
 
 // Set Header Logo
 $logo-image: image_url('blacklight/logo.svg') !default;
@@ -13,11 +14,11 @@ $logo-image: image_url('blacklight/logo.svg') !default;
 // Override default Bootstrap variables here
 
 // Example: Bootstrap Colors
-$blue:    #007bff !default;
-$indigo:  #6610f2 !default;
+$blue:    $c-theme-blue !default;
+$indigo:  $c-theme-dark-blue !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
-$red:     #dc3545 !default;
+$red:     $c-theme-red !default;
 $orange:  #fd7e14 !default;
 $yellow:  #ffc107 !default;
 $green:   #28a745 !default;
@@ -25,4 +26,4 @@ $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 
 // Example: Bootstrap Link color
-$link-color: $blue;
+// $link-color: $blue;

@@ -37,6 +37,7 @@ $font-family-monospace:   $f-lora;
 
 // don't know if this is correct, took from foundations to try out...
 $link-fade: border 0.28s cubic-bezier(0.28,1.08,1,0.96);
+$border-gray: #AFAFAF;
 
 // Example: Bootstrap Link color
 // $link-color: $blue;
@@ -110,4 +111,80 @@ h6 {
   line-height: 28px;
   margin-bottom: 20px;
   color: $c-theme-ink;
+}
+
+
+
+// bootstrap pagination
+$pagination-border-width: none;
+$pagination-hover-bg: #fafafa;
+$pagination-hover-color: $c-theme-blue;
+$pagination-color: $c-theme-blue;
+$pagination-active-bg: #fafafa;
+$pagination-active-color: $c-font-subtle;
+$pagination-disabled-color: $c-font-subtle;
+$pagination-disabled-border-color: transparent;
+
+.pagination {
+  width: 100%;
+  // margin: 20px 0;
+  font-family: $f-trueno;
+}
+ul.pagination {
+	margin: 40px auto 0;
+	padding-top: 20px;
+	border-top: 1px solid $c-bd-divider;
+}
+ul.pagination, ul.pagination a {
+  font-family: $f-trueno;
+  font-size: 17px;
+  font-weight: 700;
+}
+.page-link {
+  border-bottom: none;
+}
+.pagination > .disabled > a {
+	font-weight: 300;
+}
+
+
+// bootstrap card
+$card-border-radius: 0;
+$card-border-color: $c-bd-divider;
+$card-cap-bg: white;
+
+.card {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-bottom: 40px;
+
+  .card-header {
+    border-bottom: none;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    h2 {
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+  }
+
+  .list-group .list-group-item a {
+    display: inline;
+  }
+}
+
+
+// extra css for footer
+.hl__linked-list__items {
+  display: flex;
+  padding: 0;
+}
+.hl__footer__message .hl__rich-text a:not(.hl__button):not(.hl__link-tag) {
+	font-size: 11px;
+	line-height: 19px;
+}
+.hl__icon-list__link {
+  border: none;
 }

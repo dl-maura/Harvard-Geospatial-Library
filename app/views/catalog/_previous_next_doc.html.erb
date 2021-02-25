@@ -1,0 +1,31 @@
+<% #Using the Bootstrap Pagination class  -%>
+<% #DEPRECATED - using id="previousNextDocument" as a selector is deprecated and will be removed in Blacklight 6.0 %>
+
+<!-- POSSIBLE SOLUTION FOR SHOWING 'BACK TO SEARCH' AND 'PAGINGATION' ON SAME ROW, THOUGH MAY WANT TO UPDATE THE CLASS NAMES (THAT AREN'T BOOTSTRAP CLASSES) -->
+
+<div id="previous-next" class="row">
+
+  <div class="col-sm-6">
+    <% if current_search_session %>
+        <div class="search-widgets">
+          <%= link_back_to_catalog %>
+        </div>
+    <% end %>
+  </div>
+  <div class="col-sm-6 page-header-page-links-column">
+    <%= render(Blacklight::SearchContextComponent.new(search_context: @search_context, search_session: search_session)) %>
+    <!-- <% if item_page_entry_info &&  (@previous_document || @next_document) %>
+        <div class="page_links">
+          <% if @previous_document %>
+            <%= link_to_previous_document @previous_document %> |
+          <% end %>
+
+          <%= item_page_entry_info %>
+
+          <% if @next_document %>
+            | <%= link_to_next_document @next_document %>
+          <% end %>
+        </div>
+    <% end %> -->
+  </div>
+</div>

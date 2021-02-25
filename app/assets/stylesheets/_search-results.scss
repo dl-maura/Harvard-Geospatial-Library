@@ -1,0 +1,53 @@
+.sort-pagination,
+.pagination-search-widgets, #appliedParams {
+  margin-bottom: 0;
+	padding-bottom: 20px;
+  font-family: $f-trueno;
+  font-size: 14px;
+
+  a {
+    font-size: 14px;
+  }
+}
+.sort-pagination {
+  margin-bottom: 40px;
+  border-bottom: 1px solid $c-bd-divider;
+}
+
+.index-split .index_title {
+  padding-right: 15px;
+}
+
+.index-split .index_title a {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.index-split .status-icons {
+  cursor: default;
+  white-space: normal;
+  margin-left: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: $f-trueno;
+  font-size: 12px;
+  letter-spacing: 1.71px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: $c-gray-6c6c6c;
+  font-weight: 700;
+}
+
+.more-info-area {
+  padding-left: 0;
+  color: $c-gray-414141;
+  font-family: $f-lora;
+  font-size: 14px;
+  line-height: 24px;
+  padding-right: 15px;
+}
+
+.documents-list .document {
+  border-bottom: none;
+  margin-top: 15px;
+}

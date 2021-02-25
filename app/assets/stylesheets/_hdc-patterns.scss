@@ -1,0 +1,29 @@
+// @import 'hdc/facets';
+// @import 'hdc/icons';
+// @import 'hdc/item';
+// @import 'hdc/layout';
+@import 'hdc/searchbar';
+// @import 'hdc/settings'; // foundations - keep around to figure out where some of these calls are coming from
+// @import 'hdc/util';
+
+@media (min-width: 1280px) {
+  .container {
+    width: 100%;
+    max-width: 1400px;
+  }
+}
+
+#main-container {
+  @media (min-width: 768px) {
+	  margin-top: 40px
+  }
+
+  .enclosing-row {
+    overflow-x: hidden;
+  }
+}
+
+// not in the hdc/layout (was covered by footer, but not in PL footer)
+#main-container {
+  margin-bottom: 50px;
+}
