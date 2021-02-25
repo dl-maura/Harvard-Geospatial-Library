@@ -32,6 +32,7 @@ services:
       - './app:/home/app/webapp/app'
       # Logs
       - './log:/home/app/webapp/log'
+      - './webapp.conf:/etc/nginx/sites-enabled/webapp.conf'
     tty: true
     ports:
       - "3001:3001"
