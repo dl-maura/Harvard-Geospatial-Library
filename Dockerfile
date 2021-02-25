@@ -19,11 +19,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   gem update --system && \
   gem install bundler && \
   rm /etc/nginx/sites-enabled/default && \
+  rm -f /etc/service/nginx/down && \
   chmod +x /home/app/webapp/bin/*.sh && \
   chown app /etc/ssl/certs && \
   chown app /etc/ssl/openssl.cnf
-
-COPY webapp.conf /etc/nginx/sites-enabled/webapp.conf
 
 USER app
 
@@ -36,6 +35,7 @@ WORKDIR /home/app/webapp
 RUN bundle install
 
 RUN mkdir -p /home/app/webapp/tmp/cache/downloads
+RUN chmod g+s /home/app/webapp/tmp/cache
 RUN chmod 755 /home/app/webapp/tmp/cache/downloads
 
 ENTRYPOINT ["bin/migrations.sh"]
