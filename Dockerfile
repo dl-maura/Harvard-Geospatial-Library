@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
   gem update --system && \
   gem install bundler && \
-  rm /etc/nginx/sites-enabled/default && \
+  rm -f /etc/nginx/sites-enabled/default && \
   rm -f /etc/service/nginx/down && \
   chmod +x /home/app/webapp/bin/*.sh && \
   chown app /etc/ssl/certs && \

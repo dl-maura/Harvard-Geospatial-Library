@@ -5,8 +5,6 @@
 
 set -e
 
-chown app:app /etc/nginx/sites-enabled/webapp.conf
 rake db:migrate
-chown -R app:app /home/app/webapp/log
 
 exec "$@"
