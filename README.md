@@ -63,7 +63,14 @@ WINDOWS 10 USERS: run dos2unix on the localdb.sh and migrations.sh files through
 
 The database gets created automatically by passing in environment variables into the mySQL in the docker compose file. The volume mounts the mySQL data to the local filesystem `./db-data:/var/lib/mysql`. The first time the database is created, the `./db-data` directory will appear on the local filesystem. To start with a fresh database, delete the ./db-data directory on the local filesystem and restart the containers and it will be created again from scratch. Note that this will delete all data in the database. The mySQL container is for development use only, when the application is deployed to the docker server it will be connected to a database server directly.
 
-### 5: Start
+### 5: Create webapp config
+- Make a copy of the config example file `./webapp.conf.template`
+- Rename the file to `webapp.conf`
+- Replace placeholder values as necessary
+
+*Note: The config file webapp.conf is specifically excluded in .gitignore and .dockerignore, since it contains local customizations it should NOT ever be committed to any repository.*
+
+### 6: Start
 
 This command builds all images and runs all containers specified in the docker-compose-local.yml configuration.
 
@@ -77,7 +84,7 @@ docker-compose -f docker-compose-local.yml up -d --build --force-recreate
 
 To restart the containers later without a full rebuild, the options `--build` and `--force-recreate` can be omitted after the images are built already.
 
-### 6: Import Solr data
+### 7: Import Solr data
 This repo has a small example set of data you can import with these steps: 
 1. Go to http://localhost:8983/solr/#/~cores/
 2. Select "blacklight-core" from the core dropdown in the left rail
@@ -86,7 +93,7 @@ This repo has a small example set of data you can import with these steps:
 5. Click the "Browse" button and select the `geoblacklight-documents.json` file in the root of the repository.
 6. Click the "Submit Document" button
 
-### 7: Run commands inside a container
+### 8: Run commands inside a container
 To run commands inside a running container, execute a shell using the `exec` command. This same technique can be used to run commands in any container that is running already.
 
 ```
@@ -101,7 +108,7 @@ rake db:migrate
 
 Alternatively, to run commands inside a container that is not running already, use the docker run command or the docker compose run command.
 
-### 8: Stop
+### 9: Stop
 
 ##### STOP AND REMOVE
 
