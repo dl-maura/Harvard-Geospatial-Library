@@ -84,16 +84,7 @@ docker-compose -f docker-compose-local.yml up -d --build --force-recreate
 
 To restart the containers later without a full rebuild, the options `--build` and `--force-recreate` can be omitted after the images are built already.
 
-### 7: Import Solr data
-This repo has a small example set of data you can import with these steps: 
-1. Go to http://localhost:8983/solr/#/~cores/
-2. Select "blacklight-core" from the core dropdown in the left rail
-3. Click on the "Documents" button in the left rail
-4. Select "File Upload" from the "Document Type" dropdown
-5. Click the "Browse" button and select the `geoblacklight-documents.json` file in the root of the repository.
-6. Click the "Submit Document" button
-
-### 8: Run commands inside a container
+### 7: Run commands inside a container
 To run commands inside a running container, execute a shell using the `exec` command. This same technique can be used to run commands in any container that is running already.
 
 ```
@@ -108,7 +99,7 @@ rake db:migrate
 
 Alternatively, to run commands inside a container that is not running already, use the docker run command or the docker compose run command.
 
-### 9: Stop
+### 8: Stop
 
 ##### STOP AND REMOVE
 
