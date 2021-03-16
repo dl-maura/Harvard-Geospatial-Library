@@ -1,3 +1,6 @@
+# Build all images and run all containers
+# `docker-compose -f docker-compose-local.yml up -d --build --force-recreate`
+
 version: '3.8'
 services:
 
@@ -36,20 +39,5 @@ services:
     tty: true
     ports:
       - "3001:3001"
-    depends_on:
-      - geoblacklight_db
-
-  geoblacklight_solr:
-    container_name: geoblacklight_solr
-    image: solr:8.5.2
-    ports:
-      - "8983:8983"
-    volumes:
-      - './solr_data:/opt/solr/server/solr/mycores'
-      - './solr/conf:/var/solr/data/blacklight-core'
-    entrypoint:
-      - docker-entrypoint.sh
-      - solr-precreate
-      - development
     depends_on:
       - geoblacklight_db

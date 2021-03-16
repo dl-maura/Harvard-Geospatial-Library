@@ -8,6 +8,11 @@ ENV DEBIAN_FRONTEND noninteractive
 # /home/app. Your application is supposed to run as this user.
 COPY --chown=app:app . /home/app/webapp
 
+# Update permissions for the gbladm user and group
+COPY bin/change_id.sh /tmp/change_id.sh
+RUN chmod 755 /tmp/change_id.sh && \
+  /tmp/change_id.sh -u 55012 -g 199
+
 # Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
   build-essential \
@@ -41,7 +46,7 @@ RUN chmod 755 /home/app/webapp/tmp/cache/downloads
 ENTRYPOINT ["bin/migrations.sh"]
 
 # Expose ports
-EXPOSE 31000:3001 31001:3306 31002:8983
+EXPOSE 31000:3001 31001:3306
 
 USER root
 

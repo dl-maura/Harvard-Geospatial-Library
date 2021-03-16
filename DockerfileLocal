@@ -41,7 +41,7 @@ RUN chmod 755 /home/app/webapp/tmp/cache/downloads
 ENTRYPOINT ["sh", "bin/localdb.sh"]
 
 # Expose ports
-EXPOSE 3001 3306 8983
+EXPOSE 3001 3306
 
 USER root
 
