@@ -1,8 +1,9 @@
-# Geoblacklight
+# Harvard Geospatial Library
 
 ## Introduction
 
-A basic sample app with Geoblacklight, mySQL, and Solr in Docker Compose.
+Harvard Geospatial Library (HGL) enables researchers to discover and easily access the wealth of geospatial data sets from around the world held at Harvard Library. Continuing the long-standing partnership between Library Technology Services, the Harvard Map Collection, HL Information and Technical Services and the Harvard Geospatial Working Group, teams across Harvard Library are now engaged in an update to HGL that will improve, refine and build upon the geospatial data repository that will serve the scholarly community better for years to come.
+
 
 ## Technology Stack
 ##### Language
@@ -22,7 +23,8 @@ Solr
 
 
 ## Servers
-* Project Wiki: https://wiki.harvard.edu/confluence/display/LibraryTechServices/HGL+4.0
+* [Public Project Wiki](https://wiki.harvard.edu/confluence/display/LibraryStaffDoc/Harvard+Geospatial+Library+4.0)
+* [Internal Project Wiki](https://wiki.harvard.edu/confluence/display/LibraryTechServices/Harvard+Geospatial+Library+4.0)
 * SSL Local site: https://localhost:3001
 * SSL Dev sites: 
   - https://hgl-dev.lib.harvard.edu/
