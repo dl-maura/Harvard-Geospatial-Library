@@ -80,3 +80,5 @@ gem 'devise-guests', '~> 0.6'
 gem 'harvard-patterns-gem', '0.1.0', :git => 'https://gitlab.com/harvard-library-web-team/harvard-patterns-gem.git', :tag => '0.1.0'
 
 gem 'rails-healthcheck'
+
+gem 'omniauth-cas'
