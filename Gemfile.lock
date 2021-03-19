@@ -275,6 +275,9 @@ GEM
       addressable (~> 2.3)
       nokogiri (~> 1.5)
       omniauth (~> 1.2)
+    omniauth-rails_csrf_protection (0.1.2)
+      actionpack (>= 4.2)
+      omniauth (>= 1.3.1)
     orm_adapter (0.5.0)
     ostruct (0.3.3)
     popper_js (1.16.0)
@@ -422,7 +425,8 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   mysql2
-  omniauth-cas
+  omniauth-cas (~> 2.0)
+  omniauth-rails_csrf_protection (~> 0.1)
   puma (~> 3.11)
   rails
   rails-healthcheck
