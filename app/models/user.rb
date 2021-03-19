@@ -13,4 +13,15 @@ class User < ApplicationRecord
   def to_s
     email
   end
+
+  def self.find_for_cas(access_token, signed_in_resource=nil)
+    logger.debug "#{access_token.inspect}"
+    username = access_token.uid
+    user = User.where(:username => username).first
+
+    unless user
+        user = User.create(username: username)
+    end
+    user
+  end
 end
