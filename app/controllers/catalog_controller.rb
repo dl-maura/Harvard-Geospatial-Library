@@ -41,10 +41,11 @@ class CatalogController < ApplicationController
 
     # solr field configuration for document/show views
 
+    # Edited to amke sure maps are always first in the page, above metadata
     config.show.display_type_field = 'format'
-    config.show.partials << 'show_default_viewer_container'
-    config.show.partials << 'show_default_attribute_table'
-    config.show.partials << 'show_default_viewer_information'
+    config.show.partials.insert(1, :show_default_viewer_container)
+    config.show.partials.insert(2, :show_default_attribute_table)
+    config.show.partials.insert(3, :show_default_viewer_information)
 
     ##
     # Configure the index document presenter.

@@ -1,0 +1,77 @@
+$f-base-size: 19px;
+$f-lora: Lora, Georgia, serif;
+
+$f-trueno: "Trueno", sans-serif;
+
+
+// added general font styling
+body {
+  h1 {
+    font-family: $f-trueno;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 74px;
+    margin-bottom: 20px;
+    color: $c-theme-ink;
+
+    @media($bp-x-small-max){
+      font-size: 32px;
+      line-height: 40px;
+      margin-bottom: 20px;
+    }
+  }
+  h2 {
+    font-family: $f-trueno;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 42px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    color: $c-theme-ink;
+
+    @media($bp-x-small-max){
+      font-size: 24px;
+      line-height: 31px;
+      margin-bottom: 20px;
+    }
+  }
+  h3 {
+    font-family: $f-trueno;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: $c-theme-ink;
+  }
+  h4 {
+    font-family: $f-trueno;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2.14px;
+    color: $c-theme-ink;
+
+    border-bottom: none;
+  }
+  h5 {
+    font-family: $f-trueno;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 29px;
+    margin-bottom: 20px;
+    color: $c-theme-ink;
+  }
+  h6 {
+    font-family: $f-trueno;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 20px;
+    color: $c-theme-ink;
+  }
+}
