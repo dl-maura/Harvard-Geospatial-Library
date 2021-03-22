@@ -68,7 +68,4 @@ Rails.application.configure do
   config.hosts << "gbl-dev.lib.harvard.edu"
   config.hosts << "hgl-dev.lib.harvard.edu"
 
-  Rails.application.config.middleware.use OmniAuth::Builder do
-    provider :cas, host: 'www.pin1.harvard.edu', url: 'https://www.pin1.harvard.edu/cas'
-  end
 end

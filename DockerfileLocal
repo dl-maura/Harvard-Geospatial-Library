@@ -3,6 +3,7 @@ FROM phusion/passenger-ruby26
 
 # Set correct environment variables.
 ENV DEBIAN_FRONTEND noninteractive
+ENV PATH=$PATH:/usr/local/rvm/gems/ruby-2.6.6/bin
 
 #From the docs: The image has an app user with UID 9999 and home directory
 # /home/app. Your application is supposed to run as this user.
