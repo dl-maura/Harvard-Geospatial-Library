@@ -1,0 +1,115 @@
+// slight customization from PatternLab (with the site title link) + navbar at bottom
+
+// child theme header
+.hl__header-child {
+
+  @media($bp-small-min) {
+    display: flex;
+  }
+
+  &__title {
+    background-image: linear-gradient(-46deg, $c-theme-secondary 0%, $c-theme-secondary-dark 100%);
+    color: $c-font-inverse;
+    flex: auto;
+    margin: 0;
+    padding: 10px 25px;
+
+    a {
+      color: $c-font-inverse;
+      text-decoration:none;
+      border: none;
+      font-family: $f-lora;
+      font-size: 20px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1;
+
+      @media($bp-small-min) {
+        font-size: 24px;
+        line-height: 1.3;
+      }
+
+      &:hover, &:focus {
+        color: $c-font-inverse;
+      }
+    }
+
+    span {
+      font-family: $f-trueno;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 1.52px;
+      line-height: 1;
+      text-transform: uppercase;
+
+      @media($bp-small-min) {
+        font-size: 32px;
+        line-height: 1.25;
+      }
+    }
+
+    &--teal {
+      background-image: linear-gradient(-46deg, $c-theme-quinary 0%, $c-theme-quinary-dark 100%);
+    }
+
+    &--crimson {
+      background-image: linear-gradient(-46deg, $c-theme-red 0%, $c-theme-crimson 100%);
+    }
+
+    &--yellow {
+      background-image: linear-gradient(-46deg, $c-theme-quaternary-light 0%, $c-theme-quaternary 100%);
+
+      a {
+        color:$c-theme-base;
+      }
+    }
+  }
+
+  &__logo {
+    background-color: $c-theme-base;
+    display: flex;
+      align-items: center;
+    flex: none;
+    min-height: 44px;
+
+    a {
+      padding: 10px 30px;
+    }
+  }
+}
+
+
+// navbar
+.topbar.navbar {
+  background: $c-theme-ink !important;
+
+  a {
+    color: $white;
+
+    &:focus, &:hover {
+      border-color: rgba($white, 0.3);
+    }
+  }
+
+  .badge {
+    background-color: $c-theme-blue;
+  }
+
+  // full width styles
+  &.navbar-expand-md {
+    .navbar-nav .nav-link {
+        padding: 0;
+        margin: 0.5rem 1rem;
+    }
+  }
+
+  // hamburger styles
+  .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
+    .navbar-nav .nav-link {
+      margin: 0.5rem 0;
+      padding: 0;
+      display: inline-block;
+    }
+  }
+}
