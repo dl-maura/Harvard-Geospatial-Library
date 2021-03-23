@@ -67,4 +67,5 @@ Rails.application.configure do
   config.hosts << "ltsds-cloud-dev-1.lib.harvard.edu"
   config.hosts << "gbl-dev.lib.harvard.edu"
   config.hosts << "hgl-dev.lib.harvard.edu"
+
 end
