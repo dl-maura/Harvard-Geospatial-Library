@@ -272,6 +272,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  require 'omniauth-cas'
   config.omniauth :cas, host: 'www.pin1.harvard.edu', url: 'https://www.pin1.harvard.edu/cas'
 
   # ==> Warden configuration
