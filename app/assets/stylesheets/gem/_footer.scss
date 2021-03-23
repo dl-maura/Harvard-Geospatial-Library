@@ -3,6 +3,7 @@
 .hl__footer {
   background-color: $c-theme-base;
   padding-bottom: 45px;
+  margin-top: 50px;
 
   &__container {
     @include hl-container("full");

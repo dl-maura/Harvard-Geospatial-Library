@@ -1,17 +1,21 @@
 // LINKS
-a {
+a,
+#appliedParams a.btn {
   font-family: $f-trueno;
   font-size: 17px;
   font-weight: 600;
   font-style: normal;
   color: $c-font-link;
   text-decoration: none;
+  padding: 0;
+  border: none;
   border-bottom: 3px solid transparent;
   transition: $link-fade;
 
   &:hover, &:focus {
     text-decoration: none;
     color: $c-font-link;
+    background: transparent;
     border-color: rgba($c-font-link, 0.3);
   }
 }
@@ -25,6 +29,17 @@ a.dark-link {
     color: $c-theme-ink;
     border-color: rgba($c-theme-ink,0.5)
   }
+}
+
+// small blue links
+.facets__clearall a /* searchbar */,
+.page-links a /* top page pagination */,
+#appliedParams a.btn /* item detail pagination */ {
+  font-size: 15px;
+  line-height: 19px;
+  font-weight: normal;
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 
@@ -167,15 +182,19 @@ input[type="submit"] {
 
 // small, outline button
 .hl__button--outline,
-.search-constraints .btn /* search contraints in header area */,
+.applied-filter.constraint .btn /* search contraints in header area */,
 .search-widgets button /* search results sorting options */{
   @include hl-button-base;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  line-height: 21px;
   padding: 5px 9px;
-  background: transparent;
+  background: $c-white;
   border: 1px solid $c-theme-base;
   color: $c-theme-base;
+  margin: 2px 0;
 
   &:hover, &:focus {
     background: $c-gray-6c6c6c;
