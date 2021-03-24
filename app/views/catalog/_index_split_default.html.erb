@@ -24,8 +24,11 @@
 <!-- added class 'show' so that will always be displayed -->
 <div class='more-info-area'>
   <div id="doc-<%= document.id %>-fields-collapse" class='collapse show'>
-    <small>
+    <p>
       <%= geoblacklight_present(:index_fields_display, document) %>
-    </small>
+    </p>
+  </div>
+  <div class="map-thumbnail">
+    Map
   </div>
 </div>

@@ -107,6 +107,7 @@ a.show-more,
   &:focus,
   &:hover {
     text-decoration: none;
+    box-shadow: none;
   }
 }
 
@@ -127,10 +128,6 @@ a.btn, button.btn, span.btn, .btn {
     font-size: 12px;
     line-height: 16px;
   }
-
-  // @media(max-width:600px){
-  //   font-size: 14px;
-  // }
 }
 
 

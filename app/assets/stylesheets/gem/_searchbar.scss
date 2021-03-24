@@ -74,6 +74,7 @@
     &:hover, &:focus {
       background: $c-white;
       color: $c-theme-base;
+      border-color: $c-theme-base;
     }
   }
 
@@ -83,7 +84,9 @@
   }
 
   .btn.remove {
+    line-height: 1em;
     border-left: none;
+    padding-left: 1px;
   }
 
   .filter-name::after {
@@ -91,4 +94,52 @@
     content: ":";
     font-size: 1em;
   }
+}
+
+
+a.remove {
+  line-height: 1em;
+  border: 0;
+
+  .remove-icon {
+    border-radius: 50%;
+    padding: 0.5em;
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    background: $c-gray-6c6c6c;
+    border: 1px solid $c-gray-6c6c6c;
+    position: relative;
+    transition: all 0.4s ease;
+    color: transparent;
+
+    &::before, &::after {
+      content: " ";
+      position: absolute;
+      display: block;
+      background: $white;
+      width: 2px;
+      left: 8.5px;
+      top: 4px;
+      bottom: 4px;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &:hover, &:focus {
+    .remove-icon {
+      background: $c-theme-red;
+      border-color: $c-theme-red;
+    }
+  }
+}
+
+.applied-filter .remove:not(:disabled):not(.disabled):active:focus {
+  box-shadow: none;
+  background: transparent;
+  border: $c-theme-base;
 }

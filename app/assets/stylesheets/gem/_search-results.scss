@@ -1,4 +1,10 @@
-.blacklight-catalog-index {
+.blacklight-catalog-index,
+.blacklight-bookmarks-index {
+  // hide duplicated search-constraints
+  #appliedParams {
+    display: none;
+  }
+
   // results index
   .documents-list {
     margin-bottom: 0;
@@ -15,6 +21,7 @@
     }
   }
 
+  // items
   .index-split {
     display: block;
 
@@ -29,7 +36,7 @@
       text-transform: none;
       letter-spacing: normal;
       font-weight: 600;
-      margin-bottom: 0;
+      margin-bottom: 3px;
       padding: 0 20px;
     }
 
@@ -57,10 +64,22 @@
   .more-info-area {
     max-height: 100%;
     padding-left: 0;
+    display: flex;
+    grid-gap: 0 20px;
 
-    small {
+    p {
       font-size: 14px;
       line-height: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      margin-bottom: 0;
+    }
+
+    .map-thumbnail {
+      height: 75px;
+      min-width: 75px;
+      background: $c-bg-light;
     }
   }
 
@@ -72,15 +91,15 @@
     }
   }
 
-
 }
 
+// restricted icon color
 .blacklight-icon-restricted svg path {
   fill: $c-theme-red;
 }
 
 
-// top pagination
+// top pagination and sorting options
 .page-links {
   font-family: $f-trueno;
   font-size: 15px;
@@ -96,5 +115,11 @@
       min-width: 50%;
       text-align: right;
     }
+  }
+
+  a.dropdown-item {
+    font-size: 14px;
+    padding-left: 9px;
+    padding-right: 9px;
   }
 }
