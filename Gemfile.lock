@@ -78,7 +78,7 @@ GEM
       execjs
     bcrypt (3.1.16)
     bindex (0.8.1)
-    blacklight (7.15.1)
+    blacklight (7.15.2)
       deprecation
       globalid
       i18n (>= 1.7.0)
@@ -87,7 +87,7 @@ GEM
       ostruct (>= 0.3.2)
       rails (>= 5.1, < 7)
       view_component (>= 2.23.0)
-    bootsnap (1.7.2)
+    bootsnap (1.7.3)
       msgpack (~> 1.0)
     bootstrap (4.6.0)
       autoprefixer-rails (>= 9.1.0)
@@ -116,7 +116,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.8)
-    config (2.2.3)
+    config (3.0.0)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
     crass (1.0.6)
@@ -188,7 +188,7 @@ GEM
       rsolr
       sanitize
       thor
-    geoblacklight (3.2.0)
+    geoblacklight (3.3.0)
       blacklight (~> 7.0)
       coderay
       config
@@ -199,11 +199,12 @@ GEM
       handlebars_assets
       mime-types
       rails (>= 5.2.4, < 6.2)
+      rgeo-geojson
     geoserver-publish (0.5.0)
       faraday
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    handlebars_assets (0.23.8)
+    handlebars_assets (0.23.9)
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
@@ -255,18 +256,19 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0212)
-    mimemagic (0.3.5)
+    mime-types-data (3.2021.0225)
+    mimemagic (0.3.7)
+      nokogiri (~> 1.11.2)
     mini_mime (1.0.2)
-    minitest (5.14.3)
+    minitest (5.14.4)
     msgpack (1.4.2)
     multipart-post (2.1.1)
     mysql2 (0.5.3)
     net-http-persistent (2.9.4)
-    nio4r (2.5.5)
-    nokogiri (1.11.1-x86_64-linux)
+    nio4r (2.5.7)
+    nokogiri (1.11.2-x86_64-linux)
       racc (~> 1.4)
-    nokogumbo (2.0.4)
+    nokogumbo (2.0.5)
       nokogiri (~> 1.8, >= 1.8.4)
     omniauth (1.9.1)
       hashie (>= 3.4.6)
@@ -319,11 +321,14 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    regexp_parser (2.0.3)
+    regexp_parser (2.1.1)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
     retriable (3.1.2)
+    rgeo (2.2.0)
+    rgeo-geojson (2.1.1)
+      rgeo (>= 1.0.0)
     rsolr (2.3.0)
       builder (>= 2.1.2)
       faraday (>= 0.9.0)
@@ -357,7 +362,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    solr_wrapper (3.0.2)
+    shared-mime-info (0.2.5)
+    solr_wrapper (3.1.1)
       http
       retriable
       ruby-progressbar
@@ -389,7 +395,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
-    view_component (2.25.1)
+    view_component (2.28.0)
       activesupport (>= 5.0.0, < 7.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -434,6 +440,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sassc (= 2.1.0)
   selenium-webdriver
+  shared-mime-info (~> 0.1)
   solr_wrapper (>= 0.3)
   spring
   spring-watcher-listen (~> 2.0.0)
