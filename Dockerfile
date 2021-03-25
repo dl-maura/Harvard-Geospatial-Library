@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   mysql-client \
   bash \
   tzdata \
+  shared-mime-info \
   openssl && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
   gem update --system && \
