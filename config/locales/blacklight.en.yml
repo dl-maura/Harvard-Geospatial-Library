@@ -7,6 +7,9 @@ en:
         search:
           label: 'search for'
           placeholder: 'Placeholder text goes here'
+      facets:
+        title: 'Limit Your Search'
+        more_html: 'More <span class="sr-only">%{field_name}</span>'
       filters:
         search_term: 'Search term'
       pagination_info:
