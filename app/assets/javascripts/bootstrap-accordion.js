@@ -22,8 +22,6 @@ $(document).on('turbolinks:load', function () {
     }
   });
 
-
-  // mobile view sliding panel
   $('#accordion .panel-collapse').on('show.bs.collapse', function () {
     $(this).parent().find('.expand_caret').removeClass('fa-rotate-180');
   });
