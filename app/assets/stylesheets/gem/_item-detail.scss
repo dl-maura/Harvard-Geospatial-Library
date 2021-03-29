@@ -1,0 +1,13 @@
+.blacklight-catalog-show {
+  // hide startOverLink
+  .catalog_startOverLink {
+    display: none;
+  }
+
+
+  // sidebar styling
+  .show-tools .list-group .list-group-item a {
+  	display: inline-block;
+  	padding-bottom: 0;
+  }
+}

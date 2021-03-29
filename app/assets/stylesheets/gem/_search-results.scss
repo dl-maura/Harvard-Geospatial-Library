@@ -1,0 +1,146 @@
+.blacklight-catalog-index,
+.blacklight-bookmarks-index {
+  // hide duplicated search-constraints
+  #appliedParams {
+    display: none;
+  }
+
+  // float columns
+  #sidebar, #content {
+    float: left;
+  }
+
+  // results index
+  .documents-list {
+    margin-bottom: 0;
+
+    .document {
+      border-bottom: none;
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+      &-position-1 {
+        margin-top: 0;
+        padding-top: 0;
+      }
+    }
+  }
+
+  // items
+  .index-split {
+    display: block;
+
+    // .document-counter {
+    //   display: none;
+    // }
+
+    .index_title {
+      display: block;
+      font-size: 18px;
+      line-height: 25px;
+      text-transform: none;
+      letter-spacing: normal;
+      font-weight: 600;
+      margin-bottom: 3px;
+      padding: 0 20px;
+    }
+
+    .status-icons {
+      margin-left: 0;
+      margin-top: 0;
+      padding: 0 20px;
+
+      display: flex;
+      grid-gap: 0 20px;
+      flex-wrap: wrap;
+
+      // type styles
+      font-family: $f-trueno;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.71px;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: $c-font-subtle;
+    }
+  }
+
+  // description
+  .more-info-area {
+    max-height: 100%;
+    padding-left: 0;
+    display: flex;
+    grid-gap: 0 20px;
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      margin-bottom: 0;
+    }
+
+    & > div:first-of-type {
+      width: 100%;
+    }
+
+    .map-thumbnail {
+      height: 75px;
+      min-width: 75px;
+      background: $c-bg-light;
+    }
+  }
+
+  // map
+  #map {
+    z-index: 2; // prevents map from appearing on top of filter rail when slides open in mobile view
+  }
+  #main-container [data-map="index"] {
+    @media($bp-medium-min){
+        margin: 0 20px;
+        max-width: calc(50% - 40px);
+    }
+  }
+
+}
+
+// restricted icon color
+.blacklight-icon-restricted svg path {
+  fill: $c-theme-red;
+}
+
+
+// top pagination and sorting options
+.page-links {
+  font-family: $f-trueno;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+#sortAndPerPage {
+  align-items: center;
+  border-bottom: 1px solid $c-bd-divider;
+
+  @media($bp-medium-min){
+    .search-widgets {
+      min-width: 50%;
+      text-align: right;
+    }
+  }
+
+  a.dropdown-item {
+    font-size: 14px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  @media($bp-medium-max){
+    .page-links {
+      margin: 0 auto;
+    }
+    .search-widgets {
+      text-align: center;
+    }
+  }
+}
