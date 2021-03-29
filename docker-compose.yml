@@ -6,7 +6,7 @@
 version: '3.8'
 services:
   app:
-    image: registry.lts.harvard.edu/lts/hgl:0.0.11
+    image: registry.lts.harvard.edu/lts/hgl:0.0.12
     build:
       context: .
       dockerfile: Dockerfile
