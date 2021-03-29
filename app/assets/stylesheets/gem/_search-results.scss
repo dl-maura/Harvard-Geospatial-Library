@@ -5,6 +5,11 @@
     display: none;
   }
 
+  // float columns
+  #sidebar, #content {
+    float: left;
+  }
+
   // results index
   .documents-list {
     margin-bottom: 0;
@@ -76,6 +81,10 @@
       margin-bottom: 0;
     }
 
+    & > div:first-of-type {
+      width: 100%;
+    }
+
     .map-thumbnail {
       height: 75px;
       min-width: 75px;
@@ -84,6 +93,9 @@
   }
 
   // map
+  #map {
+    z-index: 2; // prevents map from appearing on top of filter rail when slides open in mobile view
+  }
   #main-container [data-map="index"] {
     @media($bp-medium-min){
         margin: 0 20px;
@@ -121,5 +133,14 @@
     font-size: 14px;
     padding-left: 9px;
     padding-right: 9px;
+  }
+
+  @media($bp-medium-max){
+    .page-links {
+      margin: 0 auto;
+    }
+    .search-widgets {
+      text-align: center;
+    }
   }
 }
