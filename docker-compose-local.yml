@@ -33,6 +33,8 @@ services:
     volumes:
       # App files to work locally
       - './app:/home/app/webapp/app'
+      - './db:/home/app/webapp/db'
+      - './config:/home/app/webapp/config'
       # Logs
       - './log:/home/app/webapp/log'
       - './webapp.conf:/etc/nginx/sites-enabled/webapp.conf'

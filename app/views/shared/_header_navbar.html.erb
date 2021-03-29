@@ -1,5 +1,7 @@
 <!-- NEW -->
 <div class="hl__alert"><p>This is an alert.</p></div>
+
+<!-- CHILD THEME HEADER -->
 <section class="hl__header-child">
   <div class="hl__header-child__title hl__header-child__title--teal">
     <a href="/" title="Harvard Geospatial Library"><span>Harvard</span> Geospatial Library</a>
@@ -14,7 +16,7 @@
 </section>
 
 
-<!-- dark nav -->
+<!-- DARK NAV -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark topbar" aria-label="user">
   <div class="<%= container_classes %>">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,24 +29,9 @@
   </div>
 </nav>
 
-
-<% if controller_name == 'catalog' && (has_search_parameters? || params[:action] == 'show') %>
-  <!-- searchbar on the catalog pages (all but homepage) -->
-  <div class="searchbar__wrapper" role="navigation">
-    <div class="<%= container_classes %> stuff">
-      <%= render_search_bar  %>
-      <% if query_has_constraints? %>
-        <div class="search-constraints">
-          <%= render_constraints(params) %>
-          <div class="facets__clearall">
-            <%=link_to 'Clear All', start_over_path, :class => "", :id=>"startOverLink" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-<% else %>
-  <!-- searchbar on homepage -->
+<!-- SEARCHBAR -->
+<% if controller_name == 'catalog' && !(has_search_parameters? || params[:action] == 'show') %>
+  <!-- HOMEPAGE -->
   <div class='geobl-homepage-masthead jumbotron'>
     <div class='d-flex justify-content-center'>
       <%= content_tag :h1, t('geoblacklight.home.headline'), class: 'text-center' %>
@@ -58,6 +45,28 @@
           <%= render_search_bar %>
         </div>
       </div>
+    </div>
+  </div>
+<% elsif controller_name == 'catalog' && (has_search_parameters? || params[:action] == 'show') %>
+<!-- SEARCH RESULTS + ITEM DETAIL -->
+  <div class="searchbar__wrapper" role="navigation">
+    <div class="<%= container_classes %>">
+      <%= render_search_bar  %>
+      <% if query_has_constraints? %>
+        <div class="search-constraints">
+          <%= render_constraints(params) %>
+          <div class="facets__clearall">
+            <%=link_to 'Clear All', search_catalog_path, :class => "" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <!-- EVERYWHERE ELSE -->
+  <div class="searchbar__wrapper" role="navigation">
+    <div class="<%= container_classes %>">
+      <%= render_search_bar  %>
     </div>
   </div>
 <% end %>
