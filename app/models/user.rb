@@ -12,13 +12,14 @@ class User < ApplicationRecord
   # user class to get a user-displayable login/identifier for
   # the account.
   def to_s
-    username
+    email
   end
 
   def self.from_omniauth(access_token)
     User.where(provider: access_token.provider, uid: access_token.uid).first_or_create do |user|
       user.uid = access_token.uid
       user.provider = access_token.provider
+      user.email = access_token.mail
     end
   end
 end
