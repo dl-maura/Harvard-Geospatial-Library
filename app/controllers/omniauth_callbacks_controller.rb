@@ -11,7 +11,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.nil?
       @user = User.create(
           provider: auth.provider,
-          uid: auth.uid
+          uid: auth.uid,
+          display_name: auth.displayName
         )
     end
 

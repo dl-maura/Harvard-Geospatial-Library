@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_161736) do
+ActiveRecord::Schema.define(version: 2021_03_30_190816) do
 
   create_table "bookmarks", id: :integer, charset: "latin1", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_161736) do
     t.string "provider"
     t.string "uid"
     t.boolean "guest", default: false
+    t.string "display_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
