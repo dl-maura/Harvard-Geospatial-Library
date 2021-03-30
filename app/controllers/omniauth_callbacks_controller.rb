@@ -12,8 +12,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @user = User.create(
           provider: auth.provider,
           uid: auth.uid,
-          display_name: auth.displayName,
-          email: auth.email
+          display_name: auth.displayName
         )
     end
 
