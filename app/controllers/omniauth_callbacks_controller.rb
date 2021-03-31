@@ -7,12 +7,14 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def cas
+    logger.info("CAS Login: #{auth.extra.displayName} (#{auth.extra.mail})")
     @user = User.where(provider: auth.provider, uid: auth.uid).first
     if @user.nil?
       @user = User.create(
           provider: auth.provider,
           uid: auth.uid,
-          display_name: auth.displayName
+          display_name: auth.extra.displayName,
+          email: auth.extra.mail
         )
     end
 
