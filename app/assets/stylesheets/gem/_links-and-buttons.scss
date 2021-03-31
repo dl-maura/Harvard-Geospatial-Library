@@ -1,6 +1,7 @@
 // LINKS
 a,
-#appliedParams a.btn {
+#appliedParams a.btn,
+.page-sidebar .card .card-exports .btn {
   font-family: $f-trueno;
   font-size: 17px;
   font-weight: 600;
@@ -31,15 +32,17 @@ a.dark-link {
   }
 }
 
-// small blue links
+// small blue links + buttons styled as links
 .facets__clearall a /* searchbar */,
 .page-links a /* top page pagination */,
-#appliedParams a.btn /* item detail pagination */ {
+#appliedParams a.btn /* item detail pagination */,
+.page-sidebar .card .card-exports .btn /* export buttons */ {
   font-size: 15px;
   line-height: 19px;
   font-weight: normal;
   letter-spacing: normal;
   text-transform: none;
+  background: none;
 }
 
 
@@ -85,7 +88,6 @@ a.show-more,
     border-color: rgba($c-theme-ink,0.5)
   }
 }
-
 
 
 
@@ -162,8 +164,7 @@ input[type="submit"] {
 
 // small buttons
 .hl__button--small,
-.page-sidebar .card .btn /* buttons in sidebar */,
-.page-sidebar .card.exports .list-group .list-group-item a /* exports in sidebar */ {
+.page-sidebar .card .btn /* buttons in sidebar */ {
   @include hl-button-base;
   border-width: 1px;
   font-size: 12px;

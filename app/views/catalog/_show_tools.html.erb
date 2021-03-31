@@ -1,0 +1,70 @@
+<% if show_doc_actions? %>
+  <div class="card show-tools">
+    <div class="card-header">
+      <h2 class="mb-0 h6">Tools & Related Links</h2>
+    </div>
+
+    <div class="card-section">
+
+
+      <% document ||= @document %>
+
+      <% if document_downloadable? %>
+        <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? %>
+          <div class="card-downloads">
+            <ul class="list-group list-group-flush js-download-list">
+              <%= render 'downloads_primary' %>
+            </ul>
+          </div>
+        <% end %>
+
+        <% if document.download_types.present? %>
+          <div class="card-exports">
+            <h3>Export as</h3>
+            <ul class="list-group list-group-flush">
+              <%= render 'downloads_generated' %>
+            </ul>
+          </div>
+        <% end %>
+      <% elsif document.restricted? && document.same_institution? %>
+        <div class="card-authentication">
+            <%= link_to t('geoblacklight.tools.login_to_view'), new_user_session_path(referrer: request.original_url), class: ['btn', 'btn-default'] %>
+        </div>
+      <% end %>
+      <div class="card-tools">
+        <% if render_show_doc_actions_method_from_blacklight? %>
+          <%= render(Blacklight::Document::ActionsComponent.new(document: @document, tag: 'ul', classes: 'list-group list-group-flush', wrapping_tag: 'li', wrapping_classes: 'list-group-item', actions: document_actions(@document), url_opts: Blacklight::Parameters.sanitize(params.to_unsafe_h))) %>
+        <% else %>
+          <% Deprecation.warn(self, '#render_show_doc_actions is deprecated; use ActionComponents instead') %>
+          <ul class="list-group list-group-flush">
+            <%= render_show_doc_actions @document do |config, inner| %>
+              <li class="list-group-item <%= config.key %>">
+                <%= inner %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<!-- NEW CARD: ABOUT THIS ITEM -->
+<div class="card about-this-item">
+  <div class="card-header">
+    <h2 class="mb-0 h6">About this item</h2>
+  </div>
+
+  <div class="status-icons">
+    <div class="icon-array">
+      <%= geoblacklight_icon(document[Settings.FIELDS.GEOM_TYPE], classes: 'svg_tooltip') %>
+    </div>
+    <div class="icon-array">
+      <%= geoblacklight_icon(document[Settings.FIELDS.PROVENANCE], classes: 'svg_tooltip') %>
+    </div>
+    <div class="icon-array">
+      <%= geoblacklight_icon(document[Settings.FIELDS.RIGHTS], classes: 'svg_tooltip') %>
+    </div>
+  </div>
+</div>
