@@ -24,7 +24,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   rm -f /etc/service/nginx/down && \
   chmod +x /home/app/webapp/bin/*.sh && \
   chown app /etc/ssl/certs && \
-  chown app /etc/ssl/openssl.cnf
+  chown app /etc/ssl/openssl.cnf && \
+  chown -R app:app /etc/container_environment && \
+  chmod -R 755 /etc/container_environment && \
+  chown app:app /etc/container_environment.sh /etc/container_environment.json && \
+  chmod 644 /etc/container_environment.sh /etc/container_environment.json && \
+  touch /etc/service/cron/down && \
+  chmod +x /etc/service/cron/down
 
 USER app
 
@@ -40,12 +46,22 @@ RUN mkdir -p /home/app/webapp/tmp/cache/downloads
 RUN chmod g+s /home/app/webapp/tmp/cache
 RUN chmod 755 /home/app/webapp/tmp/cache/downloads
 
+
 ENTRYPOINT ["sh", "bin/localdb.sh"]
 
 # Expose ports
 EXPOSE 3001 3306
 
-USER root
+#USER root
 
 # Use baseimage-docker's init process.
-CMD ["/sbin/my_init"]
+#CMD ["/sbin/my_init"]
+#CMD ["/sbin/my_init","--","setuser","app","bash"]
+#CMD ["/sbin/my_init", "--skip-startup-files"]
+#CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001", "--ssl", "--ssl-key-file","/etc/ssl/certs/server.key", "--ssl-cert-file", "/etc/ssl/certs/server.crt"]
+#CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001", "--ssl"]
+
+CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001"]
+
+
+
