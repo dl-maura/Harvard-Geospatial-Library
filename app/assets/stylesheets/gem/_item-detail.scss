@@ -1,7 +1,26 @@
 .blacklight-catalog-show {
-  // hide startOverLink
+  // hide startOverLink or remove it from show.html.erb file
   .catalog_startOverLink {
     display: none;
+  }
+
+  // top bar
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 1em;
+    margin-bottom: 50px;
+    border-bottom: 1px solid $c-bd-divider;
+
+    &-search-widgets {
+      padding-bottom: 0;
+      margin-bottom: 0;
+
+      .page-links {
+        padding: 0;
+      }
+    }
   }
 
   // title
@@ -17,39 +36,51 @@
     }
   }
 
+  // change document column to span full-width (overriding the col-lg-9)
+  .show-document {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  // float metadata and sidebar to make columns
+  @media($bp-large-min) {
+    .document-metadata.dl-invert.row {
+      float: left;
+      width: 75%;
+    }
+    .page-sidebar {
+      float: right;
+      width: 25%;
+      margin-top: 30px;
+    }
+  }
+
   /* item metadata table */
-  .document-metadata {
+  dl.document-metadata {
     padding: 20px;
-  }
 
-  dl.document-metadata dd, dl.document-metadata dt {
-    border-bottom: 1px solid $c-bd-divider;
-    font-size: 15px;
-    line-height: 28px;
-    padding: 30px 0;
-    margin-bottom: 0;
-  }
+    dd, dt {
+      border-bottom: 1px solid $c-bd-divider;
+      line-height: 28px;
+      padding: 30px 0;
+      margin-bottom: 0;
+    }
 
-  dl dt {
-    font-family: $f-trueno;
-    font-size: 20px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
+    dd, dd a {
+      font-size: 15px;
+      font-family: Lora;
+      font-weight: 400;
+    }
 
-  dd a {
-    font-size: 15px;
-    font-family: Lora;
-    font-weight: 400;
+    dt {
+      font-family: $f-trueno;
+      font-size: 20px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: $c-font-dark;
+      text-align: left !important;
+    }
   }
-
-  // data labels
-  .dl-invert dt {
-    /* color: #6c6c6c; */
-    color: $c-font-dark;
-    text-align: left !important; /* @media query associated with this */
-  }
-
 
   /* button styled as link + down-facing arrow */
   .truncate-abstract + button::after {
@@ -67,7 +98,6 @@
     transform: scaleY(-1)
   }
 
-
   // sidebar styling
   .page-sidebar {
     .card {
@@ -76,7 +106,7 @@
       line-height: 32px;
 
       .card-header {
-        padding: 30px;
+        padding: 40px;
         border-bottom: none;
         padding-bottom: 0;
 
@@ -88,11 +118,10 @@
       }
 
       .card-header + *, .card-header + .card-section {
-        padding: 20px 30px 30px 30px;
+        padding: 20px 40px 40px 40px;
       }
 
-
-
+      // tools & related links card
       &.show-tools {
         .list-group {
           margin: 0;
@@ -143,8 +172,7 @@
         }
       }
 
-
-
+      // about this item card
       .status-icons {
         .icon-missing {
           display: none;

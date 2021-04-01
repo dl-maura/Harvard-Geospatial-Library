@@ -116,10 +116,12 @@
 
 
 // top pagination and sorting options
-.page-links {
+.pagination .page-links {
   font-family: $f-trueno;
   font-size: 15px;
   line-height: 25px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 #sortAndPerPage {
