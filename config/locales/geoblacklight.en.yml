@@ -1,0 +1,5 @@
+en:
+  geoblacklight:
+    download:
+      download_link: 'Download %{download_format}'
+      export_link: '%{download_format}'
