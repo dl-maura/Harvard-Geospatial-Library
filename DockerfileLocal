@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   bash \
   tzdata \
   shared-mime-info \
+  runit-systemd \
   openssl && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
   gem update --system && \
@@ -30,7 +31,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   chown app:app /etc/container_environment.sh /etc/container_environment.json && \
   chmod 644 /etc/container_environment.sh /etc/container_environment.json && \
   touch /etc/service/cron/down && \
-  chmod +x /etc/service/cron/down
+  chmod +x /etc/service/cron/down && \
+  ln -s /etc/service/cron /etc/sv/cron
+
+# RUN echo "#!/bin/bash\ntouch /etc/crontab /etc/cron.d/* /var/spool/cron/crontabs/*" >> /etc/my_init.d/touch-crond && chmod 744 /etc/my_init.d/touch-crond
 
 USER app
 
@@ -58,6 +62,7 @@ EXPOSE 3001 3306
 #CMD ["/sbin/my_init"]
 #CMD ["/sbin/my_init","--","setuser","app","bash"]
 #CMD ["/sbin/my_init", "--skip-startup-files"]
+#CMD ["/sbin/my_init", "--skip-runit"]
 #CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001", "--ssl", "--ssl-key-file","/etc/ssl/certs/server.key", "--ssl-cert-file", "/etc/ssl/certs/server.crt"]
 #CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001", "--ssl"]
 
