@@ -1,0 +1,13 @@
+<% if current_search_session %>
+<div class="pagination">
+  <div id="appliedParams" class="clearfix constraints-container">
+    <!-- <%= render 'start_over' %> -->
+    <%= link_back_to_catalog class: 'btn btn-outline-secondary' %>
+  </div>
+  <%= render 'previous_next_doc' if @search_context && search_session['document_id'] == @document.id %>
+</div>
+<% end %>
+
+<%= render_document_main_content_partial %>
+
+<!-- REMOVED SIDEBAR PARTIAL AND REPOSITIONED IT IN SHOW_MAIN_CONTENT.HTML.ERB -->
