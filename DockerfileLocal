@@ -64,9 +64,10 @@ EXPOSE 3001 3306
 #CMD ["/sbin/my_init", "--skip-startup-files"]
 #CMD ["/sbin/my_init", "--skip-runit"]
 #CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001", "--ssl", "--ssl-key-file","/etc/ssl/certs/server.key", "--ssl-cert-file", "/etc/ssl/certs/server.crt"]
+
 #CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001", "--ssl"]
 
-CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001"]
+#CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001"]
 
-
+CMD rails server -b 'ssl://0.0.0.0:3001?key=/etc/ssl/certs/server.key&cert=/etc/ssl/certs/server.crt'
 
