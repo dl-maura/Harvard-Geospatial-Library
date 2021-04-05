@@ -30,11 +30,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   chmod -R 755 /etc/container_environment && \
   chown app:app /etc/container_environment.sh /etc/container_environment.json && \
   chmod 644 /etc/container_environment.sh /etc/container_environment.json && \
-  touch /etc/service/cron/down && \
-  chmod +x /etc/service/cron/down && \
-  ln -s /etc/service/cron /etc/sv/cron
-
-# RUN echo "#!/bin/bash\ntouch /etc/crontab /etc/cron.d/* /var/spool/cron/crontabs/*" >> /etc/my_init.d/touch-crond && chmod 744 /etc/my_init.d/touch-crond
+  chown -R app:app /var/log/nginx && \
+  chown -R app:app /var/lib/nginx && \
+  chown -R app:app /run
 
 USER app
 
@@ -50,24 +48,9 @@ RUN mkdir -p /home/app/webapp/tmp/cache/downloads
 RUN chmod g+s /home/app/webapp/tmp/cache
 RUN chmod 755 /home/app/webapp/tmp/cache/downloads
 
-
 ENTRYPOINT ["sh", "bin/localdb.sh"]
 
 # Expose ports
 EXPOSE 3001 3306
 
-#USER root
-
-# Use baseimage-docker's init process.
-#CMD ["/sbin/my_init"]
-#CMD ["/sbin/my_init","--","setuser","app","bash"]
-#CMD ["/sbin/my_init", "--skip-startup-files"]
-#CMD ["/sbin/my_init", "--skip-runit"]
-#CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001", "--ssl", "--ssl-key-file","/etc/ssl/certs/server.key", "--ssl-cert-file", "/etc/ssl/certs/server.crt"]
-
-#CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001", "--ssl"]
-
-#CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001"]
-
-CMD rails server -b 'ssl://0.0.0.0:3001?key=/etc/ssl/certs/server.key&cert=/etc/ssl/certs/server.crt'
-
+CMD ["nginx"]
