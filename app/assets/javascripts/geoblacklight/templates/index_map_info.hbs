@@ -1,40 +1,48 @@
 <div class="index-map-info">
-  {{#if title}}
-    <div class="col-sm-12">
-      <h3>{{title}}</h3>
-    </div>
-  {{/if}}
   <div class="col-sm-12">
+    <h3>Your selection</h3>
+  </div>
+  <div class="col-sm-12 index-map__table">
     {{#if thumbnailUrl}}
       {{#if websiteUrl}}
-        <a href="{{websiteUrl}}">
-          <img src="{{thumbnailUrl}}" class="img-responsive">
-        </a>
+          <img src="{{thumbnailUrl}}" class="img-responsive index-map__thumbnail">
       {{else}}
         <img src="{{thumbnailUrl}}">
       {{/if}}
     {{/if}}
     <dl class="row dl-invert document-metadata">
+      {{#if title}}
+      <dt class="col-sm-2">Title</dt>
+      <dd class="col-sm-9">{{title}}</dd>
+      {{/if}}
       {{#if websiteUrl}}
-        <dt class="col-sm-3">Website</dt>
+        <dt class="col-sm-2">Website</dt>
         <dd class="col-sm-9"><a href="{{websiteUrl}}">{{websiteUrl}}</a></dd>
       {{/if}}
       {{#if downloadUrl}}
-        <dt class="col-sm-3">Download</dt>
+        <dt class="col-sm-2">Download</dt>
         <dd class="col-sm-9"><a href="{{downloadUrl}}">{{downloadUrl}}</a></dd>
       {{/if}}
       {{#if recordIdentifier}}
-        <dt class="col-sm-3">Record Identifier</dt>
+        <dt class="col-sm-2">Call number</dt>
         <dd class="col-sm-9">{{recordIdentifier}}</dd>
       {{/if}}
       {{#if label}}
-        <dt class="col-sm-3">Label</dt>
+        <dt class="col-sm-2">Label</dt>
         <dd class="col-sm-9">{{label}}</dd>
       {{/if}}
-      {{#if note}}
-        <dt class="col-sm-3">Note</dt>
-        <dd class="col-sm-9"><a>{{note}}</a></dd>
-      {{/if}}
     </dl>
+    <!-- UPDATE TO BE A LINK, ONLY LINK TEXT SHOULD BE ADDED INTO THE NOTES FIELD -->
+    <div class="index-map__request">
+      <a href="{{note}}" class="hl__button--small">
+      Request this item through Hollis</a>
+      <br>
+      {{note}}
+    </div>
+  </div>
+  <div class="index-map__close">
+    <button class="index-map__close--btn">
+      Close the index explorer
+    </button>
   </div>
 </div>

@@ -59,6 +59,11 @@ $(document).on('turbolinks:load', function() {
       $('.facets__rail').removeClass('open');
     });
 
+    // index map explorer toggle closed
+    $('body').on('click', '.index-map__close--btn', function(e){
+      $('.viewer-information').slideUp();
+    });
+
 
     // function displayFlashMessage(message) {
     //   var messageHtml = '<div class="alert alert-info">' + message + '<a class="close" data-dismiss="alert" href="#">&times;</a></div>';
