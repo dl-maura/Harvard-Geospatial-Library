@@ -38,6 +38,7 @@ services:
       - './app:/home/app/webapp/app'
       - './db:/home/app/webapp/db'
       - './config:/home/app/webapp/config'
+      - './spec:/home/app/webapp/spec'
       # Logs
       - './log:/home/app/webapp/log'
       - './webapp.conf:/etc/nginx/sites-enabled/webapp.conf'
