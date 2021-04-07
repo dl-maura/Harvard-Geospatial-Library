@@ -68,4 +68,5 @@ Rails.application.configure do
   config.hosts << "gbl-dev.lib.harvard.edu"
   config.hosts << "hgl-dev.lib.harvard.edu"
 
+        config.active_job.queue_adapter = :inline
 end
