@@ -92,7 +92,23 @@
     .map-thumbnail {
       height: 75px;
       min-width: 75px;
-      background: $c-bg-light;
+      // background: $c-bg-light;
+
+      .mr-3, .mx-3 {
+        margin-right: 0 !important;
+      }
+
+      .blacklight-icons {
+        height: 75px;
+        width: 75px;
+        align-items: center;
+        justify-content: space-around;
+
+        svg {
+          height: 50px;
+          width: 50px;
+        }
+      }
     }
   }
 
