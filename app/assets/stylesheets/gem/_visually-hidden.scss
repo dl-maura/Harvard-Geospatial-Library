@@ -21,7 +21,8 @@
 }
 
 // elements are are visually hidden
-.submit-search-text {
+.searchbar__wrapper:not(.homepage__search) .submit-search-text /* 'search' text inside searchbar */,
+.homepage h2 /* 'find by category/location' headings on homepage */ {
   @include sr-only();
 }
 

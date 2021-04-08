@@ -3,3 +3,14 @@ en:
     download:
       download_link: 'Download %{download_format}'
       export_link: '%{download_format}'
+
+    home:
+      headline: 'Harvard Geospatial Library'
+      # search_heading: 'Find the maps and data you need'
+      category_heading: 'Find by category'
+      # map_heading: 'Find by location'
+      institution: 'Repository'
+      # data_type: 'Data type'
+      # placename: 'Placename'
+      # subject: 'Subject'
+      # version: 'GeoBlacklight version %{version}'

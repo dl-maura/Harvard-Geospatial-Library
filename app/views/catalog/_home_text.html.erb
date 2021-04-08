@@ -1,62 +1,59 @@
-<div class='container'>
-  <div>
-    <h1>Heading 1</h1>
-    <h2>Heading 2</h2>
-    <h3>Heading 3</h3>
-    <h4>Heading 4</h4>
-    <h5>Heading 5</h5>
-    <h6>Heading 6</h6>
-    <p><button class="hl__button">Black</button>
-    <button class="hl__button--blue">Blue</button>
-    <button class="hl__button--outline">Outline</button>
-    <button class="hl__button--small">Small</button></p>
-    <p><a href="#">Link tag</a></p>
-    <p><a href="#" class="dark-link">Link tag dark</a></p>
-    <p><a href="#" class="more-link">Link tag with arrow</a></p>
-    <p><a href="#" class="show-more">Show more button (coming soon)</a></p>
-  </div>
-  <div class='row text-center'>
+<div class='container homepage'>
+  <div class='row'>
+    <!-- COLUMN 1 -->
     <div class='col-sm-7'>
+
+      <!-- TITLE -->
+      <h1>Harvard<br><span>Geospatial Library</span></h1>
+
+      <!-- SEARCHBAR -->
+      <div class='homepage__search searchbar__wrapper'>
+        <%= render_search_bar %>
+      </div>
+
+      <!-- VISUALL HIDDEN H2 -->
       <%= content_tag :h2, t('geoblacklight.home.category_heading') %>
-      <div class='row'>
-        <div class='category-block col-sm'>
-          <div class='category-icon'>
-            <%= geoblacklight_icon('home') %>
-          </div>
+
+      <!-- CATEGORY OPTIONS -->
+      <div>
+        <div class="homepage__category">
+          <%= geoblacklight_icon('home') %>
           <%= content_tag :h3, t('geoblacklight.home.institution') %>
+        </div>
+        <div class="homepage__links">
           <%= render_facet_tags [Settings.FIELDS.PROVENANCE] %>
         </div>
-        <div class='category-block col-sm'>
-          <div class='category-icon'>
-            <%= geoblacklight_icon('arrow-circle-down') %>
-          </div>
+        <div class="homepage__category">
+          <%= geoblacklight_icon('arrow-circle-down') %>
           <%= content_tag :h3, t('geoblacklight.home.data_type') %>
+        </div>
+        <div class="homepage__links">
           <%= render_facet_tags [Settings.FIELDS.GEOM_TYPE] %>
         </div>
-      </div>
-      <div class='row'>
-        <div class='category-block col-sm'>
-          <div class='category-icon'>
-            <%= geoblacklight_icon('globe') %>
-          </div>
+        <div class="homepage__category">
+          <%= geoblacklight_icon('globe') %>
           <%= content_tag :h3, t('geoblacklight.home.placename') %>
+        </div>
+        <div class="homepage__links">
           <%= render_facet_tags [Settings.FIELDS.SPATIAL_COVERAGE] %>
         </div>
-        <div class='category-block col-sm'>
-          <div class='category-icon'>
-            <%= geoblacklight_icon('tags') %>
-          </div>
+        <div class="homepage__category">
+          <%= geoblacklight_icon('tags') %>
           <%= content_tag :h3, t('geoblacklight.home.subject') %>
+        </div>
+        <div class="homepage__links">
           <%= render_facet_tags [Settings.FIELDS.SUBJECT] %>
         </div>
       </div>
     </div>
+
+    <!-- COLUMN 2  -->
     <div class='col-sm-5'>
+      <!-- VISUALLY HIDDEN H2 -->
       <%= content_tag :h2, t('geoblacklight.home.map_heading') %>
+
+      <!-- MAP -->
       <%= content_tag :div, '', id: 'map', aria: { label: t('geoblacklight.map.label') }, data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
     </div>
-  </div>
-  <div id="geoblacklight-version" class="text-right">
-    <%= t('geoblacklight.home.version', version: Geoblacklight::VERSION ) %>
   </div>
 </div>
