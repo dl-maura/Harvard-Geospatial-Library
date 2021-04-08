@@ -2,7 +2,8 @@
 a,
 #appliedParams a.btn,
 .page-sidebar .card .card-exports .btn /* export buttons */,
-.index-map__close--btn /* close the index explorer */ {
+.index-map__close--btn /* close the index explorer */,
+.page-sidebar label.toggle-bookmark /* bookmark checkbox label */ {
   font-family: $f-trueno;
   font-size: 17px;
   font-weight: 600;

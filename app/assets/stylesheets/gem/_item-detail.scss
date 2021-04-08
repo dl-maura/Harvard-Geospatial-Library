@@ -137,6 +137,11 @@
               line-height: normal;
               padding: 0;
             }
+
+            label.toggle-bookmark {
+              min-width: auto;
+              cursor: pointer;
+            }
           }
         }
 
@@ -156,6 +161,33 @@
           }
         }
 
+        .card-downloads {
+          h3 {
+            color: $c-font-subtle;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 17px;
+            margin-bottom: 12px;
+
+            &::before {
+            	background-image: linear-gradient(90deg, #6c6c6c 40%, rgba(255, 255, 255, 0) 20%), linear-gradient(90deg, #6c6c6c 40%, rgba(255, 255, 255, 0) 20%);
+            	background-position: top;
+            	background-repeat: repeat-x;
+            	background-size: 4px 1px;
+            	border: none;
+            	content: "";
+            	display: block;
+            	height: 1px;
+            	margin-bottom: 30px;
+            	margin-top: 30px;
+            }
+          }
+          a {
+            padding: 5px 9px;
+            max-width: 350px;
+          }
+        }
+
         .card-exports {
           h3 {
             color: $c-font-subtle;
@@ -170,6 +202,11 @@
           a {
             display: inline-block;
           }
+        }
+
+        .card-authentication a {
+          display: block;
+          max-width: 350px;
         }
       }
 
