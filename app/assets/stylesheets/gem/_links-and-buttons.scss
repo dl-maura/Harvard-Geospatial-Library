@@ -1,7 +1,9 @@
 // LINKS
 a,
 #appliedParams a.btn,
-.page-sidebar .card .card-exports .btn {
+.page-sidebar .card .card-exports .btn /* export buttons */,
+.index-map__close--btn /* close the index explorer */,
+.page-sidebar label.toggle-bookmark /* bookmark checkbox label */ {
   font-family: $f-trueno;
   font-size: 17px;
   font-weight: 600;
@@ -48,7 +50,8 @@ a.dark-link {
 
 // right arrow links
 a.more-link,
-.more_facets a {
+.more_facets a,
+.index-map__close--btn /* close the index explorer */ {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
@@ -164,7 +167,8 @@ input[type="submit"] {
 
 // small buttons
 .hl__button--small,
-.page-sidebar .card .btn /* buttons in sidebar */ {
+.page-sidebar .card .btn /* buttons in sidebar */,
+.viewer-information dl.document-metadata dd a.hl__button--small {
   @include hl-button-base;
   border-width: 1px;
   font-size: 12px;
@@ -182,7 +186,9 @@ input[type="submit"] {
 // small, outline button
 .hl__button--outline,
 .applied-filter.constraint .btn /* search contraints in header area */,
-.search-widgets button /* search results sorting options */{
+.search-widgets button /* search results sorting options */,
+.blacklight-search_history .btn.btn-danger,
+.clear-bookmarks.btn.btn-danger {
   @include hl-button-base;
   font-size: 14px;
   font-weight: normal;

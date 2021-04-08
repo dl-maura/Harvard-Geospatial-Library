@@ -238,7 +238,6 @@ class CatalogController < ApplicationController
     # Tools from Blacklight
     config.add_results_collection_tool(:sort_widget)
     config.add_results_collection_tool(:per_page_widget)
-    config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
     config.add_show_tools_partial(:citation)
 
     # Custom tools for GeoBlacklight
@@ -246,6 +245,8 @@ class CatalogController < ApplicationController
     config.add_show_tools_partial :carto, partial: 'carto', if: proc { |_context, _config, options| options[:document] && options[:document].carto_reference.present? }
     config.add_show_tools_partial :arcgis, partial: 'arcgis', if: proc { |_context, _config, options| options[:document] && options[:document].arcgis_urls.present? }
     config.add_show_tools_partial :data_dictionary, partial: 'data_dictionary', if: proc { |_context, _config, options| options[:document] && options[:document].data_dictionary_download.present? }
+
+    config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
 
     # Configure basemap provider for GeoBlacklight maps (uses https only basemap
     # providers with open licenses)
