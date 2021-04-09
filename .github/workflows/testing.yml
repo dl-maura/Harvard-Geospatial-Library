@@ -14,15 +14,14 @@ jobs:
           - '8888:3306'
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.6
+          bundler-cache: true
       - run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
 
     # steps:
-    #   - uses: actions/checkout@v2
-    #   - uses: actions/setup-ruby@v1
-    #     with:
-    #       ruby-version: 2.6.6
-    #       bundler-cache: true
     #   - name: Fix bundler
     #     run: gem install bundler:2.2.11
     #   - name: Bundle installer
