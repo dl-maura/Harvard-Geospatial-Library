@@ -9,11 +9,12 @@ jobs:
         image: mysql
         env:
           MYSQL_HOST: 127.0.0.1
+          MYSQL_DB: geo_harvard_test
+          MYSQL_USER: root
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: geo_harvard_test
-          MYSQL_PASSWORD: 
+          MYSQL_PASSWORD:
         ports:
-          - 3306
+          - "3306:3306"
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v2
