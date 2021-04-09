@@ -24,9 +24,14 @@ jobs:
         run: bundle install
       - name: create db
         run: rails db:create
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
       - name: migrate db
         run: rails db:migrate
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
       - name: Run tests
         run: bundle exec rspec
         env:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
+
