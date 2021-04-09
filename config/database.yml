@@ -1,10 +1,11 @@
 default: &default
   host: <%= ENV.fetch('MYSQL_HOST', 'localhost') %>
   adapter: <%= ENV.fetch('DB_ADAPTER', 'mysql2') %>
-  user: 'root'
-  password: 'password'
+  user: root
+  password: 
   port: <%= ENV.fetch('MYSQL_PORT', '') %>
   ssl_mode: <%= ENV.fetch('MYSQL_SSL', 'disabled') %>
+  socket: /tmp/mysql.sock
 development:
   <<: *default
   database: geo_harvard_development
@@ -14,5 +15,6 @@ development:
 test:
   <<: *default
   database: geo_harvard_test
+  host: 127.0.0.1
 production:
   <<: *default
