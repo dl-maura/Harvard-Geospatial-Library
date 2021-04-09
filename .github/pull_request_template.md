@@ -16,5 +16,10 @@ A description of what steps someone could take to:
 * Please be as detailed as possible.
 * Good testing instructions help get your PR completed faster.
 
+# Test coverage
+Yes/No: Are changes in this pull-request covered by:
+- unit tests?
+- integration tests?
+
 # Interested parties
 Tag (@ mention) interested parties
