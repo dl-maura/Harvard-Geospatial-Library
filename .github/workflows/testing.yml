@@ -35,6 +35,7 @@ jobs:
         run: rails db:create
         env:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          RAILS_ENV: test
       - name: migrate db
         run: rails db:migrate
         env:
