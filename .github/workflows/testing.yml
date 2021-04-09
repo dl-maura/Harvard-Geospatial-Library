@@ -18,11 +18,10 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6.6
-          bundler-cache: true
       - name: Test Connection 1
         run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
-      # - name: Fix bundler
-      #   run: gem install bundler:2.2.11
+      - name: Fix bundler
+        run: gem install bundler:2.2.11
       - name: Test Connection 2
         run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test2;'
       - name: Bundle installer
