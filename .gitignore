@@ -24,8 +24,6 @@ tmp/
 # Ignore environment file
 .env
 
-# Ignore configurations
-/config/database.yml
 
 # Ignore local postgresql database directory
 postgresql/
