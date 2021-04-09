@@ -4,6 +4,14 @@ jobs:
   rspec-test:
     name: RSpec
     runs-on: ubuntu-18.04
+    services:
+      mysql:
+        image: mysql
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: geo_harvard_test
+        ports:
+          - 3306
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
@@ -14,5 +22,11 @@ jobs:
         run: gem install bundler:2.2.11
       - name: Bundle installer
         run: bundle install
+      - name: create db
+        run: rails db:create
+      - name: migrate db
+        run: rails db:migrate
       - name: Run tests
         run: bundle exec rspec
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
