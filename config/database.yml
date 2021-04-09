@@ -1,10 +1,10 @@
-default: &default
-  host: <%= ENV['MYSQL_HOST'], 'localhost') %>
-  adapter: <%= ENV.fetch('DB_ADAPTER', 'mysql2') %>
-  user: <%= ENV['MYSQL_USER'], '') %>
-  password: <%= ENV['MYSQL_PASSWORD'], '') %>
-  port: <%= ENV['MYSQL_PORT'], '' %>
-  ssl_mode: <%= ENV['MYSQL_SSL'], 'disabled' %>
+ default: &default
+  host: <%= (ENV['MYSQL_HOST'], 'localhost') %>
+  adapter: <%= (ENV.fetch('DB_ADAPTER', 'mysql2') %>
+  user: <%= (ENV['MYSQL_USER'], '') %>
+  password: <%= (ENV['MYSQL_PASSWORD'], '') %>
+  port: <%= (ENV['MYSQL_PORT'], '') %>
+  ssl_mode: <%= (ENV['MYSQL_SSL'], 'disabled') %>
   timeout: 5000
 development:
   <<: *default
