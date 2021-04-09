@@ -1,9 +1,9 @@
 default: &default
-  host: <%= ENV.fetch('MYSQL_HOST', 'localhost') %>
+  host: <%= ENV.fetch('MYSQL_HOST', '127.0.0.1') %>
   adapter: <%= ENV.fetch('DB_ADAPTER', 'mysql2') %>
   user: <%= ENV.fetch('MYSQL_USER', '') %>
   password: <%= ENV.fetch('MYSQL_PASSWORD', '') %>
-  port: <%= ENV.fetch('MYSQL_PORT', '') %>
+  port: <%= ENV.fetch('MYSQL_PORT', '3306') %>
   ssl_mode: <%= ENV.fetch('MYSQL_SSL', 'disabled') %>
 development:
   <<: *default
