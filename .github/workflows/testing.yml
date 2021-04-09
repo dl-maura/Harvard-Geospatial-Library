@@ -20,16 +20,16 @@ jobs:
           ruby-version: 2.6.6
           bundler-cache: true
       - run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
+      - name: Fix bundler
+        run: gem install bundler:2.2.11
+      - name: Bundle installer
+        run: bundle install
+      - name: Test Connection
+        run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
 
     # steps:
-    #   - name: Fix bundler
-    #     run: gem install bundler:2.2.11
-    #   - name: Bundle installer
-    #     run: bundle install
     #   - name: Start db?
     #     run: sudo service mysql start
-    #   - name: Test Connection
-    #     run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
     #   - name: create db
     #     run: rails db:create
     #     env:
