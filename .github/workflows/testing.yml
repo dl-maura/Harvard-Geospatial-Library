@@ -3,45 +3,46 @@ on: [push]
 jobs:
   rspec-test:
     name: RSpec
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql
+        image: mysql:8.0
         env:
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_USER: root
-          MYSQL_PASSWORD: password
           MYSQL_ROOT_PASSWORD: password
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: geo_harvard_test
+          MYSQL_DATABASE: test
         ports:
-          - 3306
+          - '8888:3306'
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 2.6.6
-          bundler-cache: true
-      - name: Fix bundler
-        run: gem install bundler:2.2.11
-      - name: Bundle installer
-        run: bundle install
-      - name: Start db?
-        run: sudo service mysql start
-      - name: Test Connection
-        run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
-      - name: create db
-        run: rails db:create
-        env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
-          DB_PASSWORD: password
-          RAILS_ENV: test
-      - name: migrate db
-        run: rails db:migrate
-        env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
-      - name: Run tests
-        run: bundle exec rspec
-        env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
+      - uses: actions/checkout@v1
+      - run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
+
+    # steps:
+    #   - uses: actions/checkout@v2
+    #   - uses: actions/setup-ruby@v1
+    #     with:
+    #       ruby-version: 2.6.6
+    #       bundler-cache: true
+    #   - name: Fix bundler
+    #     run: gem install bundler:2.2.11
+    #   - name: Bundle installer
+    #     run: bundle install
+    #   - name: Start db?
+    #     run: sudo service mysql start
+    #   - name: Test Connection
+    #     run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
+    #   - name: create db
+    #     run: rails db:create
+    #     env:
+    #       DB_PORT: ${{ job.services.mysql.ports[3306] }}
+    #       DB_PASSWORD: password
+    #       RAILS_ENV: test
+    #   - name: migrate db
+    #     run: rails db:migrate
+    #     env:
+    #       DB_PORT: ${{ job.services.mysql.ports[3306] }}
+    #   - name: Run tests
+    #     run: bundle exec rspec
+    #     env:
+    #       DB_PORT: ${{ job.services.mysql.ports[3306] }}
 
