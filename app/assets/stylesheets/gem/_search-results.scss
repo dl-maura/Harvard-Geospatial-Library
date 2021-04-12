@@ -49,9 +49,7 @@
       margin-left: 0;
       margin-top: 0;
       padding: 0 20px;
-
       display: flex;
-      grid-gap: 0 20px;
       flex-wrap: wrap;
 
       // type styles
@@ -63,7 +61,11 @@
       text-transform: uppercase;
       color: $c-font-subtle;
 
-      .icon-missing {
+      .icon-label {
+        margin-right: 20px;
+      }
+
+      .icon-missing, .icon-missing + .icon-label {
         display: none;
       }
     }

@@ -81,6 +81,26 @@
       color: $c-font-dark;
       text-align: left !important;
     }
+
+    dt.col-md-3::after {
+      height: 5px;
+      width: 3px;
+      background: white;
+      content: ".";
+      position: relative;
+      left: -12px;
+      color: white;
+    }
+
+    @media($bp-medium-max){
+      dt {
+        border-bottom: 0;
+        padding-bottom: 10px;
+      }
+      dd {
+        padding-top: 0;
+      }
+    }
   }
 
   /* button styled as link + down-facing arrow */
