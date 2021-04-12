@@ -98,16 +98,24 @@
 
   // full width styles
   &.navbar-expand-md {
-    .navbar-nav .nav-link {
+    .container {
+      max-width: 100%;
+      padding: 0;
+    }
+    .navbar-nav {
+      // grid-gap: 0 20px;
+
+      .nav-link {
         padding: 0;
         margin: 0.5rem 1rem;
+      }
     }
   }
 
   // hamburger styles
   .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
     .navbar-nav .nav-link {
-      margin: 0.5rem 0;
+      margin: 0.5rem 1rem 0 0;
       padding: 0;
       display: inline-block;
     }
