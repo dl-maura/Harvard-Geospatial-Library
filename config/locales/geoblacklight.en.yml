@@ -6,11 +6,5 @@ en:
 
     home:
       headline: 'Harvard Geospatial Library'
-      # search_heading: 'Find the maps and data you need'
       category_heading: 'Find by category'
-      # map_heading: 'Find by location'
       institution: 'Repository'
-      # data_type: 'Data type'
-      # placename: 'Placename'
-      # subject: 'Subject'
-      # version: 'GeoBlacklight version %{version}'
