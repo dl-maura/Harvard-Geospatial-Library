@@ -20,6 +20,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user
       sign_in @user, event: :authentication # this will throw if @user is not activated
+      set_jwt_cookie(auth)
       redirect_to request.env['omniauth.origin'] || root_path
       set_flash_message(:notice, :success, kind: "CAS") if is_navigational_format?
     else
@@ -31,5 +32,19 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def after_omniauth_failure_path_for(_resource)
     root_path
+  end
+
+  def set_jwt_cookie(auth)
+    require 'jwt'
+    payload = {
+        displayName: auth.extra.displayName,
+        mail: auth.extra.mail,
+        memberOf: auth.extra.memberOf
+      }
+
+    token = JWT.encode payload, ENV['JWT_SECRET_KEY'], ENV['JWT_ALGORITHM']
+
+    # Set the cookie
+    cookies[:hgl] = { :value => token, :domain => ENV['COOKIE_DOMAIN'], :expires => Time.now + ENV['COOKIE_MAX_AGE_MINS'].to_i }
   end
 end

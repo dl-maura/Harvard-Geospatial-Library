@@ -113,21 +113,9 @@ const convertLinks = ( input ) => {
       // find links
       if ( !( linksFound[i].match( /(http(s?)):\/\// ) ) ) { replace = 'http://' + linksFound[i] }
 
-      // create shortened link text
+      // create shortened link text (we're using full urls, but just in case)
       const linkText = replace.split( '/' )[2];
       if ( linkText.substring( 0, 3 ) == 'www' ) { linkText = linkText.replace( 'www.', '' ) }
-
-      // if youtube link
-      if ( linkText.match( /youtu/ ) ) {
-        const youtubeID = replace.split( '/' ).slice(-1)[0];
-        aLink.push( '<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/' + youtubeID + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' )
-      }
-
-      // if vimeo link
-      else if ( linkText.match( /vimeo/ ) ) {
-        const vimeoID = replace.split( '/' ).slice(-1)[0];
-        aLink.push( '<div class="video-wrapper"><iframe src="https://player.vimeo.com/video/' + vimeoID + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>' )
-      }
 
       // if aeon link
       else if ( linkText.match( /aeon.hul.harvard.edu/ )) {
