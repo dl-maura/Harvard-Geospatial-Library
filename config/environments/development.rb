@@ -40,7 +40,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
-  config.active_support.deprecation = :log
+  config.active_support.deprecation = :silence
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
@@ -67,4 +67,5 @@ Rails.application.configure do
   config.hosts << "ltsds-cloud-dev-1.lib.harvard.edu"
   config.hosts << "gbl-dev.lib.harvard.edu"
   config.hosts << "hgl-dev.lib.harvard.edu"
+
 end

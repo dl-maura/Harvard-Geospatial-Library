@@ -1,3 +1,24 @@
 en:
   blacklight:
-    application_name: 'GeoBlacklight'
+    application_name: 'Harvard Geospatial Library'
+
+    search:
+      form:
+        search:
+          label: 'search for'
+          placeholder: 'Try "population data"'
+      facets:
+        title: 'Limit Your Search'
+        more_html: 'More <span class="sr-only">%{field_name}</span>'
+      filters:
+        search_term: 'Search term'
+      pagination_info:
+        no_items_found: 'No %{entry_name} found'
+        single_item_found: '<strong>1</strong> %{entry_name} found'
+        pages:
+          one: 'Showing <strong>%{start_num}</strong> to <strong>%{end_num}</strong> of <strong>%{total_num}</strong> results'
+          other: 'Showing <strong>%{start_num}</strong> to <strong>%{end_num}</strong> of <strong>%{total_num}</strong> results'
+    back_to_search: '« Back to Search Results'
+    search_history:
+      clear:
+        action_title: 'Delete Search History'

@@ -1,0 +1,41 @@
+<div class="index-map-info">
+  <div class="col-sm-12">
+    <h3>Your selection</h3>
+  </div>
+  <div class="col-sm-12 index-map__table">
+    {{#if thumbnailUrl}}
+      <img src="{{thumbnailUrl}}" class="img-responsive index-map__thumbnail">
+    {{/if}}
+    <dl class="row dl-invert document-metadata">
+      {{#if title}}
+      <dt class="col-sm-3">Title</dt>
+      <dd class="col-sm-8 index-map__title">{{title}}</dd>
+      {{/if}}
+      {{#if websiteUrl}}
+        <dt class="col-sm-3">Website</dt>
+        <dd class="col-sm-8"><a href="{{websiteUrl}}">{{websiteUrl}}</a></dd>
+      {{/if}}
+      {{#if downloadUrl}}
+        <dt class="col-sm-3">Download</dt>
+        <dd class="col-sm-8"><a href="{{downloadUrl}}">{{downloadUrl}}</a></dd>
+      {{/if}}
+      {{#if recordIdentifier}}
+        <dt class="col-sm-3">Call number</dt>
+        <dd class="col-sm-8">{{recordIdentifier}}</dd>
+      {{/if}}
+      {{#if label}}
+        <dt class="col-sm-3">Label</dt>
+        <dd class="col-sm-8">{{label}}</dd>
+      {{/if}}
+      {{#if note}}
+        <dt class="col-sm-3">Note</dt>
+        <dd class="col-sm-8 index-map__note">{{note}}</dd>
+      {{/if}}
+    </dl>
+  </div>
+  <div class="index-map__close">
+    <button class="index-map__close--btn">
+      Close the index explorer
+    </button>
+  </div>
+</div>

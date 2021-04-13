@@ -1,0 +1,66 @@
+<div class='container homepage'>
+  <div class='row'>
+    <!-- COLUMN 1 -->
+    <div class='col-sm-6'>
+
+      <!-- TITLE -->
+      <h1>Harvard<br><span>Geospatial Library</span></h1>
+
+      <!-- SEARCHBAR -->
+      <div class='homepage__search searchbar__wrapper'>
+        <%= render_search_bar %>
+      </div>
+
+      <!-- VISUALL HIDDEN H2 -->
+      <%= content_tag :h2, t('geoblacklight.home.category_heading') %>
+
+      <!-- CATEGORY OPTIONS -->
+      <!-- SUBJECT -->
+      <div class="homepage__category">
+        <%= geoblacklight_icon('tags') %>
+        <%= content_tag :h3, t('geoblacklight.home.subject') %>
+      </div>
+      <div class="homepage__links">
+        <%= render_facet_tags [Settings.FIELDS.SUBJECT] %>
+      </div>
+
+      <!-- PLACENAME -->
+      <div class="homepage__category">
+        <%= geoblacklight_icon('globe') %>
+        <%= content_tag :h3, t('geoblacklight.home.placename') %>
+      </div>
+      <div class="homepage__links">
+        <%= render_facet_tags [Settings.FIELDS.SPATIAL_COVERAGE] %>
+      </div>
+
+      <!-- REPOSITORY -->
+      <div class="homepage__category">
+        <%= geoblacklight_icon('home') %>
+        <%= content_tag :h3, t('geoblacklight.home.institution') %>
+      </div>
+      <div class="homepage__links">
+        <%= render_facet_tags [Settings.FIELDS.PROVENANCE] %>
+      </div>
+
+      <!-- DATA TYPE -->
+      <div class="homepage__category">
+        <%= geoblacklight_icon('arrow-circle-down') %>
+        <%= content_tag :h3, t('geoblacklight.home.data_type') %>
+      </div>
+      <div class="homepage__links">
+        <%= render_facet_tags [Settings.FIELDS.GEOM_TYPE] %>
+      </div>
+    </div>
+
+    <!-- COLUMN 2  -->
+    <div class='col-sm-6'>
+      <!-- VISUALLY HIDDEN H2 -->
+      <%= content_tag :h2, t('geoblacklight.home.map_heading') %>
+
+      <!-- MAP -->
+      <div class="homepage__map">
+        <%= content_tag :div, '', id: 'map', aria: { label: t('geoblacklight.map.label') }, data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
+      </div>
+    </div>
+  </div>
+</div>

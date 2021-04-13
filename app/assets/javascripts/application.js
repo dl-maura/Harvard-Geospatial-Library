@@ -13,6 +13,7 @@
 //= require jquery3
 //= require rails-ujs
 //= require activestorage
+//= require turbolinks
 
 //
 // Required by Blacklight
@@ -23,3 +24,49 @@
 //= require blacklight/blacklight
 
 //= require_tree .
+
+
+
+
+// AJAX MODAL STUFF
+$(document).on('turbolinks:load', function() {
+  $('body').on('click',function(){
+  })
+
+    function closeModal() {
+        $('#ajax-modal').removeClass('open');
+        $('.reveal-modal').removeClass('open').removeClass('in').hide();
+        $('.reveal-modal-bg').hide();
+        $('.modal-backdrop').hide();
+        $('body').removeClass('modal-open');
+    }
+
+    $('body').on('click', '.ajax-modal-close', function () {
+        closeModal();
+    });
+
+    $('body').on('keyup', function (e) {
+        if (e.key === "Escape" && $('body').hasClass('modal-open')) {
+            closeModal();
+        }
+    });
+
+    $('body').on('click', '.facets__rail .btn-show-facets', function (e) {
+      $('.facets__rail').addClass('open');
+    });
+
+    $('body').on('click', '.facets__rail .btn-hide-facets', function (e) {
+      $('.facets__rail').removeClass('open');
+    });
+
+    // index map explorer toggle closed
+    $('body').on('click', '.index-map__close--btn', function(e){
+      $('.viewer-information').slideUp();
+    });
+
+
+    // function displayFlashMessage(message) {
+    //   var messageHtml = '<div class="alert alert-info">' + message + '<a class="close" data-dismiss="alert" href="#">&times;</a></div>';
+    //   $('#main-flashes .flash_messages').html(messageHtml);
+    // }
+});

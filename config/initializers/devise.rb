@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '96f75c9dd3ea3203d0170b7636df802051d57abb0c9d8d809ffe50e2abd54b80dcec825eb27ab32256da2e96c0b2bb6b4935a44614d76a0edd102a2d03651c6c'
+  #config.secret_key = ENV['DEVISE_SECRET_KEY'] || '96f75c9dd3ea3203d0170b7636df802051d57abb0c9d8d809ffe50e2abd54b80dcec825eb27ab32256da2e96c0b2bb6b4935a44614d76a0edd102a2d03651c6c'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -272,6 +272,13 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  require "omniauth-cas"
+
+  config.omniauth :cas,
+                  host: 'www.pin1.harvard.edu',
+                  login_url: '/cas/login',
+                  service_validate_url: '/cas/serviceValidate',
+                  disable_ssl_verification: true
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

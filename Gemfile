@@ -26,6 +26,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Needed for mimemagic upgrade
+gem 'shared-mime-info', '~> 0.1'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -38,9 +41,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'blacklight'
 gem 'geoblacklight'
 
+# add geoserver-publish
+gem 'geoserver-publish'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
@@ -77,3 +84,7 @@ gem 'devise-guests', '~> 0.6'
 gem 'harvard-patterns-gem', '0.1.0', :git => 'https://gitlab.com/harvard-library-web-team/harvard-patterns-gem.git', :tag => '0.1.0'
 
 gem 'rails-healthcheck'
+
+gem 'omniauth-cas', '~> 2.0'
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
+gem 'jwt'

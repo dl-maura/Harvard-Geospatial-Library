@@ -7,3 +7,17 @@ MYSQL_DB=geoblacklight_local_db
 MYSQL_HOST=geoblacklight_db
 MYSQL_PORT=3306:3306
 SOLR_URL=<SOLR_URL>
+
+GEOSERVER_URL=<GEOSERVER_URL>
+GEOSERVER_USER=<GEOSERVER_USER>
+GEOSERVER_PASSWORD=<GEOSERVER_PASSWORD>
+
+# JWT Secret
+JWT_SECRET_KEY=ARe@llyL0ngAndC0mpl3xStr1ngF0rS1gn1ngTok3ns
+JWT_ALGORITHM=HS512
+
+# Cookie to store JWT
+# Set to COOKIE_DOMAIN the app domain name
+# Set to 'localhost' for local development
+COOKIE_DOMAIN=app.example.com
+COOKIE_MAX_AGE_MINS=15

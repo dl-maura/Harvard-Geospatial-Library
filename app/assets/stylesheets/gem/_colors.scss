@@ -1,0 +1,60 @@
+/* colors.scss */
+
+// Theme colors (do not use these variables directly in your CSS files)
+$c-theme-red: #eb001b;
+$c-theme-blue: #0579b8;
+$c-theme-blue-dark: #2a5280;
+$c-theme-crimson: #a51c30;
+$c-theme-yellow: #f8c21c;
+$c-theme-yellow-light: #fbe08e;
+$c-theme-ink: #1e1e1e;
+$c-theme-slateblue: #52757e;
+$c-theme-slateblue-dark: #335C67;
+$c-theme-teal: #3E6F7D;
+
+//other global colors
+$c-white: white;
+$c-black: $c-theme-ink;
+$c-gray-414141: #414141;
+$c-gray-6c6c6c: #6c6c6c;
+$c-gray-c0c0c0: #c0c0c0;
+$c-gray-dfdfdf: #dfdfdf;
+$c-gray-fafafa: #fafafa;
+
+$c-theme-base: $c-theme-ink !default;
+$c-theme-primary: $c-theme-red !default;
+$c-theme-secondary: $c-theme-blue !default;
+$c-theme-secondary-dark: $c-theme-blue-dark !default;
+$c-theme-tertiary: $c-theme-crimson !default;
+$c-theme-quaternary: $c-theme-yellow !default;
+$c-theme-quaternary-light: $c-theme-yellow-light !default;
+$c-theme-quinary: $c-theme-slateblue !default;
+$c-theme-quinary-dark: $c-theme-slateblue-dark !default;
+
+$c-font-filter-blue: #81bbdb;
+$c-bg-filter-blue: #439ac9;;
+
+$c-font-base: $c-gray-414141;
+$c-font-subtle: $c-gray-6c6c6c;
+$c-font-light: $c-gray-c0c0c0;
+$c-font-dark: $c-theme-ink;
+
+$c-font-heading: $c-theme-ink;
+$c-font-inverse: $c-white;
+$c-font-link: $c-theme-blue;
+$c-font-error: $c-theme-red;
+
+$c-bg-subtle: $c-gray-fafafa;
+$c-bg-section: $c-gray-fafafa;
+$c-bg-semi-dark: $c-gray-414141;
+$c-bg-light: $c-gray-c0c0c0;
+$c-bg-dark: $c-theme-ink;
+
+$c-bd-divider: $c-gray-c0c0c0;
+$c-bd-divider-dark: $c-theme-ink;
+$c-bd-error: $c-theme-red;
+$c-bd-semi-dark: $c-gray-414141;
+$c-bd-subtle: $c-gray-6c6c6c;
+
+// $c-bd-input: $c-gray-dcdcdc;
+// $c-bd-input-dark: $c-gray-757575;

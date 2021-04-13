@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   mysql-client \
   bash \
   tzdata \
+  shared-mime-info \
+  runit-systemd \
   openssl && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
   gem update --system && \
@@ -27,7 +29,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   rm -f /etc/service/nginx/down && \
   chmod +x /home/app/webapp/bin/*.sh && \
   chown app /etc/ssl/certs && \
-  chown app /etc/ssl/openssl.cnf
+  chown app /etc/ssl/openssl.cnf && \
+  chown -R app:app /etc/container_environment && \
+  chmod -R 755 /etc/container_environment && \
+  chown app:app /etc/container_environment.sh /etc/container_environment.json && \
+  chmod 644 /etc/container_environment.sh /etc/container_environment.json && \
+  chown -R app:app /var/log/nginx && \
+  chown -R app:app /var/lib/nginx && \
+  chown -R app:app /run
 
 USER app
 
@@ -48,7 +57,4 @@ ENTRYPOINT ["bin/migrations.sh"]
 # Expose ports
 EXPOSE 31000:3001 31001:3306
 
-USER root
-
-# Use baseimage-docker's init process.
-CMD ["/sbin/my_init"]
+CMD ["nginx"]
