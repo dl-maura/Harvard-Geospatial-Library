@@ -18,7 +18,7 @@ jobs:
       - name: give mysql time
         run: sleep 30
       - name: Test Connection 3
-        run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test3;'
+        run: mysql -h 127.0.0.1 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test3;'
 
     # steps:
     #   - name: Start db?
