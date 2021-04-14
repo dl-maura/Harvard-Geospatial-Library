@@ -3,6 +3,7 @@ default: &default
   adapter: mysql2
   username: root
   password: password
+  port: 8888
   ssl_mode: <%= ENV.fetch('MYSQL_SSL', 'disabled') %>
   socket: /tmp/mysql.sock
 development:
