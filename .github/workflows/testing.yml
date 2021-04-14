@@ -3,29 +3,40 @@ on: [push]
 jobs:
   rspec-test:
     name: RSpec
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql
+        image: mysql:8.0
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: geo_harvard_test
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test
+          MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
         ports:
-          - 3306
+          - '3306:3306'
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6.6
-          bundler-cache: true
+      - name: Test Connection 1
+        run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
       - name: Fix bundler
         run: gem install bundler:2.2.11
+      - name: Test Connection 2
+        run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test2;'
       - name: Bundle installer
         run: bundle install
+      - name: Test Connection 3
+        run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test3;'
       - name: create db
         run: rails db:create
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
       - name: migrate db
         run: rails db:migrate
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
       - name: Run tests
         run: bundle exec rspec
         env:
