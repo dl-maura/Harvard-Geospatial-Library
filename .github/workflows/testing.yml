@@ -21,8 +21,6 @@ jobs:
           ruby-version: 2.6.6
       - name: Test Connection 1
         run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
-      - name: Fix bundler
-        run: gem install bundler:2.2.11
       - name: Test Connection 2
         run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test2;'
       - name: Bundle installer
@@ -33,10 +31,12 @@ jobs:
         run: rails db:create
         env:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          MYSQL_USER: root
       - name: migrate db
         run: rails db:migrate
         env:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          MYSQL_USER: root
       - name: Run tests
         run: bundle exec rspec
         env:
