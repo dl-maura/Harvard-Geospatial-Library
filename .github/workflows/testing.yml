@@ -28,8 +28,6 @@ jobs:
         run: bundle install
       - name: Test Connection 3
         run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test3;'
-
-    steps:
      - name: create db
        run: rails db:create
     #   - name: migrate db
