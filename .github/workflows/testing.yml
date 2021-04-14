@@ -23,6 +23,8 @@ jobs:
         run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
       - name: Test Connection 2
         run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test2;'
+      - name: fix bundler
+        run: gem install bundler:2.2.14
       - name: Bundle installer
         run: bundle install
       - name: Test Connection 3
