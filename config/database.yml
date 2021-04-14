@@ -1,5 +1,5 @@
 default: &default
-  host: 127.0.0.1:8888
+  host: 127.0.0.1
   adapter: mysql2
   username: gbl_user
   password: password
