@@ -29,8 +29,6 @@ jobs:
         run: bundle install
       - name: Test Connection 3
         run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test3;'
-      - name: Create User
-        run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e "CREATE USER 'gbl_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';"
       - name: create db
         run: rails db:create
         env:
