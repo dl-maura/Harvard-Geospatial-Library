@@ -4,32 +4,32 @@ jobs:
   rspec-test:
     name: RSpec
     runs-on: ubuntu-latest
-    # services:
-      # mysql:
-      #   image: mysql:8.0
-      #   env:
-      #     MYSQL_ROOT_PASSWORD: password
-      #     MYSQL_DATABASE: test
-      #   ports:
-      #     - '8888:3306'
-      #   options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test
+        ports:
+          - '8888:3306'
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6.6
-      # - name: Test Connection 1
-      #   run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
+      - name: Test Connection 1
+        run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
       - name: Fix bundler
         run: gem install bundler:2.2.11
-      # - name: Test Connection 2
-      #   run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test2;'
+      - name: Test Connection 2
+        run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test2;'
       - name: Bundle installer
         run: bundle install
       - name: Start Mysql?
         run: sudo /etc/init.d/mysql start
       - name: Test Connection 3
-        run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test3;'
+        run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test3;'
 
     # steps:
     #   - name: Start db?
