@@ -10,10 +10,9 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: test
-          MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
         ports:
           - '8888:3306'
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3 --entrypoint sh mysql:8 -c "exec docker-entrypoint.sh mysqld --default-authentication-plugin=mysql_native_password"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
