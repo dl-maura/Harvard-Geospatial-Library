@@ -35,15 +35,18 @@ jobs:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
           MYSQL_USER: root
           MYSQL_SOCKET: /tmp/mysql.sock
+          RAILS_ENV: test
       - name: migrate db
         run: rails db:migrate
         env:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
           MYSQL_USER: root
           MYSQL_SOCKET: /tmp/mysql.sock
+          RAILS_ENV: test
       - name: Run tests
         run: bundle exec rspec
         env:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
           MYSQL_USER: root
           MYSQL_SOCKET: /tmp/mysql.sock
+          RAILS_ENV: test
