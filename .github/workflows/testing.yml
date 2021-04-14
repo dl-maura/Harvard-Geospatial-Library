@@ -30,6 +30,10 @@ jobs:
         run: sudo /etc/init.d/mysql start
       - name: Test Connection 3
         run: mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test3;'
+      - name: migrate db
+        run: rails db:migrate
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[8888] }}
 
     # steps:
     #   - name: Start db?
@@ -40,10 +44,6 @@ jobs:
     #       DB_PORT: ${{ job.services.mysql.ports[3306] }}
     #       DB_PASSWORD: password
     #       RAILS_ENV: test
-    #   - name: migrate db
-    #     run: rails db:migrate
-    #     env:
-    #       DB_PORT: ${{ job.services.mysql.ports[3306] }}
     #   - name: Run tests
     #     run: bundle exec rspec
     #     env:
