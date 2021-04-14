@@ -27,8 +27,6 @@ jobs:
         run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test2;'
       - name: Bundle installer
         run: bundle install
-      - name: Start Mysql?
-        run: sudo /etc/init.d/mysql start
       - name: Test Connection 3
         run: mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test3;'
       - name: Create User
