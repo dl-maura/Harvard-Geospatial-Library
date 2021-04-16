@@ -202,7 +202,12 @@
         .facet-label {
           padding: 0;
           text-indent: 0;
-          display: flex;
+          display: block;
+
+          &.selected {
+            display: flex;
+            align-items: center;
+          }
 
           a {
             color: $c-theme-ink;
@@ -223,33 +228,24 @@
           width: auto !important;
         }
 
-        // more link when a long list of facet values with new '_facet_limit.html.erb' file + modal view
-        // &.more_facets_link {
-        //   padding-right: 0;
-        //
-        //   a.more-link {
-        //     float: right;
-        //     margin-top: 0;
-        //   }
-        // }
-
         // hide missing icons
         .icon-missing {
           display: none;
         }
 
         // selected facets
-        .selected {
-          color: $c-font-subtle !important;
-
-          &:not(.facet-count){
-            color: $c-theme-ink !important;
-          }
-        }
+        // .selected {
+        //   color: $c-font-subtle !important;
+        //
+        //   &:not(.facet-count){
+        //     color: $c-theme-ink !important;
+        //   }
+        // }
 
         // selceted facets icon
         a.remove {
           border-bottom: 0;
+          height: 22px;
         }
 
       }
@@ -404,6 +400,16 @@
   .modal-body {
     .facet-label {
       padding-bottom: 0;
+
+      .selected {
+        color: $c-theme-ink;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.42;
+      }
+      a .remove-icon {
+        top: 8px;
+      }
     }
     .facet-select {
       color: $c-theme-ink;

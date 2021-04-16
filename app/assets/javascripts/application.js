@@ -59,10 +59,48 @@ $(document).on('turbolinks:load', function() {
       $('.facets__rail').removeClass('open');
     });
 
+
+
     // index map explorer toggle closed
     $('body').on('click', '.index-map__close--btn', function(e){
       $('.viewer-information').slideUp();
     });
+
+
+    // attribution table toggle open/closed
+    $(".attribute-table").each(function(){
+      $("#map").on("click",function(e){
+        $('.attribute-table__table').slideDown();
+      })
+    })
+    $('body').on('click', '.attribute-table__close--btn', function(e){
+      $('.attribute-table__table').slideUp();
+    });
+
+
+    // keep selected filter categories open until clicked closed
+    $('.active.accordion-navigation').each(function(){
+      const $el = $(this);
+      const $facetButton = $el.find(".facet__title");
+      $facetButton.attr('aria-expanded', 'true');
+      const $facetContent = $el.find(".active.panel-collapse");
+      $facetContent.addClass("show");
+      console.log($facetButton);
+    })
+
+    // selected filters styled as display:flex to center close icon
+    $('.active .facet-label').each(function(){
+      const $el = $(this);
+      const $selected = $el.find("span.selected");
+      if ($selected.html() != null){
+        $el.addClass("selected");
+      }
+    });
+
+    // add class to homepage's #main-container to make full width
+    $(".homepage").each(function(){
+      $("#main-container").addClass("homepage__container");
+    })
 
 
     // function displayFlashMessage(message) {

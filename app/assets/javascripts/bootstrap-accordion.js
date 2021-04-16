@@ -5,9 +5,9 @@ $(document).on('turbolinks:load', function () {
     $('#accordion .panel-collapse').collapse('hide');
     $('#accordion .expand_caret').addClass('fa-rotate-180');
   } else {
-    $('.toggle-all-facets .expand-text').hide();
-    $('.toggle-all-facets .collapse-text').show();
-    $('.toggle-all-facets').attr('aria-expanded', 'true');
+    // $('.toggle-all-facets .expand-text').show();
+    // $('.toggle-all-facets .collapse-text').hide();
+    // $('.toggle-all-facets').attr('aria-expanded', 'false');
   }
 
 
