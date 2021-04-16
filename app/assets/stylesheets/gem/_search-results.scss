@@ -101,6 +101,8 @@
   // map
   #map {
     z-index: 2; // prevents map from appearing on top of filter rail when slides open in mobile view
+    position: sticky !important;
+    top: 20px;
   }
   #main-container [data-map="index"] {
     @media($bp-medium-min){

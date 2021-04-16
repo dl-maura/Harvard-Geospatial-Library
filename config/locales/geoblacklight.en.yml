@@ -8,3 +8,6 @@ en:
       headline: 'Harvard Geospatial Library'
       category_heading: 'Find by category'
       institution: 'Repository'
+
+    metadata:
+      more_details: 'More details'
