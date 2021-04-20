@@ -206,7 +206,7 @@
 
           &.selected {
             display: flex;
-            align-items: center;
+            // align-items: center;
           }
 
           a {
@@ -234,13 +234,14 @@
         }
 
         // selected facets
-        // .selected {
-        //   color: $c-font-subtle !important;
-        //
-        //   &:not(.facet-count){
-        //     color: $c-theme-ink !important;
-        //   }
-        // }
+        .selected {
+          color: $c-font-subtle !important;
+          font-weight: 700;
+
+          &:not(.facet-count){
+            color: $c-theme-ink !important;
+          }
+        }
 
         // selceted facets icon
         a.remove {

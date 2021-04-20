@@ -23,7 +23,10 @@
 //= require bootstrap
 //= require blacklight/blacklight
 
+//= require leaflet-sleep
+
 //= require_tree .
+
 
 
 
@@ -82,11 +85,13 @@ $(document).on('turbolinks:load', function() {
     $('.active.accordion-navigation').each(function(){
       const $el = $(this);
       const $facetButton = $el.find(".facet__title");
+      const $facetToggle = $el.find(".facet-expand.toggle");
+      $facetToggle.removeClass("fa-rotate-180");
       $facetButton.attr('aria-expanded', 'true');
+
       const $facetContent = $el.find(".active.panel-collapse");
       $facetContent.addClass("show");
-      console.log($facetButton);
-    })
+    });
 
     // selected filters styled as display:flex to center close icon
     $('.active .facet-label').each(function(){
@@ -100,7 +105,7 @@ $(document).on('turbolinks:load', function() {
     // add class to homepage's #main-container to make full width
     $(".homepage").each(function(){
       $("#main-container").addClass("homepage__container");
-    })
+    });
 
 
     // function displayFlashMessage(message) {
