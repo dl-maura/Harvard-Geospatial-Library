@@ -15,54 +15,29 @@
       <%= content_tag :h2, t('geoblacklight.home.category_heading') %>
 
       <!-- CATEGORY OPTIONS -->
-      <div class="row">
-        <div class="category-block col-sm">Block 1</div>
-        <div class="category-block col-sm">Block 2</div>
+      <div class="row homepage__card-grid">
+        <a class="col-sm homepage__card" href="#">
+          Population data
+          <%= render :partial => 'svg/person-lines' %>
+        </a>
+        <a class="col-sm homepage__card" href="#">
+          Historical data
+          <%= render :partial => 'svg/book' %>
+        </a>
       </div>
-      <div class="row">
-        <div class="category-block col-sm">Block 3</div>
-        <div class="category-block col-sm">Block 4</div>
+      <div class="row homepage__card-grid">
+        <a class="col-sm homepage__card" href="#">
+          India data
+          <%= render :partial => 'svg/globe' %>
+        </a>
+        <a class="col-sm homepage__card" href="#">
+          Boston and Cambridge
+          <%= render :partial => 'svg/star' %>
+        </a>
       </div>
       <div class="row homepage__browse">
         <a href="/?utf8=✓&search_field=all_fields&q=" class="hl__button--blue">Browse all</a>
       </div>
-
-
-      <!-- SUBJECT -->
-      <!-- <div class="homepage__category">
-        <%= geoblacklight_icon('tags') %>
-        <%= content_tag :h3, t('geoblacklight.home.subject') %>
-      </div>
-      <div class="homepage__links">
-        <%= render_facet_tags [Settings.FIELDS.SUBJECT] %>
-      </div> -->
-
-      <!-- PLACENAME -->
-      <!-- <div class="homepage__category">
-        <%= geoblacklight_icon('globe') %>
-        <%= content_tag :h3, t('geoblacklight.home.placename') %>
-      </div>
-      <div class="homepage__links">
-        <%= render_facet_tags [Settings.FIELDS.SPATIAL_COVERAGE] %>
-      </div> -->
-
-      <!-- REPOSITORY -->
-      <!-- <div class="homepage__category">
-        <%= geoblacklight_icon('home') %>
-        <%= content_tag :h3, t('geoblacklight.home.institution') %>
-      </div>
-      <div class="homepage__links">
-        <%= render_facet_tags [Settings.FIELDS.PROVENANCE] %>
-      </div> -->
-
-      <!-- DATA TYPE -->
-      <!-- <div class="homepage__category">
-        <%= geoblacklight_icon('arrow-circle-down') %>
-        <%= content_tag :h3, t('geoblacklight.home.data_type') %>
-      </div>
-      <div class="homepage__links">
-        <%= render_facet_tags [Settings.FIELDS.GEOM_TYPE] %>
-      </div> -->
     </div>
 
     <!-- COLUMN 2  -->
