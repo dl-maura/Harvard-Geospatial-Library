@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <%= content_tag :html, class: 'no-js', **html_tag_attributes do %>
   <head>
+    <%= render partial: 'shared/analytics' %>
+
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,17 +17,8 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQTW371VPB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-SQTW371VPB');
-    </script>
   </head>
+
   <body class="<%= render_body_class %>">
     <nav id="skip-link" role="navigation" aria-label="<%= t('blacklight.skip_links.label') %>">
       <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
