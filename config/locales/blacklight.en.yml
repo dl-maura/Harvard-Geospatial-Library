@@ -6,7 +6,7 @@ en:
       form:
         search:
           label: 'search for'
-          placeholder: 'Try "population data"'
+          placeholder: 'Try "population data" or "Cambridge"'
       facets:
         title: 'Limit Your Search'
         more_html: 'More <span class="sr-only">%{field_name}</span>'

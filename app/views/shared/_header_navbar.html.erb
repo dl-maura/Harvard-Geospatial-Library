@@ -6,7 +6,7 @@
   <div class="hl__header-child__logo">
     <section class="hl__linked-image">
       <a href="https://library.harvard.edu" title="Harvard Library">
-        <%= image_tag("hl-logo-horizontal.svg", alt: "Harvard Library logo") %>
+        <%= render :partial => 'svg/hl-logo-horizontal' %>
       </a>
     </section>
   </div>
@@ -38,7 +38,7 @@
         <div class="search-constraints">
           <%= render_constraints(params) %>
           <div class="facets__clearall">
-            <%=link_to 'Clear All', search_catalog_path, :class => "" %>
+            <a class="" href="/?utf8=✓&search_field=all_fields&q=">Clear All</a>
           </div>
         </div>
       <% end %>

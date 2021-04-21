@@ -1,5 +1,5 @@
 // closed
-.index-map__directions {
+.index-map__directions, .attribute-table__directions {
   padding-top:10px;
   padding-left: 20px;
   color: $c-theme-blue;
@@ -17,6 +17,8 @@
 
 // open
 .viewer-information.col-sm-12 {
+  display: none;
+
   .index-map-info {
     background: $background-gray;
     margin-top: 0px;
@@ -34,8 +36,7 @@
       }
     }
     .index-map__table {
-      display: grid;
-      grid-template-columns: auto auto;
+      display: flex;
 
       @media($bp-small-max) {
         display: block;
@@ -43,9 +44,17 @@
     }
     .index-map__thumbnail {
       display: inline-block;
-      width: 200px;
-      margin-right: 20px;
-      margin-bottom: 20px;
+      width: 100%;
+      max-width: 200px;
+      height: 100%;
+      max-height: 200px;
+      margin-bottom: 30px;
+
+      @media($bp-small-min){
+        + dl {
+          margin-left: 30px;
+        }
+      }
     }
     .index-map__title {
       font-weight: 700;
@@ -71,13 +80,15 @@
       	font-size: 15px;
         border-bottom: none;
         margin-right: 20px;
+        min-width: 130px;
 
         @media($bp-large-max) {
           padding-bottom: 0;
         }
       }
       .hl__button--small {
-        width: 350px;
+        max-width: 350px;
+        width: 100%;
         text-align: center;
       }
     }
@@ -106,14 +117,52 @@
 
 
 
-// tables
-.row #table-container {
-  overflow: unset;
-  max-height: 100%;
-  font-size: 15px;
+// attribute tables
+.attribute-table {
+  // directions
+  &__directions {
+    padding-left: 0;
+  }
 
-  .table th,
-  .table td {
-    padding: 0.5em;
+  // table
+  &__table {
+    display: none;
+    position: relative;
+    background: $background-gray;
+
+    #table-container {
+      // overflow: unset;
+      // max-height: 400px;
+      font-size: 15px;
+      margin-top: 0;
+      padding-top: 20px;
+
+      .table th,
+      .table td {
+        padding: 0.5em;
+      }
+
+      a {
+        font-size: 15px;
+        font-family: Lora;
+        font-weight: normal;
+      }
+    }
+  }
+
+  // close button
+  &__close {
+    text-align: right;
+    padding: 0 20px 20px 20px;
+
+    &--btn {
+      margin-top: 20px;
+      background: transparent;
+      &::after {
+        border-left: 0.425em solid transparent;
+        border-bottom: 0.5em solid currentColor;
+        border-right: 0.425em solid transparent;
+      }
+    }
   }
 }

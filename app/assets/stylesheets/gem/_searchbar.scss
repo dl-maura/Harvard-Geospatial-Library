@@ -70,6 +70,10 @@
       margin-top: 20px;
     }
   }
+
+  #q.form-control:focus::placeholder {
+    opacity: 0;
+  }
 }
 
 // search contraint buttons

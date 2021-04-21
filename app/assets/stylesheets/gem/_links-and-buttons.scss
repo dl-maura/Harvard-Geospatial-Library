@@ -3,6 +3,7 @@ a,
 #appliedParams a.btn,
 .page-sidebar .card .card-exports .btn /* export buttons */,
 .index-map__close--btn /* close the index explorer */,
+.attribute-table__close--btn /* close the attribute table */,
 .page-sidebar label.toggle-bookmark /* bookmark checkbox label */ {
   font-family: $f-trueno;
   font-size: 17px;
@@ -51,7 +52,8 @@ a.dark-link {
 // right arrow links
 a.more-link,
 .more_facets a,
-.index-map__close--btn /* close the index explorer */ {
+.index-map__close--btn /* close the index explorer */,
+.attribute-table__close--btn /* close the attribute table */ {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
