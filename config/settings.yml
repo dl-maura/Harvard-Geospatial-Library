@@ -39,9 +39,10 @@ FIELDS:
   :TITLE: 'dc_title_s'
   :SOURCE: 'dc_source_sm'
   :ISSUED: 'dct_issued_s'
+  :LOCALIDS: 'harvard_collectionID_sm'
 
 # Institution deployed at
-INSTITUTION: 'Stanford'
+INSTITUTION: 'Harvard'
 
 # Metadata shown in tool panel
 METADATA_SHOWN:
