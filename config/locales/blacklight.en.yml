@@ -19,6 +19,7 @@ en:
           one: 'Showing <strong>%{start_num}</strong> to <strong>%{end_num}</strong> of <strong>%{total_num}</strong> results'
           other: 'Showing <strong>%{start_num}</strong> to <strong>%{end_num}</strong> of <strong>%{total_num}</strong> results'
     back_to_search: '« Back to Search Results'
+    back_to_bookmarks: '« Back to Bookmarks'
     search_history:
       clear:
         action_title: 'Delete Search History'

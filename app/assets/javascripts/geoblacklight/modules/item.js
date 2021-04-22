@@ -28,6 +28,7 @@ Blacklight.onLoad(function() {
     // calls the metadata we want as one per line
     onePerLine("blacklight-dc_subject_sm");
     onePerLine("blacklight-dct_spatial_sm");
+    onePerLine("blacklight-dc_creator_sm");
   });
 
 
@@ -44,12 +45,14 @@ Blacklight.onLoad(function() {
     const $fieldName = $(this).parent().prop('className');
     let $label = "";
 
-    if ($fieldName === "blacklight-dc_description_s col-md-9"){
+    if ($fieldName.includes("blacklight-dc_description_s")){
       $label = "description";
-    } else if ($fieldName === "blacklight-dct_spatial_sm col-md-9"){
+    } else if ($fieldName.includes("blacklight-dct_spatial_sm")){
       $label = "places";
-    } else if ($fieldName === "blacklight-dc_subject_sm col-md-9"){
+    } else if ($fieldName.includes("blacklight-dc_subject_sm")){
       $label = "subjects";
+    } else if ($fieldName.includes("blacklight-dc_creator_sm")){
+      $label = "authors";
     };
 
     let $showMore = "More " + $label;
