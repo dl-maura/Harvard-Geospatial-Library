@@ -6,7 +6,7 @@ en:
       form:
         search:
           label: 'search for'
-          placeholder: 'Try "population data"'
+          placeholder: 'Try "population data" or "Cambridge"'
       facets:
         title: 'Limit Your Search'
         more_html: 'More <span class="sr-only">%{field_name}</span>'
@@ -19,6 +19,7 @@ en:
           one: 'Showing <strong>%{start_num}</strong> to <strong>%{end_num}</strong> of <strong>%{total_num}</strong> results'
           other: 'Showing <strong>%{start_num}</strong> to <strong>%{end_num}</strong> of <strong>%{total_num}</strong> results'
     back_to_search: '« Back to Search Results'
+    back_to_bookmarks: '« Back to Bookmarks'
     search_history:
       clear:
         action_title: 'Delete Search History'

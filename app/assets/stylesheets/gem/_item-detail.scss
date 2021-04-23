@@ -71,6 +71,12 @@
       font-size: 15px;
       font-family: Lora;
       font-weight: 400;
+
+      .truncate-abstract {
+        span {
+          display: block;
+        }
+      }
     }
 
     dt {
@@ -80,6 +86,7 @@
       text-transform: uppercase;
       color: $c-font-dark;
       text-align: left !important;
+      white-space: nowrap;
     }
 
     dt.col-md-3::after {
@@ -103,6 +110,12 @@
     }
   }
 
+  // truncated text height
+  #document .truncate-abstract.collapse:not(.show), #document .truncate-abstract.collapsing{
+    min-height: 10.3rem;
+    max-height: 10.3rem;
+  }
+
   /* button styled as link + down-facing arrow */
   .truncate-abstract + button::after {
   	border-left: 0.425em solid transparent;
@@ -121,6 +134,10 @@
 
   // sidebar styling
   .page-sidebar {
+    > * {
+      margin-top: 20px;
+    }
+
     .card {
       font-family: $f-trueno;
       font-size: 15px;
@@ -142,28 +159,30 @@
         padding: 20px 40px 40px 40px;
       }
 
-      // tools & related links card
-      &.show-tools {
-        .list-group {
-          margin: 0;
+      .list-group {
+        margin: 0;
 
-          .list-group-item {
+        .list-group-item {
+          padding: 0;
+
+          a:not(.btn), .checkbox .toggle-bookmark {
+            display: inline;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: normal;
             padding: 0;
+          }
 
-            a:not(.btn), .checkbox .toggle-bookmark {
-              display: inline-block;
-              font-size: 15px;
-              font-weight: 500;
-              line-height: normal;
-              padding: 0;
-            }
-
-            label.toggle-bookmark {
-              min-width: auto;
-              cursor: pointer;
-            }
+          label.toggle-bookmark {
+            min-width: auto;
+            cursor: pointer;
           }
         }
+      }
+
+      // tools & related links card
+      &.show-tools {
+
 
         // card sections
         .card-downloads, .card-exports, .card-authentication {
@@ -205,6 +224,10 @@
           a {
             padding: 5px 9px;
             max-width: 350px;
+          }
+
+          li:not(:first-child) a {
+            margin-top: 8px;
           }
         }
 

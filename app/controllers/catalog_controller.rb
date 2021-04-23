@@ -125,6 +125,7 @@ class CatalogController < ApplicationController
     config.add_index_field Settings.FIELDS.CREATOR
     config.add_index_field Settings.FIELDS.DESCRIPTION, helper_method: :snippit
     config.add_index_field Settings.FIELDS.PUBLISHER
+    config.add_index_field Settings.FIELDS.LOCALIDS
 
 
 
@@ -134,17 +135,17 @@ class CatalogController < ApplicationController
     # item_prop: [String] property given to span with Schema.org item property
     # link_to_search: [Boolean] that can be passed to link to a facet search
     # helper_method: [Symbol] method that can be used to render the value
-    config.add_show_field Settings.FIELDS.CREATOR, label: 'Author(s)', itemprop: 'author'
+    config.add_show_field Settings.FIELDS.CREATOR, label: 'Author(s)', itemprop: 'author', link_to_facet: true
     config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
     config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
-    config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf'
+    config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf', link_to_facet: true
     config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial', link_to_facet: true
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_facet: true
     config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year', itemprop: 'temporal'
     config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_facet: true
     config.add_show_field(
       Settings.FIELDS.REFERENCES,
-      label: 'More details at',
+      label: 'More details',
       accessor: [:external_url],
       if: proc { |_, _, doc| doc.external_url },
       helper_method: :render_references_url
@@ -264,7 +265,7 @@ class CatalogController < ApplicationController
     config.basemap_provider = 'positron'
 
     # Configuration for autocomplete suggestor
-    config.autocomplete_enabled = true
+    config.autocomplete_enabled = false
     config.autocomplete_path = 'suggest'
   end
 

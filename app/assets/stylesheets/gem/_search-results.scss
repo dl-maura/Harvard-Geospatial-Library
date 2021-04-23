@@ -90,17 +90,13 @@
     & > div:first-of-type {
       width: 100%;
     }
-
-    .map-thumbnail {
-      height: 75px;
-      min-width: 75px;
-      background: $c-bg-light;
-    }
   }
 
   // map
   #map {
     z-index: 2; // prevents map from appearing on top of filter rail when slides open in mobile view
+    position: sticky !important;
+    top: 20px;
   }
   #main-container [data-map="index"] {
     @media($bp-medium-min){
