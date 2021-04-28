@@ -2,4 +2,12 @@
   &.leaflet-container {
     font-family: $f-trueno;
   }
+
+  .leaflet-control.opacity-control .opacity-bottom {
+    background-color: $c-theme-blue;
+  }
+
+  .sleep-note {
+    text-transform: uppercase;
+  }
 }

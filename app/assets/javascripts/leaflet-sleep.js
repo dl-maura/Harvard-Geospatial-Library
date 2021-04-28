@@ -20,7 +20,7 @@ L.Control.SleepMapControl = L.Control.extend({
     styles: {
       'backgroundColor': 'white',
       'padding': '5px',
-      'border': '2px solid gray'
+      'border': '1px solid #1e1e1e'
     }
   },
 
@@ -64,7 +64,6 @@ L.Map.mergeOptions({
   sleep: true,
   sleepTime: 750,
   wakeTime: 750,
-  wakeMessageTouch: 'Touch to Wake',
   sleepNote: true,
   hoverToWake: false,
   sleepOpacity:.7,
@@ -142,8 +141,10 @@ L.Map.Sleep = L.Handler.extend({
       style.top = '50%';
       style.position = 'relative';
       style.padding = '5px';
-      style.border = 'solid 2px black';
+      style.border = 'solid 1px #1e1e1e';
       style.background = 'white';
+      style.color = '#1e1e1e';
+      style.fontSize = '14px';
 
       if(this._map.options.sleepNoteStyle) {
         var noteStyleOverrides = this._map.options.sleepNoteStyle;
@@ -179,7 +180,7 @@ L.Map.Sleep = L.Handler.extend({
     }
 
     L.DomUtil.setOpacity( this._map._container, this._map.options.sleepOpacity);
-    this.sleepNote.style.opacity = this._map.options.sleepNoteStyle && this._map.options.sleepNoteStyle.opacity ? this._map.options.sleepNoteStyle.opacity : .6;
+    this.sleepNote.style.opacity = this._map.options.sleepNoteStyle && this._map.options.sleepNoteStyle.opacity ? this._map.options.sleepNoteStyle.opacity : 1;
     this._addSleepingListeners();
   },
 
