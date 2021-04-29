@@ -1,6 +1,12 @@
 #map {
   &.leaflet-container {
     font-family: $f-trueno;
+
+    a {
+      color: $c-theme-blue;
+      font-size: 15px;
+      font-weight: normal;
+    }
   }
 
   .leaflet-control.opacity-control .opacity-bottom {
