@@ -1,7 +1,9 @@
 #map {
-  &.leaflet-container {
+  * {
     font-family: $f-trueno;
+  }
 
+  &.leaflet-container {
     a {
       color: $c-theme-blue;
       font-size: 15px;
@@ -9,8 +11,15 @@
     }
   }
 
-  .leaflet-control.opacity-control .opacity-bottom {
-    background-color: $c-theme-blue;
+  .leaflet-control {
+    &-zoom .leaflet-control-zoom-in, &-zoom .leaflet-control-zoom-out {
+      font-size: 22px;
+      font-weight: 700;
+      color: $c-theme-ink;
+    }
+    &.opacity-control .opacity-bottom {
+      background-color: $c-theme-blue;
+    }
   }
 
   .sleep-note {
