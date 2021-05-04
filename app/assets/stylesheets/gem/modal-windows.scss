@@ -1,0 +1,278 @@
+// modal window popups
+#blacklight-modal {
+  .modal-dialog {
+    outline: 0;
+    z-index: 2000;
+    background: transparent;
+    border: none;
+    margin: 0 auto;
+    overflow: hidden;
+    font-family: $f-trueno;
+    width: 600px;
+    // height: 95%;
+    // max-height: 900px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    @media($bp-small-max) {
+      width: 90%;
+    }
+  }
+
+  .modal-content {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    padding: 40px;
+  }
+
+  .modal-header {
+    border-bottom: 0;
+    padding: 0;
+
+    .modal-title, h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 2.1px;
+      line-height: 1.5;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    button.close {
+      border-radius: 50%;
+      padding: 0.5em;
+      width: 21px;
+      height: 21px;
+      display: inline-block;
+      background: #6c6c6c;
+      position: relative;
+      transition: all 0.4s ease;
+      opacity: 1;
+
+      span {
+        color: transparent;
+        position: absolute;
+        top: -1.5px;
+        font-size: 36px;
+        right: 5px;
+        line-height: 28.5px;
+        font-weight: normal;
+      }
+
+      &:hover, &:focus {
+        background: $c-theme-red;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 0;
+    font-family: $f-lora;
+    font-size: 15px;
+
+    .alert {
+      font-family: $f-trueno;
+      line-height: normal;
+    }
+
+    pre {
+      font-family: Courier, monospace;
+    }
+
+    // metadata modal
+    &.metadata-body {
+      height: auto;
+      max-height: calc(100vh - 220px);
+
+      .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      #metadata-container {
+        font-family: $f-trueno;
+
+        h1 {
+          font-family: $f-lora;
+          font-size: 32px;
+          line-height: 38px;
+          margin-top: 20px;
+        }
+
+        ul {
+          margin-bottom: 20px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          font-family: $f-trueno;
+          font-weight: 700;
+
+          li a {
+            font-size: 15px;
+            padding-left: 6px;
+          }
+        }
+
+        h2 {
+          font-size: 20px;
+          letter-spacing: 1.5px;
+          line-height: 30px;
+        }
+
+        div dl {
+          padding-right: 20px;
+          padding-left: 0;
+        }
+
+        div > dl > dt {
+          font-size: 20px;
+          line-height: 24px;
+        }
+
+        > div:not(:last-of-type) {
+          border-bottom: 1px solid $border-gray;
+          margin-bottom: 30px;
+          margin-right: 30px;
+
+          > dl {
+            margin-bottom: 30px;
+          }
+        }
+      }
+
+      #metadata-error-container {
+        text-align: left;
+
+        h1 {
+          font-size: 28px;
+          font-weight: 700;
+          letter-spacing: 2.1px;
+          line-height: 1.5;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+          margin-top: 20px;
+        }
+      }
+    }
+
+
+    // filter facet modal
+    .facet-extended-list {
+      padding-bottom: 20px;
+      .facet-label {
+        padding-bottom: 0;
+
+        .selected {
+          color: $c-theme-ink !important;
+          font-family: $f-trueno;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 1.42;
+        }
+        a .remove-icon {
+          top: 8px;
+        }
+      }
+      .facet-select {
+        color: $c-theme-ink;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.42;
+
+        &:hover, &:focus {
+          border-color: rgba($c-theme-ink,0.5);
+        }
+      }
+      .facet-count {
+        color: $c-font-subtle !important;
+        font-family: $f-trueno;
+        vertical-align: bottom;
+
+        &.selected {
+          font-weight: 700;
+        }
+      }
+    }
+
+
+    // hgl request form modal
+    form {
+      .row {
+        align-items: center;
+      }
+      label {
+        font-family: $f-trueno;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+      }
+      input.form-control {
+        color: $c-gray-6c6c6c;
+        font-family: $f-trueno;
+        font-weight: 300;
+        border: 1px $border-gray solid;
+        // border-right: none;
+        // border-radius: 4px 0 0 4px;
+        padding: 6px 12px;
+        height: 45px;
+      }
+    }
+  }
+
+  .modal-footer {
+    padding: 20px 0;
+    margin-bottom: -40px;
+
+    > * {
+      margin: 0;
+    }
+
+    .facet-pagination.bottom {
+      width: 100%;
+    }
+    .prev_next_links {
+      &.btn-group {
+        display: block;
+      }
+      .btn {
+        text-transform: none;
+        font-weight: normal;
+        letter-spacing: normal;
+        padding: 0;
+        border: 0;
+        border-bottom: 3px solid transparent;
+        border-radius: 0;
+        font-size: 16px;
+        line-height: 1.42;
+
+        &:not(:last-child){
+          margin-right: 20px;
+        }
+        &:not(.disabled){
+          &:hover, &:focus {
+            border-color: rgba($c-font-link, 0.3);
+          }
+        }
+      }
+    }
+  }
+
+  // modal button toggles
+  .nav-pills {
+    .nav-item:not(:last-child) {
+      margin-right: 20px;
+    }
+    .nav-link {
+      border: 1px solid $c-theme-base;
+
+      &:not(.active) {
+        background: $c-white;
+        color: $c-theme-base;
+      }
+
+      &:hover, &:focus {
+        background: $c-gray-6c6c6c;
+        border-color: $c-gray-6c6c6c;
+        color: $c-white;
+      }
+    }
+  }
+}
