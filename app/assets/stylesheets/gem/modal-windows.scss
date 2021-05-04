@@ -78,6 +78,11 @@
       font-family: Courier, monospace;
     }
 
+    // citation paragraphs
+    .citation:last-child {
+      margin-bottom: 0;
+    }
+
     // metadata modal
     &.metadata-body {
       height: auto;
@@ -192,7 +197,6 @@
       }
     }
 
-
     // hgl request form modal
     form {
       .row {
@@ -209,10 +213,11 @@
         font-family: $f-trueno;
         font-weight: 300;
         border: 1px $border-gray solid;
-        // border-right: none;
-        // border-radius: 4px 0 0 4px;
         padding: 6px 12px;
         height: 45px;
+      }
+      #requestEmail {
+        margin: 10px 0;
       }
     }
   }
