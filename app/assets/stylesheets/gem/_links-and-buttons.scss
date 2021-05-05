@@ -170,7 +170,8 @@ input[type="submit"] {
 // small buttons
 .hl__button--small,
 .page-sidebar .card .btn /* buttons in sidebar */,
-.viewer-information dl.document-metadata dd a.hl__button--small {
+.viewer-information dl.document-metadata dd a.hl__button--small,
+#blacklight-modal .nav-pills .nav-link /* active modal button */ {
   @include hl-button-base;
   border-width: 1px;
   font-size: 12px;
