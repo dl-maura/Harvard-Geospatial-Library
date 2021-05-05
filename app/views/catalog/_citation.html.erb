@@ -6,6 +6,8 @@
 </div>
 <div class="modal-body">
   <% @documents&.each do |document| %>
-    <p class="citation"><%= document.geoblacklight_citation(solr_document_url(document)) %></p>
+    <p class="citation">
+      <%= document.geoblacklight_citation(solr_document_url(document)) %>
+      Retrieved from <%= link_to solr_document_url(document), solr_document_url(document) %></p>
   <% end %>
 </div>

@@ -79,8 +79,15 @@
     }
 
     // citation paragraphs
-    .citation:last-child {
-      margin-bottom: 0;
+    .citation {
+      a {
+        font-family: $f-lora;
+        font-size: 15px;
+        font-weight: normal;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     // metadata modal
