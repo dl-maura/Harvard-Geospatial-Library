@@ -162,6 +162,10 @@
     // filter facet modal
     .facet-extended-list {
       padding-bottom: 20px;
+
+      li {
+        line-height: 33px;
+      }
       .facet-label {
         padding-bottom: 0;
 
@@ -193,6 +197,7 @@
 
         &.selected {
           font-weight: 700;
+          vertical-align: middle;
         }
       }
     }
