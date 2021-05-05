@@ -28,7 +28,7 @@
 
   &[data-protocol="IndexMap"] {
     .leaflet-interactive {
-      stroke: black;
+      stroke: $c-bd-divider-dark;
       fill-opacity: 0.65;
     }
   }
