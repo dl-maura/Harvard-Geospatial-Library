@@ -45,6 +45,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     token = JWT.encode payload, ENV['JWT_SECRET_KEY'], ENV['JWT_ALGORITHM']
 
     # Set the cookie
-    cookies[:hgl] = { :value => token, :domain => ENV['COOKIE_DOMAIN'], :expires => Time.now + ENV['COOKIE_MAX_AGE_MINS'].to_i }
+    cookies[:hgl] = { :value => token, :domain => ENV['COOKIE_DOMAIN'], :expires => Time.now + ENV['COOKIE_MAX_AGE_MINS'].to_i.minutes }
   end
 end
