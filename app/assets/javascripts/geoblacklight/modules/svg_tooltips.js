@@ -3,11 +3,7 @@
 Blacklight.onLoad(function() {
   'use strict';
 
-  $('.status-icons > div').each(function(){
-    var svgTitle = $(this).find('title');
-    var titleText = svgTitle && svgTitle.text();
-    $(this).append('<span class="icon-label">'+ titleText + '</span>');
-  })
+  getIconLabel();
 
   $('body').on('mouseenter', '.blacklight-icons.svg_tooltip svg', function() {
     console.log('mouseover');
@@ -36,3 +32,11 @@ Blacklight.onLoad(function() {
     }
   });
 });
+
+const getIconLabel = () => {
+  $('.status-icons > div').each(function(){
+    var svgTitle = $(this).find('title');
+    var titleText = svgTitle && svgTitle.text();
+    $(this).append('<span class="icon-label" aria-hidden="true">'+ titleText + '</span>');
+  })
+}
