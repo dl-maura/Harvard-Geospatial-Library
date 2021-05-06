@@ -67,7 +67,7 @@ Blacklight.onLoad(function() {
       var resp = $.parseHTML(data);
       $doc = $(resp);
       $('#documents').replaceWith($doc.find('#documents'));
-      $('#sidebar').replaceWith($doc.find('#sidebar'));
+      getIconLabel();
       $('#sortAndPerPage').replaceWith($doc.find('#sortAndPerPage'));
       $('#appliedParams').replaceWith($doc.find('#appliedParams'));
       $('#pagination').replaceWith($doc.find('#pagination'));
