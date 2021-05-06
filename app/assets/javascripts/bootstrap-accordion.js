@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function () {
+Blacklight.onLoad(function () {
 
   var windowWidth = $(window).width();
   if (windowWidth <= 992) { //for iPad & smaller devices

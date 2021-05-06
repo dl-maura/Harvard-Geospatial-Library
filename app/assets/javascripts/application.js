@@ -13,7 +13,7 @@
 //= require jquery3
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+
 
 //
 // Required by Blacklight
@@ -32,9 +32,7 @@
 
 
 // AJAX MODAL STUFF
-$(document).on('turbolinks:load', function() {
-  $('body').on('click',function(){
-  })
+Blacklight.onLoad(function() {
 
     function closeModal() {
         $('#ajax-modal').removeClass('open');
@@ -107,9 +105,4 @@ $(document).on('turbolinks:load', function() {
       $("#main-container").addClass("homepage__container");
     });
 
-
-    // function displayFlashMessage(message) {
-    //   var messageHtml = '<div class="alert alert-info">' + message + '<a class="close" data-dismiss="alert" href="#">&times;</a></div>';
-    //   $('#main-flashes .flash_messages').html(messageHtml);
-    // }
 });
