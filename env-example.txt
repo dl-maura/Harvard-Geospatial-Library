@@ -21,3 +21,6 @@ JWT_ALGORITHM=HS512
 # Set to 'localhost' for local development
 COOKIE_DOMAIN=app.example.com
 COOKIE_MAX_AGE_MINS=15
+
+# Rails Keys
+RAILS_MASTER_KEY=<KEY>

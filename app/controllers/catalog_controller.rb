@@ -124,8 +124,8 @@ class CatalogController < ApplicationController
     config.add_index_field Settings.FIELDS.YEAR
     config.add_index_field Settings.FIELDS.CREATOR
     config.add_index_field Settings.FIELDS.DESCRIPTION, helper_method: :snippit
-    config.add_index_field Settings.FIELDS.PUBLISHER
-    config.add_index_field Settings.FIELDS.LOCALIDS
+    # config.add_index_field Settings.FIELDS.PUBLISHER
+    # config.add_index_field Settings.FIELDS.LOCALIDS
 
 
 

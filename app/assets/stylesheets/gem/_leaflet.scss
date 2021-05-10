@@ -1,5 +1,35 @@
 #map {
-  &.leaflet-container {
+  * {
     font-family: $f-trueno;
+  }
+
+  &.leaflet-container {
+    a {
+      color: $c-theme-blue;
+      font-size: 15px;
+      font-weight: normal;
+    }
+  }
+
+  .leaflet-control {
+    &-zoom .leaflet-control-zoom-in, &-zoom .leaflet-control-zoom-out {
+      font-size: 22px;
+      font-weight: 700;
+      color: $c-theme-ink;
+    }
+    &.opacity-control .opacity-bottom {
+      background-color: $c-theme-blue;
+    }
+  }
+
+  .sleep-note {
+    text-transform: uppercase;
+  }
+
+  &[data-protocol="IndexMap"] {
+    .leaflet-interactive {
+      stroke: $c-bd-divider-dark;
+      fill-opacity: 0.65;
+    }
   }
 }
