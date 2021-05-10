@@ -25,4 +25,11 @@
   .sleep-note {
     text-transform: uppercase;
   }
+
+  &[data-protocol="IndexMap"] {
+    .leaflet-interactive {
+      stroke: $c-bd-divider-dark;
+      fill-opacity: 0.65;
+    }
+  }
 }
