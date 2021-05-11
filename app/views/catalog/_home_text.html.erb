@@ -1,20 +1,19 @@
 <div class='container homepage'>
   <div class='row'>
-    <!-- COLUMN 1 -->
     <div class='col-sm-5'>
 
-      <!-- TITLE -->
+      <% # title -%>
       <h1>Harvard<br><span>Geospatial Library</span></h1>
 
-      <!-- SEARCHBAR -->
+      <% # searchbar -%>
       <div class='homepage__search searchbar__wrapper'>
         <%= render_search_bar %>
       </div>
 
-      <!-- VISUALL HIDDEN H2 -->
+      <% # visually hidden -%>
       <%= content_tag :h2, t('geoblacklight.home.category_heading') %>
 
-      <!-- CATEGORY OPTIONS -->
+      <% # category options -%>
       <div class="row homepage__card-grid">
         <a class="col-sm homepage__card" href="#">
           Population data
@@ -40,12 +39,11 @@
       </div>
     </div>
 
-    <!-- COLUMN 2  -->
     <div class='col-sm-7'>
-      <!-- VISUALLY HIDDEN H2 -->
+      <% # visually hidden -%>
       <%= content_tag :h2, t('geoblacklight.home.map_heading') %>
 
-      <!-- MAP -->
+      <% # map -%>
       <div class="homepage__map">
         <%= content_tag :div, '', id: 'map', aria: { label: t('geoblacklight.map.label') }, data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
       </div>
