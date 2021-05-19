@@ -67,7 +67,7 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
             return L.circleMarker(latlng);
           }
         }).addTo(_this.map);
-        _this.map.fitBounds(geoJSONLayer.getBounds());
+      _this.map.fitBounds(geoJSONLayer.getBounds());
     });
   }
 });
