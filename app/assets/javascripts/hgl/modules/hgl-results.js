@@ -10,9 +10,9 @@ Blacklight.onLoad(function() {
 
   $('[data-map="index"]').each(function() {
     var data = $(this).data(),
-    opts = { baseUrl: data.catalogPath },
-    world = L.latLngBounds([[-90, -180], [90, 180]]),
-    geoblacklight, bbox;
+      opts = { baseUrl: data.catalogPath },
+      world = L.latLngBounds([[-90, -180], [90, 180]]),
+      geoblacklight, bbox;
 
     if (typeof data.mapGeom === 'string') {
       bbox = L.geoJSONToBounds(data.mapGeom);
@@ -67,9 +67,9 @@ Blacklight.onLoad(function() {
       var resp = $.parseHTML(data);
       $doc = $(resp);
       $('#documents').replaceWith($doc.find('#documents'));
-      getIconLabel();
       $('#sortAndPerPage').replaceWith($doc.find('#sortAndPerPage'));
       $('#appliedParams').replaceWith($doc.find('#appliedParams'));
+      $('.search-constraints').replaceWith($doc.find('.search-constraints'));
       $('#pagination').replaceWith($doc.find('#pagination'));
       if ($('#map').next().length) {
         $('#map').next().replaceWith($doc.find('#map').next());

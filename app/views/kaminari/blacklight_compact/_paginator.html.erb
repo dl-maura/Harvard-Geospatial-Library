@@ -14,27 +14,8 @@
 
    As of Kaminari 0.15, this paginator doesn't have access to the original collection/scope, so it can't render the page entries info directly.
 -%>
-<!-- <% if total_pages > 1 -%>
-  <%# #render checks if total_pages > 1, so we can't put our fallback
-  in here .. -%>
-  <%= paginator.render do -%>
-    <div class="page-links">
-      <%= prev_page_tag %> |
-      <span class="page-entries">
-        <%= page_entries_info %>
-      </span> |
-      <%= next_page_tag %>
-    </div>
-  <% end -%>
-<% else -%>
-    <div class="page-links">
-      <span class="page-entries">
-        <%= page_entries_info %>
-      </span>
-    </div>
-<% end -%> -->
 
-<!-- removes the previous/next page links from the top pagination area of search page -->
+<% # removes the previous/next page links from the top pagination area of search page %>
 <div class="page-links">
   <span class="page-entries">
     <%= page_entries_info %>

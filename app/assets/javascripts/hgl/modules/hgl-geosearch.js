@@ -10,7 +10,7 @@
    */
   L.boundsToBbox = function(bounds) {
     var sw = bounds.getSouthWest(),
-        ne = bounds.getNorthEast();
+      ne = bounds.getNorthEast();
 
     if ((ne.lng - sw.lng) >= 360) {
       sw.lng = -180;
@@ -47,7 +47,7 @@
 
     onAdd: function(map) {
       var $container = $('<div class="leaflet-control search-control"></div>'),
-          staticSearcher, dynamicSearcher;
+        staticSearcher, dynamicSearcher;
       this._map = map;
 
       staticSearcher = L.Util.bind(function() {
@@ -102,7 +102,7 @@
 
     getSearchUrl: function() {
       var params = this.filterParams(['bbox', 'page']),
-          bounds = L.boundsToBbox(this._map.getBounds());
+        bounds = L.boundsToBbox(this._map.getBounds());
 
       params.push('bbox=' + encodeURIComponent(bounds.join(' ')));
       return this.options.baseUrl + '?' + params.join('&');
@@ -110,7 +110,7 @@
 
     filterParams: function(filterList) {
       var querystring = window.location.search.substr(1),
-          params = [];
+        params = [];
 
       if (querystring !== "") {
         params = $.map(querystring.split('&'), function(value) {

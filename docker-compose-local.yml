@@ -32,7 +32,7 @@ services:
       dockerfile: DockerfileLocal
     env_file: .env
     environment:
-      RAILS_ENV: $RAILS_ENV
+      RAILS_ENV: ${RAILS_ENV}
     volumes:
       # App files to work locally
       - './app:/home/app/webapp/app'
@@ -42,6 +42,7 @@ services:
       - './.rspec:/home/app/webapp/.rspec'
       # Logs
       - './log:/home/app/webapp/log'
+      - './log/nginx:/var/log/nginx'
       - './webapp.conf:/etc/nginx/sites-enabled/webapp.conf'
     tty: true
     ports:
