@@ -28,7 +28,6 @@
 //= stub geoblacklight/modules/geosearch
 //= stub geoblacklight/modules/item
 //= stub geoblacklight/modules/results
-//= stub geoblacklight/modules/svg_tooltips
 
 //= require_tree .
 

@@ -1,9 +1,18 @@
 <div class="icon-array">
   <%= geoblacklight_icon(document[Settings.FIELDS.GEOM_TYPE], classes: 'svg_tooltip') %>
+  <span class="icon-label" aria-hidden="true">
+    <%= document[Settings.FIELDS.GEOM_TYPE] %>
+  </span>
 </div>
 <div class="icon-array">
   <%= geoblacklight_icon(document[Settings.FIELDS.PROVENANCE], classes: 'svg_tooltip') %>
+  <span class="icon-label" aria-hidden="true">
+    <%= document[Settings.FIELDS.PROVENANCE] %>
+  </span>
 </div>
 <div class="icon-array">
   <%= geoblacklight_icon(document[Settings.FIELDS.RIGHTS], classes: 'svg_tooltip') %>
+  <span class="icon-label" aria-hidden="true">
+    <%= document[Settings.FIELDS.RIGHTS] %>
+  </span>
 </div>
