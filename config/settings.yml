@@ -52,10 +52,10 @@ METADATA_SHOWN:
   - 'html'
 
 # (For external Download) timeout and open_timeout parameters for Faraday
-TIMEOUT_DOWNLOAD: 16
+TIMEOUT_DOWNLOAD: 60
 
 # (For WMS inspection) timeout and open_timeout parameters for Faraday
-TIMEOUT_WMS: 4
+TIMEOUT_WMS: 60
 
 # Use the geometry type for the data relations icon
 USE_GEOM_FOR_RELATIONS_ICON: false
