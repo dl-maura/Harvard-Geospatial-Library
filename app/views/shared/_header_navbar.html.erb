@@ -1,4 +1,4 @@
-<!-- CHILD THEME HEADER -->
+<% # child theme header %>
 <section class="hl__header-child">
   <div class="hl__header-child__title hl__header-child__title--teal">
     <a href="/" title="Harvard Geospatial Library"><span>Harvard</span> Geospatial Library</a>
@@ -13,7 +13,7 @@
 </section>
 
 
-<!-- DARK NAV -->
+<% # dark nav %>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark topbar" aria-label="user">
   <div class="<%= container_classes %>">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,12 +25,11 @@
     </div>
   </div>
 </nav>
-
-<!-- SEARCHBAR -->
+<% # searchbar %>
 <% if controller_name == 'catalog' && !(has_search_parameters? || params[:action] == 'show') %>
-  <!-- HOMEPAGE LAYOUT ON _HOME_TEXT.HTML.ERB -->
+  <% # homepage layout on _home_text.html.erb %>
 <% elsif controller_name == 'catalog' && (has_search_parameters? || params[:action] == 'show') %>
-<!-- SEARCH RESULTS + ITEM DETAIL -->
+<% # search results + item detail %>
   <div class="searchbar__wrapper" role="navigation">
     <div class="<%= container_classes %>">
       <%= render_search_bar  %>
@@ -45,7 +44,7 @@
     </div>
   </div>
 <% else %>
-  <!-- EVERYWHERE ELSE -->
+  <% # everywhere else %>
   <div class="searchbar__wrapper" role="navigation">
     <div class="<%= container_classes %>">
       <%= render_search_bar  %>

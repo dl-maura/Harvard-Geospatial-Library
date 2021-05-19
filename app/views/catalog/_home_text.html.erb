@@ -1,36 +1,35 @@
 <div class='container homepage'>
   <div class='row'>
-    <!-- COLUMN 1 -->
     <div class='col-sm-5'>
 
-      <!-- TITLE -->
+      <% # title -%>
       <h1>Harvard<br><span>Geospatial Library</span></h1>
 
-      <!-- SEARCHBAR -->
+      <% # searchbar -%>
       <div class='homepage__search searchbar__wrapper'>
         <%= render_search_bar %>
       </div>
 
-      <!-- VISUALL HIDDEN H2 -->
+      <% # visually hidden -%>
       <%= content_tag :h2, t('geoblacklight.home.category_heading') %>
 
-      <!-- CATEGORY OPTIONS -->
+      <% # category options -%>
       <div class="row homepage__card-grid">
-        <a class="col-sm homepage__card" href="#">
+        <a class="col-sm homepage__card" href="/?q=population+data">
           Population data
           <%= render :partial => 'svg/person-lines' %>
         </a>
-        <a class="col-sm homepage__card" href="#">
+        <a class="col-sm homepage__card" href="/?q=historical+data">
           Historical data
           <%= render :partial => 'svg/book' %>
         </a>
       </div>
       <div class="row homepage__card-grid">
-        <a class="col-sm homepage__card" href="#">
+        <a class="col-sm homepage__card" href="/?f%5Bdct_spatial_sm%5D%5B%5D=India&q=">
           India data
           <%= render :partial => 'svg/globe' %>
         </a>
-        <a class="col-sm homepage__card" href="#">
+        <a class="col-sm homepage__card" href="/?f[dct_spatial_sm][]=Boston&q=cambridge">
           Boston and Cambridge
           <%= render :partial => 'svg/star' %>
         </a>
@@ -40,12 +39,11 @@
       </div>
     </div>
 
-    <!-- COLUMN 2  -->
     <div class='col-sm-7'>
-      <!-- VISUALLY HIDDEN H2 -->
+      <% # visually hidden -%>
       <%= content_tag :h2, t('geoblacklight.home.map_heading') %>
 
-      <!-- MAP -->
+      <% # map -%>
       <div class="homepage__map">
         <%= content_tag :div, '', id: 'map', aria: { label: t('geoblacklight.map.label') }, data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
       </div>
