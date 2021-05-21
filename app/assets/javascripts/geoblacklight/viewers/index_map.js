@@ -53,7 +53,6 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
                 GeoBlacklight.Util.indexMapTemplate(feature.properties, function(html) {
                   // find texty-text links in note field and turn into active links
                   const text = linkifyNote(html);
-                  // const text = convertNote(html);
                   $('.viewer-information').html(text).slideDown();
                 });
                 GeoBlacklight.Util.indexMapDownloadTemplate(feature.properties, function(html) {
