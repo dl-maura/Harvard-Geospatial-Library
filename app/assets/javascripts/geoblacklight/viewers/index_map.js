@@ -53,6 +53,7 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
                 GeoBlacklight.Util.indexMapTemplate(feature.properties, function(html) {
                   // find texty-text links in note field and turn into active links
                   const text = linkifyNote(html);
+                  // const text = convertNote(html);
                   $('.viewer-information').html(text).slideDown();
                 });
                 GeoBlacklight.Util.indexMapDownloadTemplate(feature.properties, function(html) {
@@ -81,14 +82,16 @@ const linkifyNote = ( input ) => {
     const preNoteText = text.split('index-map__note').shift();
     let noteText = text.split('index-map__note').pop();
 
-    // remove phrase "View in library: " if link coming from aeon
-    const noteHarvard = noteText.includes("aeon.hul.harvard.edu");
-    if (noteHarvard != null ) {
-      noteText = noteText.replace("View in Library: ", "");
-    }
-
     // convert any links in note field into links
-    const noteWithLinks = convertLinks(noteText);
+    let noteWithLinks = convertLinks(noteText);
+
+    // remove any preamble text before button if link coming from aeon
+    // (i.e. "View in library: ")
+    const noteHarvard = noteText.includes("aeon.hul.harvard.edu");
+    const buttonFound = noteWithLinks.match( /hl__button--small/ );
+    if (( noteHarvard != null )&&( buttonFound != null )) {
+      noteWithLinks = '"><a' + noteWithLinks.split('<a').pop();
+    }
 
     // recombine sections with new html for links
     text = preNoteText + noteWithLinks;
@@ -119,7 +122,7 @@ const convertLinks = ( input ) => {
 
       // if aeon link
       else if ( linkText.match( /aeon.hul.harvard.edu/ )) {
-        aLink.push( '<a class="hl__button--small" href="' + replace + '" target="_blank">Request this item through Hollis</a>' );
+        aLink.push( '<a class="hl__button--small" href="' + replace + '" target="_blank">Request to scan or visit</a>' );
       }
 
       // everything else
