@@ -104,7 +104,7 @@ const linkifyNote = ( input ) => {
 const convertLinks = ( input ) => {
   let text = input;
   // const linksFound = text.match( /(?:www|https?)[^\s]+/g );
-  const linksFound = text.match( /(\b(?:www|https?)[-A-Z0-9+&@#\/%?=~_|!:,.;()* ]*[-A-Z0-9+&@#\/%=~_|])/gim );
+  const linksFound = text.match( /(\b(?:www|https?)[-A-zÀ-ÿ0-9+&@#\/%?=~_|!:,.;()* ]*[-A-Z0-9+&@#\/%=~_|])/gim );
   const aLink = [];
 
   if ( linksFound != null ) {
