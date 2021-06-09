@@ -1,5 +1,5 @@
 #https://github.com/phusion/passenger-docker
-FROM phusion/passenger-ruby26
+FROM phusion/passenger-ruby26:1.0.13
 
 # Set correct environment variables.
 ENV DEBIAN_FRONTEND noninteractive
