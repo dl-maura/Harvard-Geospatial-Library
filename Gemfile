@@ -81,7 +81,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
 
-gem 'harvard-patterns-gem', '0.1.3', :git => 'https://gitlab.com/harvard-library-web-team/harvard-patterns-gem.git', :tag => '0.1.4'
+gem 'harvard-patterns-gem', '0.1.3', :git => 'https://gitlab.com/harvard-library-web-team/harvard-patterns-gem.git', :tag => '0.1.3'
 
 gem 'rails-healthcheck'
 
