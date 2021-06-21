@@ -1,5 +1,5 @@
-@import 'gem-files';
-@import 'harvard-patterns';
+// @import 'harvard-patterns';
+// @import 'gem-files';
 
 // BOOTSTRAP variables
 /*
@@ -56,13 +56,13 @@ $background-gray: #F3F3F3; // new variable
 
 // Body
 // $body-bg: $white;
-$body-color: $c-font-base;
+$body-color: $gray-700;
 
 
 // Links
 $link-color: $blue;
 $link-decoration: none;
-$link-hover-color: $c-theme-blue;
+$link-hover-color: $blue;
 $link-hover-decoration: none;
 $link-fade: border 0.28s cubic-bezier(0.28,1.08,1,0.96); // new variable
 
@@ -89,9 +89,9 @@ $border-radius-sm: 4px;
 
 
 // Fonts
-$font-family-sans-serif: $f-trueno;
-$font-family-monospace: $f-lora;
-$font-family-base: $f-lora;
+$font-family-sans-serif: sans-serif;
+$font-family-monospace: Georgia, serif;
+$font-family-base: Georgia, serif;
 $font-size-base: 1.188rem; // 19px
 $font-size-lg: 1.563rem; // 25px
 $font-size-sm: 0.938rem; // 15px
@@ -106,10 +106,10 @@ $h4-font-size: 1.25rem; // 20px
 $h5-font-size: 1.188rem; // 19px
 $h6-font-size: 1rem; // 15px
 $headings-margin-bottom: 1.25rem;
-$headings-font-family: $f-trueno;
+// $headings-font-family: sans-serif;
 $headings-font-weight: bold;
 // $headings-line-height: 1.1;
-$headings-color: $c-theme-ink;
+$headings-color: $black;
 // $display1-size: 6rem;
 // $display2-size: 5.5rem;
 // $display3-size: 4.5rem;
@@ -161,7 +161,7 @@ $btn-transition: $button-fade;
 // Forms
 // $input-bg: $white;
 // $input-disabled-bg: $gray-200;
-$input-color: $c-font-subtle;
+$input-color: $gray-600;
 $input-border-color: $border-gray;
 // $input-btn-border-width: $border-width;
 // $input-box-shadow: inset 0 1px 1px rgba($black, 0.075);
@@ -253,7 +253,7 @@ $dropdown-min-width: 100%;
 $dropdown-padding-y: 0;
 $dropdown-spacer: 0;
 // $dropdown-bg: $white;
-$dropdown-border-color: $c-bd-subtle;
+$dropdown-border-color: $gray-600;
 // $dropdown-border-width: $border-width;
 // $dropdown-divider-bg: $gray-200;
 $dropdown-box-shadow: 0 0.5rem 1rem rgba($black, 0.175);
@@ -381,28 +381,25 @@ $navbar-light-toggler-border-color: transparent;
 $pagination-border-width: none;
 // $pagination-border-color: #ddd;
 // $pagination-hover-color: $link-hover-color;
-$pagination-hover-bg: $c-gray-fafafa;
+$pagination-hover-bg: $gray-100;
 // $pagination-hover-border-color: #ddd;
-$pagination-active-color: $c-font-subtle;
-$pagination-active-bg: $c-gray-fafafa;
+$pagination-active-color: $gray-600;
+$pagination-active-bg: $gray-100;
 // $pagination-active-border-color: theme-color('primary');
-$pagination-disabled-color: $c-font-subtle;
+$pagination-disabled-color: $gray-600;
 // $pagination-disabled-bg: $white;
 $pagination-disabled-border-color: transparent;
 
 // bootstrap pagination
 .pagination {
   width: 100%;
-  // margin: 20px 0;
-  font-family: $f-trueno;
 }
 ul.pagination {
 	margin: 0 auto;
 	padding-top: 20px;
-	border-top: 1px solid $c-bd-divider;
+	border-top: 1px solid $gray-400;
 }
 ul.pagination, ul.pagination a {
-  font-family: $f-trueno;
   font-size: 17px;
   font-weight: 700;
 }
@@ -424,7 +421,7 @@ $card-spacer-y: 1.25rem;
 $card-spacer-x: 1.25rem;
 $card-border-width: 1px;
 $card-border-radius: none;
-$card-border-color: $c-bd-divider;
+$card-border-color: $gray-400;
 // $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width});
 $card-cap-bg: transparent;
 // $card-bg: $white;
