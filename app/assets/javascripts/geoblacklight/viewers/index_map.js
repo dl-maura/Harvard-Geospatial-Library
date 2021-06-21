@@ -81,14 +81,16 @@ const linkifyNote = ( input ) => {
     const preNoteText = text.split('index-map__note').shift();
     let noteText = text.split('index-map__note').pop();
 
-    // remove phrase "View in library: " if link coming from aeon
-    const noteHarvard = noteText.includes("aeon.hul.harvard.edu");
-    if (noteHarvard != null ) {
-      noteText = noteText.replace("View in Library: ", "");
-    }
-
     // convert any links in note field into links
-    const noteWithLinks = convertLinks(noteText);
+    let noteWithLinks = convertLinks(noteText);
+
+    // remove any preamble text before button if link coming from aeon
+    // (i.e. "View in library: ")
+    const noteHarvard = noteText.includes("aeon.hul.harvard.edu");
+    const buttonFound = noteWithLinks.match( /hl__button--small/ );
+    if (( noteHarvard != null )&&( buttonFound != null )) {
+      noteWithLinks = '"><a' + noteWithLinks.split('<a').pop();
+    }
 
     // recombine sections with new html for links
     text = preNoteText + noteWithLinks;
@@ -102,7 +104,7 @@ const linkifyNote = ( input ) => {
 const convertLinks = ( input ) => {
   let text = input;
   // const linksFound = text.match( /(?:www|https?)[^\s]+/g );
-  const linksFound = text.match( /(\b(?:www|https?)[-A-Z0-9+&@#\/%?=~_|!:,.;()* ]*[-A-Z0-9+&@#\/%=~_|])/gim );
+  const linksFound = text.match( /(\b(?:www|https?)[-A-zÀ-ÿ0-9+&@#\/%?=~_|!:,.;()* ]*[-A-Z0-9+&@#\/%=~_|])/gim );
   const aLink = [];
 
   if ( linksFound != null ) {
@@ -119,7 +121,7 @@ const convertLinks = ( input ) => {
 
       // if aeon link
       else if ( linkText.match( /aeon.hul.harvard.edu/ )) {
-        aLink.push( '<a class="hl__button--small" href="' + replace + '" target="_blank">Request this item through Hollis</a>' );
+        aLink.push( '<a class="hl__button--small" href="' + replace + '" target="_blank">Request to scan or visit</a>' );
       }
 
       // everything else
