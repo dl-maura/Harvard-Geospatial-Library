@@ -1,0 +1,153 @@
+.searchbar__wrapper {
+  background: $background-gray;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+
+  .input-group {
+    width: 100%;
+    max-width: 630px;
+    flex-wrap: nowrap;
+
+    .twitter-typeahead {
+      display: block !important;
+    }
+
+    input {
+      color: $c-gray-6c6c6c;
+      font-family: $f-trueno;
+      font-weight: 300;
+      border: 1px $border-gray solid;
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      padding: 6px 12px;
+      height: 45px;
+
+      .twitter-typeahead .tt-suggestion {
+        font-family: $f-trueno;
+      }
+    }
+
+    &-append {
+      height: 45px;
+
+      #search {
+        padding: 0 15px;
+        background: $c-gray-6c6c6c;
+        border: $c-gray-6c6c6c;
+
+        &:hover,  &:focus {
+          background: $c-bg-semi-dark;
+          border: $c-bg-semi-dark;
+        }
+      }
+
+      .blacklight-icon-search, .blacklight-icon-search svg {
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+
+  .facets__clearall {
+    margin-top: 5px;
+  }
+
+  @media($bp-medium-min) {
+    & > .container {
+      display: flex;
+      grid-gap: 20px;
+    }
+
+    .search-query-form {
+      flex: 1 1 630px;
+      max-width: 630px;
+    }
+  }
+
+  @media($bp-medium-max){
+    .search-constraints {
+      margin-top: 20px;
+    }
+  }
+
+  #q.form-control:focus::placeholder {
+    opacity: 0;
+  }
+}
+
+// search contraint buttons
+.applied-filter.constraint {
+  .btn {
+    &:hover, &:focus {
+      background: $c-white;
+      color: $c-theme-base;
+      border-color: $c-theme-base;
+    }
+  }
+
+  .constraint-value, .constraint-value:hover, .constraint-value:focus {
+    cursor: default;
+    border-right: none;
+  }
+
+  .btn.remove {
+    line-height: 1em;
+    border-left: none;
+    padding-left: 1px;
+  }
+
+  .filter-name::after {
+    color: $c-theme-base;
+    content: ":";
+    font-size: 1em;
+  }
+}
+
+
+a.remove {
+  line-height: 1em;
+  border: 0;
+
+  .remove-icon {
+    border-radius: 50%;
+    padding: 0.5em;
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    background: $c-gray-6c6c6c;
+    border: 1px solid $c-gray-6c6c6c;
+    position: relative;
+    transition: all 0.4s ease;
+    color: transparent;
+
+    &::before, &::after {
+      content: " ";
+      position: absolute;
+      display: block;
+      background: $white;
+      width: 2px;
+      left: 8.5px;
+      top: 4px;
+      bottom: 4px;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &:hover, &:focus {
+    .remove-icon {
+      background: $c-theme-red;
+      border-color: $c-theme-red;
+    }
+  }
+}
+
+.applied-filter .remove:not(:disabled):not(.disabled):active:focus {
+  box-shadow: none;
+  background: transparent;
+  border: $c-theme-base;
+}

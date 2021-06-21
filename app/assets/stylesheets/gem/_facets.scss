@@ -1,0 +1,358 @@
+.facets__rail {
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+  width: 100%;
+  z-index: 3;
+  transition: all 0.7s ease;
+  background: $background-gray;
+
+  @media($bp-medium-max){
+    margin-top: -35px;
+  }
+
+  &.open {
+    transform: none;
+  }
+
+  // expand/collapse all toggle
+  .toggle-wrapper {
+    overflow: hidden;
+
+    .toggle-all-facets {
+      font-family: $f-trueno;
+      font-size: 13px;
+      font-weight: 300;
+      border: none;
+      background: $background-gray;
+      padding: 6px 25px;
+      float: right;
+
+      &:hover, &:focus {
+        background: $border-gray;
+        color: $c-white;
+      }
+
+      .expand-text {
+        display: inline-block;
+      }
+
+      .collapse-text {
+        display: none;
+      }
+
+      &[aria-expanded=true] {
+        .expand-text {
+          display: none;
+        }
+
+        .collapse-text {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  // '«' button to show/hide facets rail
+  .btn-show-facets {
+    height: 300px;
+    width: 40px;
+    position: absolute;
+    right: -40px;
+    top: 0%;
+    background: $background-gray;
+    border: none;
+
+    .btn-show-facets__label {
+      transform: rotate(270deg) translate(0,-130px);
+      font-family: $f-trueno;
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: bold;
+      display: block;
+      width: 300px;
+      height: 40px;
+      text-align: right;
+      padding-right: 40px;
+    }
+  }
+
+  .btn-hide-facets {
+    background: transparent;
+    border: none;
+    position: absolute;
+    right: 10px;
+    top: 6px;
+  }
+
+  // from 'https://css.gg/chevron-double-right'
+  .angle-double-right, .angle-double-left {
+    box-sizing: border-box;
+    // position: relative;
+    // display: inline-block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    // left: 6px;
+    transition: transform 0.5s ease;
+
+    &::before, &::after {
+      content: "";
+      display: inline-block;
+      box-sizing: border-box;
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid;
+      border-top: 2px solid;
+      transform: rotate(45deg);
+      top: 16px;
+      right: 15px;
+    }
+
+    &::after {
+      right: 20px;
+    }
+  }
+
+  .angle-double-left {
+    &::before, &::after {
+      transform: scaleX(-1) rotate(45deg);
+    }
+  }
+
+  @media($bp-medium-min) {
+    position: static;
+    background: transparent;
+    transform: none;
+
+    .btn-show-facets, .btn-hide-facets {
+      display: none;
+    }
+  }
+
+  // 'Limit your search' heading
+  .facets__heading {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 1.5px;
+    padding: 10px 0 20px 25px;
+    margin: 0;
+
+    @media($bp-medium-min){
+      padding: 0 0 20px 0;
+    }
+  }
+
+  // facet container
+  .facets__container {
+    background-color: $background-gray;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+
+    // spacing + border for facet categories
+    .accordion {
+      margin-bottom: 0;
+
+      .accordion-navigation {
+        border-bottom: 1px solid $border-gray;
+        // padding: 25px 0;
+        margin: 0 25px;
+      }
+
+      &:last-child {
+        .accordion-navigation {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    // facet categories
+    a.facet__title {
+      border: none;
+      color: $c-font-heading;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 25px 0;
+      display: block;
+    }
+
+    // facet values (selectable options)
+    .facet-values {
+      font-family: $f-trueno;
+      padding: 0;
+      margin-bottom: 25px;
+
+      li {
+        display: block;
+        padding: 6px 50px 6px 0;
+        position: relative;
+        line-height: 1.42;
+        min-height: 40px;
+
+        .facet-label a,
+        .facet-count,
+        .selected {
+          font-size: 16px;
+          font-weight: 400;
+          color: $c-font-subtle;
+        }
+
+        // facet value label
+        .facet-label {
+          padding: 0;
+          text-indent: 0;
+          display: block;
+
+          &.selected {
+            display: flex;
+            // align-items: center;
+          }
+
+          a {
+            color: $c-theme-ink;
+
+            &:hover, &:hover {
+              color: $c-theme-ink;
+              border-color: rgba($c-theme-ink,0.5)
+            }
+          }
+        }
+
+        // number of results defined by facet value
+        .facet-count {
+          position: absolute;
+          right: 0px;
+          top: 6px;
+          text-align: right;
+          width: auto !important;
+        }
+
+        // hide missing icons
+        .icon-missing {
+          display: none;
+        }
+
+        // selected facets
+        .selected {
+          color: $c-font-subtle !important;
+          font-weight: 700;
+
+          &:not(.facet-count){
+            color: $c-theme-ink !important;
+          }
+        }
+
+        // selceted facets icon
+        a.remove {
+          border-bottom: 0;
+          height: 22px;
+        }
+
+      }
+    }
+
+    // more link when a long list of facet values
+    .more_facets {
+      margin-top:-25px;
+      margin-bottom: 25px;
+      text-align: right;
+    }
+
+    li.more_facets {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // red arrow toggles
+  .fa {
+    color: $c-theme-red;
+    border-left: 0.425em solid transparent;
+    border-right: 0.425em solid transparent;
+    border-bottom: 0.5em solid currentColor;
+    float: right;
+    position: relative;
+    top: 6px;
+    // height: 9px;
+    font-size: 14px;
+    transition: transform 0.5s ease;
+    margin-left: 9px;
+
+    &.fa-rotate-180, &.fa-caret-down {
+      transform: scaleY(-1);
+    }
+  }
+
+  /* --------------------------------------- */
+
+  // date range filter (on HDC)
+  .limit_content.range_limit {
+
+    form {
+      margin: 0 0 10px;
+    }
+
+    input.range_begin, input.range_end {
+      padding: 21px 6px 22px 9px;
+      margin-top: -1px;
+      color: $c-font-subtle;
+      width: 4.0em;
+    }
+
+    input[type="submit"] {
+      background-color: $c-font-subtle;
+      color: $c-white;
+    }
+
+    input.range_begin {
+      margin-right: 6px;
+    }
+
+    input.range_end {
+      margin-right: 7px;
+      margin-left: 6px;
+    }
+
+    .btn {
+      padding: 6px 9px;
+    }
+  }
+
+  form.range_limit {
+    color: $c-font-base;
+
+    .error {
+      color: $c-font-filter-blue;
+      display: block;
+      font-style: italic;
+      line-height: 1.5;
+      padding-top: 20px;
+      animation-duration: fadeIn 0.8s;
+      animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+
+}

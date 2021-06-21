@@ -1,0 +1,56 @@
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+
+  // reduced animation motion per user's preference
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  color: $c-font-base;
+  font-family: $f-lora;
+  font-size: 17px;
+  line-height: (29 / 17);  // line-height / font-size
+  position: relative;
+
+  // ADD BACK IN WHEN MAKE DECISION ABOUT BREAKPOINTS
+  // @media ($bp-small-min) {
+  //   font-size: 19px;
+  //   line-height: (32 / 19); // line-height / font-size
+  // }
+
+  & * {
+    margin-top: 0;
+  }
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  font-family: $f-lora;
+}
