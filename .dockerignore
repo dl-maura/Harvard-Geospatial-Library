@@ -1,6 +1,7 @@
 # Configs
 *.env*
 *.pem
+webapp.conf
 
 # Logs
 *.log
@@ -15,6 +16,7 @@
 #Tests
 spec/
 
+db-data
 
 #tmp
 tmp/
@@ -43,3 +45,9 @@ env-example.txt
 # System Files
 .DS_Store
 Thumbs.db
+
+postgresql/
+data/
+solr_data/
+db-data/
+db_data/
