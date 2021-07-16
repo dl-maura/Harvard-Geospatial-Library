@@ -1,0 +1,26 @@
+development:
+  adapter: mysql2
+  username: <%= ENV['MYSQL_USER'] %>
+  port: <%= ENV['MYSQL_PORT'] %>
+  database: <%= ENV['MYSQL_DB'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  host: <%= ENV['MYSQL_HOST'] %>
+  ssl_mode: disabled
+
+test:
+  adapter: mysql2
+  username: <%= ENV['MYSQL_USER'] %>
+  port: <%= ENV['MYSQL_PORT'] %>
+  database: <%= ENV['MYSQL_DB'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  host: <%= ENV['MYSQL_HOST'] %>
+  ssl_mode: disabled
+
+production:
+  adapter: mysql2
+  username: <%= ENV['MYSQL_USER'] %>
+  port: <%= ENV['MYSQL_PORT'] %>
+  database: <%= ENV['MYSQL_DB'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  host: <%= ENV['MYSQL_HOST'] %>
+  ssl_mode: disabled
