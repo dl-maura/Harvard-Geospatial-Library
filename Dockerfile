@@ -46,15 +46,14 @@ RUN printf "[SAN]\nsubjectAltName=DNS:*.hul.harvard.edu,DNS:*.lts.harvard.edu" >
 # Set working directory
 WORKDIR /home/app/webapp
 
-RUN bundle install
-
-RUN mkdir -p /home/app/webapp/tmp/cache/downloads
-RUN chmod g+s /home/app/webapp/tmp/cache
-RUN chmod 755 /home/app/webapp/tmp/cache/downloads
+RUN bundle install && \
+    mkdir -p /home/app/webapp/tmp/cache/downloads && \
+    chmod g+s /home/app/webapp/tmp/cache && \
+    chmod 755 /home/app/webapp/tmp/cache/downloads
 
 ENTRYPOINT ["bin/migrations.sh"]
 
 # Expose ports
-EXPOSE 31000:3001 31001:3306
+EXPOSE 31000:3001
 
 CMD ["nginx"]
