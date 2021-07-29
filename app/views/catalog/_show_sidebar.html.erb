@@ -1,8 +1,5 @@
 <%= render :partial => 'show_tools' %>
 
-<% # show_tools partial now contains show_downloads information %>
-<!-- <%= render :partial => "show_downloads" %> -->
-
 <% unless @document.more_like_this.empty? %>
   <div class="card">
     <div class="card-header">More Like This</div>

@@ -19,7 +19,7 @@
           </div>
         <% end %>
 
-        <% if document.download_types.present? %>
+        <% if !document.same_institution? && document.download_types.present? %>
           <div class="card-exports">
             <h3>Export as</h3>
             <ul class="list-group list-group-flush">
