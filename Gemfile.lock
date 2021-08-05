@@ -1,9 +1,9 @@
 GIT
   remote: https://gitlab.com/harvard-library-web-team/harvard-patterns-gem.git
-  revision: 3b93e8bd8e3e6261d9722fafb82e63a73c11d718
-  tag: 1.0
+  revision: 5ee485f2870bc76827d96dcd19c2bcd3fc58da78
+  tag: 1.1
   specs:
-    harvard-patterns-gem (1.0)
+    harvard-patterns-gem (1.1)
       rails
       sass
       sass-rails
@@ -457,7 +457,7 @@ DEPENDENCIES
   devise-guests (~> 0.6)
   geoblacklight
   geoserver-publish
-  harvard-patterns-gem (= 1.0)!
+  harvard-patterns-gem (= 1.1)!
   jbuilder (~> 2.5)
   jquery-rails
   jwt
