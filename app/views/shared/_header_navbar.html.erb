@@ -33,7 +33,7 @@
   <div class="searchbar__wrapper" role="navigation">
     <div class="<%= container_classes %>">
       <%= render_search_bar  %>
-      <% if query_has_constraints? %>
+      <% if search_state#has_constraints? %>
         <div class="search-constraints">
           <%= render_constraints(params) %>
           <div class="facets__clearall">

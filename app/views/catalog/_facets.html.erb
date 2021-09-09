@@ -14,7 +14,9 @@
 	    </div>
       <div id="facets" class="facets__container">
         <div id="facet-panel-collapse" class="panel-group">
-          <%= render_facet_partials %>
+          <% blacklight_config.facet_group_names.each do |groupname| %>
+          <%= render 'facet_group', groupname: groupname %>
+          <% end %>
         </div>
       </div>
     </div>
