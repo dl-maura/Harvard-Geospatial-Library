@@ -8,8 +8,9 @@ en:
           label: 'search for'
           placeholder: 'Try "population data" or "Cambridge"'
       facets:
-        title: 'Limit Your Search'
+        title: ''
         more_html: 'More <span class="sr-only">%{field_name}</span>'
+        custom_title: 'Limit Your Search'
       filters:
         search_term: 'Search term'
       pagination_info:

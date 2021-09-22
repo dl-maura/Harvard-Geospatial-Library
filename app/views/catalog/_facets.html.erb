@@ -3,7 +3,7 @@
     <div class="facets__rail">
       <button class="btn-show-facets" type="button"><span class="angle-double-right"></span><span class="btn-show-facets__label"><%= t('blacklight.search.facets.title') %></span></button>
       <h2 class="facets__heading">
-        <%= t('blacklight.search.facets.title') %>
+        <%= t('blacklight.search.facets.custom_title') %>
       </h2>
       <button class="btn-hide-facets" type="button"><span class="sr-only">Close</span><span class="angle-double-left"></span></button>
       <div class="toggle-wrapper">
@@ -14,8 +14,8 @@
 	    </div>
       <div id="facets" class="facets__container">
         <div id="facet-panel-collapse" class="panel-group">
-          <% blacklight_config.facet_group_names.each do |groupname| %>
-          <%= render 'facet_group', groupname: groupname %>
+          <% facet_group_names.each do |groupname| %>
+            <%= render 'facet_group', groupname: groupname %>
           <% end %>
         </div>
       </div>
